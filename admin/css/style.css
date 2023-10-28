@@ -86,9 +86,20 @@
   font-weight: 450;
 }
 .main-body {
-  margin-left: 400px;
-  width: fit-content;
-  height: fit-content;
-  top: fit-content;
-  left: fit-content;
+  margin-left: 33%;
+}
+.main-body table {
+  border-collapse: collapse;
+}
+.main-body th,
+td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+.main-body th,
+button {
+  background-color: lightblue;
+  margin: 5px;
 }
