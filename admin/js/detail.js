@@ -6,6 +6,15 @@ var products = [
     discount: "43%",
     imageSrc: "../images/XPS_15_Laptop.jpeg",
     links: "../html/ChiTietSanPham.html",
+    description: `
+    <b>Processor</b>: 13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo) <br>
+    <b>Graphics</b>: NVIDIA® Ge Force RTX™ 4070, 8 GB GDDR6 <br>
+    <b>Memory</b>: 64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel <br>
+    <b>Storage</b>: 8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD <br>
+    <b>Display</b>: 15.6", 3.5K 3456x2160, 60Hz, OLED, Touch, Anti-Reflect, 400 nit, InfinityEdge <br>
+    <b>Color</b>: Platinum Silver exterior, Black interior <br>
+    <b>System Management</b>: Intel® vPro Technology Essential Management Features
+    `,
   },
   {
     name: "XPS 17 Laptop",
@@ -93,11 +102,15 @@ function renderProducts() {
   productsStorage.map((value, index) => {
     product += `<div class="main">
         <h1 class="mb-4">${value.name}</h1>
-        <h1 class="mb-4">${value.price}</h1>
-        <h1 class="mb-4">${value.discount}</h1>
         <div class="mb-4">
           <img src=${value.imageSrc} alt="${value.name}" style="width: 100px" />
         </div>
+        <h1 class="mb-4">${value.price}</h1>
+        <h1 class="mb-4">${value.discount}</h1>
+        <h1 class="mb-4" id="description"> <b> Description </b> <br>
+          <p id="description-content">${value.description}</p>
+        </h1>
+
     </div>`;
 
     document.getElementById("detail-content").innerHTML = product;
