@@ -87,47 +87,20 @@ function renderProducts() {
   let productsStorage = localStorage.getItem("products")
     ? JSON.parse(localStorage.getItem("products"))
     : [];
-  let product = `<tbody id="product-content">
-  </tbody>`;
+  let product = `<div class="main">
+  </div>`;
 
   productsStorage.map((value, index) => {
-    product += `<tbody id="product-content">
-    <tr>
-    <td>${index + 1}</td>
-    <td>${value.name}</td>
-    <td>
-    <img
-        src="${value.imageSrc}"
-        alt="${value.name}"
-        width="100px"
-        height="auto"
-    />
-    </td>
-    <td>${value.price}</td>
-    </td>
-    <td>
-    <a
-        href="/admin/${value.name}/html/detail.html"
-        class="btn btn-secondary btn-sm"
-        >Chi tiết</a
-    >
-    <a
-        href="#"
-        class="btn btn-warning btn-sm"
-        >Sửa</a
-    >
-    <button
-        class="btn btn-danger btn-sm ml-1"
-        button-delete
-        data-id="item.id"
-    >
-        Xóa
-    </button>
-    </td>
-    </tr>
-    </tbody>`;
+    product += `<div class="main">
+        <h1 class="mb-4">${value.name}</h1>
+        <h1 class="mb-4">${value.price}</h1>
+        <h1 class="mb-4">${value.discount}</h1>
+        <div class="mb-4">
+          <img src=${value.imageSrc} alt="${value.name}" style="width: 100px" />
+        </div>
+    </div>`;
 
-    document.getElementById("product-content").innerHTML = product;
+    document.getElementById("detail-content").innerHTML = product;
   });
 }
 
