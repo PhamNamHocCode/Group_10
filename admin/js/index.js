@@ -29,7 +29,7 @@ function renderProducts() {
         >Chi tiết</a
     >
     <a
-        href="#"
+        href="edit.html?id=${value.id}"
         class="btn btn-warning btn-sm"
         >Sửa</a
     >

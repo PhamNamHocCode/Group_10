@@ -24,11 +24,14 @@ setLocalStorage();
 var product = null;
 function renderProducts() {
   var description = {};
+
   var name = document.getElementById("name").value;
+
   description.Processor = document.getElementById("Processor").value;
   description.Graphics = document.getElementById("Graphics").value;
   description.Memory = document.getElementById("Memory").value;
   description.Storage = document.getElementById("Storage").value;
+
   var price = document.getElementById("price").value;
   var discount = document.getElementById("discount").value;
   var imageSrc = localStorage.getItem("image");
@@ -41,6 +44,7 @@ function renderProducts() {
     discount: discount,
     imageSrc: imageSrc,
   };
+
   data.push(product);
   localStorage.setItem("newProducts", JSON.stringify(data));
   alert("Sản phẩm đã được lưu!");

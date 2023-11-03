@@ -12,6 +12,11 @@
   font-weight: 700;
   color: #fff;
 }
+
+.header .inner-logo img {
+  width: 30px;
+}
+
 /* End Header */
 
 /* Body */
@@ -178,5 +183,11 @@ img {
 
 .image-preview[src=""] {
   display: none;
+}
+#delete-button {
+  background-color: white;
+  color: black;
+  border: white;
+  margin-bottom: 70px;
 }
 /* End Image Preview */
