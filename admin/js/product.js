@@ -1,14 +1,3 @@
-function setLocalStorage() {
-  let productsStorage;
-  fetch("../html/products.json")
-    .then((respone) => respone.json())
-    .then((respone) => {
-      productsStorage = respone;
-      localStorage.setItem("products", JSON.stringify(productsStorage));
-      renderProducts();
-    });
-}
-
 function renderProducts() {
   let products = localStorage.getItem("products")
     ? JSON.parse(localStorage.getItem("products"))
@@ -22,12 +11,14 @@ function renderProducts() {
     <td>${index + 1}</td>
     <td>${value.name}</td>
     <td>
-    <img
+    <a href="detail.html?id=${value.id}">
+      <img
         src="${value.imageSrc}"
         alt="${value.name}"
         width="100px"
         height="auto"
-    />
+      />
+    </a>
     </td>
     <td>${value.price}</td>
     </td>
@@ -55,6 +46,23 @@ function renderProducts() {
 
     document.getElementById("product-content").innerHTML = product;
   });
+}
+
+function setLocalStorage() {
+  if (!localStorage.getItem("products")) {
+    fetch("../html/products.json")
+      .then((response) => response.json())
+      .then((response) => {
+        localStorage.setItem("products", JSON.stringify(response));
+        renderProducts();
+      });
+  }
+  if (localStorage.getItem("newProducts")) {
+    var newProducts = localStorage.getItem("newProducts");
+    localStorage.setItem("products", newProducts);
+    localStorage.removeItem("newProducts");
+  }
+  renderProducts();
 }
 
 setLocalStorage();

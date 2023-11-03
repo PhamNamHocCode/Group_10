@@ -6,68 +6,70 @@ function setLocalStorage() {
         localStorage.setItem("products", JSON.stringify(response));
         renderProducts();
       });
-  } else {
-    renderProducts();
   }
+  if (localStorage.getItem("newProducts")) {
+    var newProducts = localStorage.getItem("newProducts");
+    localStorage.setItem("products", newProducts);
+    localStorage.removeItem("newProducts");
+  }
+  renderProducts();
 }
-
-// function renderProducts() {
-let productsStorage = localStorage.getItem("products")
-  ? JSON.parse(localStorage.getItem("products"))
-  : [];
-
-let productId = new URLSearchParams(window.location.search).get("id");
-console.log(productId);
-let thisProduct = productsStorage.filter((value) => {
-  return value.id == productId;
-})[0];
-let product = `<div class="main">
-  </div>`;
-
-productsStorage.map((value, index) => {
-  product += `<div class="main">
-        <h1 class="mb-4">${value.name}</h1>
-        <div class="mb-4">
-          <img src=${value.imageSrc} alt="${value.name}" style="width: 100px" />
-        </div>
-        <h1 class="mb-4">${value.price}</h1>
-        <h1 class="mb-4">${value.discount}</h1>
-        <h1 class="mb-4" id="description"> <b> Description </b> <br>
-          <p id="description-content">${value.description}</p>
-        </h1>
-
-    </div>`;
-
-  document.getElementById("detail-content").innerHTML = product;
-});
-// }
-
 function renderProducts() {
   let productsStorage = JSON.parse(localStorage.getItem("products"));
   let productId = new URLSearchParams(window.location.search).get("id");
   let thisProduct = productsStorage.find((value) => value.id == productId);
 
   if (thisProduct) {
-    let product = `
-    <div class="main" id="detail-content">
-      <div class="row">
-        <div class="col-lg-6">
-          <img id="product-image" src="${thisProduct.imageSrc}" alt="${thisProduct.name}" class="img-fluid rounded shadow-lg">
-        </div>
-        <div class="col-lg-6 container-detail">
-          <div class="product-detail">
-            <h1 id="product-name">${thisProduct.name}</h1>
-            <div class="product-price">
-              <p id="inner-price">${thisProduct.price}</>
-              <p id="inner-discount">${thisProduct.discount}</p>
+    let product = `<div class="main" id="detail-content">
+    <section class="section about-section gray-bg" id="about">
+            <div class="container">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-lg-6">
+                        <div class="about-text go-to">
+                            <h3 class="dark-color">${thisProduct.name}</h3>
+                            <h6 class="theme-color lead"></h6>
+                            <p>${thisProduct.price}$</p>
+                            <p>${thisProduct.discount}%</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-avatar">
+                            <img src="${thisProduct.imageSrc}" title="${thisProduct.name}" alt="${thisProduct.name}">
+                        </div>
+                    </div>
+                </div>
+                <div class="counter">
+                    <div class="row">
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2">Processor</h6>
+                                <p class="m-0px font-w-600">${thisProduct.description.Processor}</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2">Storage</h6>
+                                <p class="m-0px font-w-600">${thisProduct.description.Storage}</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2">Graphics</h6>
+                                <p class="m-0px font-w-600">${thisProduct.description.Graphics}</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2">Memory</h6>
+                                <p class="m-0px font-w-600">${thisProduct.description.Memory}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p id="product-description">${thisProduct.description}</p>
-          </div>
-        </div>
-      </div>
+        </section>
     </div>
     `;
-
     document.getElementById("detail-content").innerHTML = product;
   }
 }
