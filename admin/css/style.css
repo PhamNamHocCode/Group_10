@@ -54,3 +54,21 @@
 #description-content {
   color: black;
 }
+
+/* Product Details  */
+
+.container-detail {
+  font-size: 25px;
+}
+#product-name {
+  font-size: 170%;
+  color: blue;
+}
+.product-price {
+  font-weight: bold;
+  color: #d0021c;
+}
+.product-price #inner-discount {
+  font-weight: lighter;
+}
+/* End Product Details  */

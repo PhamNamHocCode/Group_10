@@ -48,17 +48,25 @@ function renderProducts() {
   let thisProduct = productsStorage.find((value) => value.id == productId);
 
   if (thisProduct) {
-    let product = `<div class="main">
-      <h1 class="mb-4">${thisProduct.name}</h1>
-      <div class="mb-4">
-        <img src=${thisProduct.imageSrc} alt="${thisProduct.name}" style="width: 100px" />
+    let product = `
+    <div class="main" id="detail-content">
+      <div class="row">
+        <div class="col-lg-6">
+          <img id="product-image" src="${thisProduct.imageSrc}" alt="${thisProduct.name}" class="img-fluid rounded shadow-lg">
+        </div>
+        <div class="col-lg-6 container-detail">
+          <div class="product-detail">
+            <h1 id="product-name">${thisProduct.name}</h1>
+            <div class="product-price">
+              <p id="inner-price">${thisProduct.price}</>
+              <p id="inner-discount">${thisProduct.discount}</p>
+            </div>
+            <p id="product-description">${thisProduct.description}</p>
+          </div>
+        </div>
       </div>
-      <h1 class="mb-4">${thisProduct.price}</h1>
-      <h1 class="mb-4">${thisProduct.discount}</h1>
-      <h1 class="mb-4" id="description"> <b> Description </b> <br>
-        <p id="description-content">${thisProduct.description}</p>
-      </h1>
-    </div>`;
+    </div>
+    `;
 
     document.getElementById("detail-content").innerHTML = product;
   }
