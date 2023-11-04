@@ -29,7 +29,7 @@ function renderProducts() {
   document.querySelector(".image-preview").src = `${thisProduct.imageSrc}`;
   //End Render infor
 
-  //Delete Image
+  //! Delete Image
   var flag = false;
   var data = JSON.parse(localStorage.getItem("products"));
   let deleteButton = document.getElementById("delete-button");
@@ -44,36 +44,84 @@ function renderProducts() {
     flag = true;
   });
   flag = thisProduct.imageSrc == "" ? true : false;
-  //End Delete Image
+  //! End Delete Image
+
+  //? Get New Data
+  let description = {};
+
+  e[1].addEventListener("change", () => {
+    description.Graphics = e[1].value;
+  });
+  e[2].addEventListener("change", () => {
+    description.Memory = e[2].value;
+  });
+  e[3].addEventListener("change", () => {
+    description.Processor = e[3].value;
+  });
+  e[4].addEventListener("change", () => {
+    description.Storage = e[4].value;
+  });
+
+  let product = {
+    id: thisProduct.id,
+  };
+
+  e[0].addEventListener("change", () => {
+    product.name = e[0].value;
+  });
+  e[5].addEventListener("change", () => {
+    product.price = e[5].value;
+  });
+  e[6].addEventListener("change", () => {
+    product.discount = e[6].value;
+  });
+
+  //? End Get New Data
 
   //Update Data
   let buttonEdit = document.getElementById("button-edit");
-  buttonEdit.addEventListener("click", async () => {
-    let description = {
-      Graphics: e[1].value,
-      Memory: e[2].value,
-      Processor: e[3].value,
-      Storage: e[4].value,
-    };
-
+  buttonEdit.addEventListener("click", () => {
+    //Check imageSrc
     let imageSrc =
       flag == false ? thisProduct.imageSrc : localStorage.getItem("image");
+    product.imageSrc = imageSrc;
+    //End Check imageSrc
 
-    let product = {
-      id: thisProduct.id,
-      name: e[0].value,
-      description: description,
-      price: e[5].value,
-      discount: e[6].value,
-      imageSrc: imageSrc,
-    };
+    //Check simple infor
+    if (!product.name) {
+      product.name = e[0].value;
+    }
+    if (!product.price) {
+      product.price = e[5].value;
+    }
+    if (!product.discount) {
+      product.discount = e[6].value;
+    }
+    //End Check simple infor
+
+    //Check description
+    if (!description.Graphics) {
+      description.Graphics = e[1].value;
+    }
+    if (!description.Memory) {
+      description.Memory = e[2].value;
+    }
+    if (!description.Processor) {
+      description.Processor = e[3].value;
+    }
+    if (!description.Storage) {
+      description.Storage = e[4].value;
+    }
+
+    product.description = description;
+    //End Check description
 
     data.forEach((value, index) => {
       if (value.id === product.id) {
         data[index] = product;
+        localStorage.setItem("products", JSON.stringify(data));
       }
     });
-    localStorage.setItem("products", JSON.stringify(data));
     redirectToPage("index.html");
   });
 
