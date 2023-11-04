@@ -34,9 +34,10 @@ function renderProducts() {
         >Sửa</a
     >
     <button
-        class="btn btn-danger btn-sm ml-1"
+        class="btn btn-danger btn-sm ml-1 button-delete"
         button-delete
         data-id="item.id"
+        value=${value.id}
     >
         Xóa
     </button>
@@ -46,6 +47,32 @@ function renderProducts() {
 
     document.getElementById("product-content").innerHTML = product;
   });
+  // Delete product
+  let buttonsDelete = document.getElementsByClassName("button-delete");
+  Array.from(buttonsDelete).forEach((buttonDelete) => {
+    buttonDelete.addEventListener("click", () => {
+      document.getElementById("overlay").style.visibility = "visible";
+      document.getElementById("pop-up").style.visibility = "visible";
+
+      let yesButton = document.getElementById("accept-delete");
+      yesButton.addEventListener("click", () => {
+        products = products.filter((element) => {
+          return element.id !== Number(buttonDelete.value);
+        });
+        localStorage.setItem("products", JSON.stringify(products));
+        document.getElementById("overlay").style.visibility = "hidden";
+        document.getElementById("pop-up").style.visibility = "hidden";
+        renderProducts();
+      });
+
+      let noButton = document.getElementById("reject-delete");
+      noButton.addEventListener("click", () => {
+        document.getElementById("overlay").style.visibility = "hidden";
+        document.getElementById("pop-up").style.visibility = "hidden";
+      });
+    });
+  });
+  //End Delete product
 }
 
 function setLocalStorage() {
