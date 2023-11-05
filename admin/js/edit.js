@@ -30,7 +30,8 @@ function renderProducts() {
   //End Render infor
 
   //! Delete Image
-  var flag = false;
+  let flag = false,
+    clickedButton = false;
   var data = JSON.parse(localStorage.getItem("products"));
   let deleteButton = document.getElementById("delete-button");
 
@@ -38,12 +39,14 @@ function renderProducts() {
     document.querySelector(".image-preview").src = ``;
     deleteButton.style.display = "none";
 
-    thisProduct.imageSrc = "";
+    thisProduct.imageSrc = null;
 
-    data[thisProduct.id - 1].imageSrc = "";
+    let productIndex = data.findIndex((value) => value.id === thisProduct.id);
+    data[productIndex].imageSrc = null;
     flag = true;
+    clickedButton = true;
   });
-  flag = thisProduct.imageSrc == "" ? true : false;
+  flag = thisProduct.imageSrc == null ? true : false;
   //! End Delete Image
 
   //? Get New Data
@@ -84,6 +87,13 @@ function renderProducts() {
     //Check imageSrc
     let imageSrc =
       flag == false ? thisProduct.imageSrc : localStorage.getItem("image");
+    if (clickedButton == false && flag == false) {
+      if (localStorage.getItem("image")) {
+        imageSrc = localStorage.getItem("image");
+      }
+    }
+    localStorage.removeItem("image");
+
     product.imageSrc = imageSrc;
     //End Check imageSrc
 
@@ -116,12 +126,9 @@ function renderProducts() {
     product.description = description;
     //End Check description
 
-    data.forEach((value, index) => {
-      if (value.id === product.id) {
-        data[index] = product;
-        localStorage.setItem("products", JSON.stringify(data));
-      }
-    });
+    let productIndex = data.findIndex((value) => value.id === product.id);
+    data[productIndex] = product;
+    localStorage.setItem("products", JSON.stringify(data));
     redirectToPage("index.html");
   });
 

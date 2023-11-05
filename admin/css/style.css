@@ -235,3 +235,43 @@ img {
 }
 
 /*end pop up*/
+
+/* pagination */
+#pagination {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.page-button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #a7b0b9;
+  color: #fff;
+  cursor: pointer;
+}
+
+.page-button:hover {
+  background-color: #0056b3;
+}
+
+/* end pagination */
+
+/* alert delete */
+#delete-success {
+  visibility: hidden;
+  right: 0;
+  top: 0;
+  position: fixed;
+  display: flex;
+  margin-top: 60px;
+  justify-content: center;
+  gap: 70px;
+  z-index: 1002;
+}
+/* end alert delete */

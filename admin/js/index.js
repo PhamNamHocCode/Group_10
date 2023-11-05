@@ -1,53 +1,17 @@
-function renderProducts() {
-  let products = localStorage.getItem("products")
-    ? JSON.parse(localStorage.getItem("products"))
-    : [];
-  let product = `<tbody id="product-content">
-  </tbody>`;
+function showNotification() {
+  let notification = document.getElementById("delete-success");
+  document.getElementById("delete-success").style.visibility = "visible";
+  setTimeout(() => {
+    document.getElementById("delete-success").style.visibility = "hidden";
+  }, 3000);
+  console.log(notification);
+}
 
-  products.map((value, index) => {
-    product += `<tbody id="product-content">
-    <tr>
-    <td>${index + 1}</td>
-    <td>${value.name}</td>
-    <td>
-    <a href="detail.html?id=${value.id}">
-      <img
-        src="${value.imageSrc}"
-        alt="${value.name}"
-        width="100px"
-        height="auto"
-      />
-    </a>
-    </td>
-    <td>${value.price}</td>
-    </td>
-    <td>
-    <a
-        href="detail.html?id=${value.id}"
-        class="btn btn-secondary btn-sm detail-button"
-        >Chi tiết</a
-    >
-    <a
-        href="edit.html?id=${value.id}"
-        class="btn btn-warning btn-sm"
-        >Sửa</a
-    >
-    <button
-        class="btn btn-danger btn-sm ml-1 button-delete"
-        button-delete
-        data-id="item.id"
-        value=${value.id}
-    >
-        Xóa
-    </button>
-    </td>
-    </tr>
-    </tbody>`;
+let currentPage = 1;
+let itemsPerPage = 5;
 
-    document.getElementById("product-content").innerHTML = product;
-  });
-  // Delete product
+function handleDeleteEvents() {
+  let products = JSON.parse(localStorage.getItem("products"));
   let buttonsDelete = document.getElementsByClassName("button-delete");
   Array.from(buttonsDelete).forEach((buttonDelete) => {
     buttonDelete.addEventListener("click", () => {
@@ -63,6 +27,8 @@ function renderProducts() {
         document.getElementById("overlay").style.visibility = "hidden";
         document.getElementById("pop-up").style.visibility = "hidden";
         renderProducts();
+        handleDeleteEvents();
+        showNotification();
       });
 
       let noButton = document.getElementById("reject-delete");
@@ -72,7 +38,87 @@ function renderProducts() {
       });
     });
   });
-  //End Delete product
+}
+
+function renderProducts() {
+  let products = localStorage.getItem("products")
+    ? JSON.parse(localStorage.getItem("products"))
+    : [];
+  let product = `<tbody id="product-content">
+    </tbody>`;
+
+  let start = (currentPage - 1) * itemsPerPage;
+  let end = start + itemsPerPage;
+
+  let paginatedProducts = products.slice(start, end);
+
+  paginatedProducts.map((value, index) => {
+    product += `<tbody id="product-content">
+      <tr>
+      <td>${index + 1}</td>
+      <td>${value.name}</td>
+      <td>
+      <a href="detail.html?id=${value.id}">
+        <img
+          src="${value.imageSrc}"
+          alt="${value.name}"
+          width="100px"
+          height="auto"
+        />
+      </a>
+      </td>
+      <td>${value.price}</td>
+      </td>
+      <td>
+      <a
+          href="detail.html?id=${value.id}"
+          class="btn btn-secondary btn-sm detail-button"
+          >Chi tiết</a
+      >
+      <a
+          href="edit.html?id=${value.id}"
+          class="btn btn-warning btn-sm"
+          >Sửa</a
+      >
+      <button
+          class="btn btn-danger btn-sm ml-1 button-delete"
+          button-delete
+          data-id="item.id"
+          value=${value.id}
+      >
+          Xóa
+      </button>
+      </td>
+      </tr>
+      </tbody>`;
+
+    document.getElementById("product-content").innerHTML = product;
+  });
+
+  renderPagination(products.length, itemsPerPage);
+}
+
+function renderPagination(totalItems, itemsPerPage) {
+  let totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  let pagination = '<div id="pagination">';
+
+  for (let i = 1; i <= totalPages; i++) {
+    pagination += `<button class="page-button" value="${i}">${i}</button>`;
+  }
+
+  pagination += "</div>";
+
+  document.getElementById("product-content").innerHTML += pagination;
+
+  let buttonsPage = document.getElementsByClassName("page-button");
+  Array.from(buttonsPage).forEach((buttonPage) => {
+    buttonPage.addEventListener("click", () => {
+      currentPage = Number(buttonPage.value);
+      renderProducts();
+      handleDeleteEvents();
+    });
+  });
 }
 
 function setLocalStorage() {
@@ -82,6 +128,7 @@ function setLocalStorage() {
       .then((response) => {
         localStorage.setItem("products", JSON.stringify(response));
         renderProducts();
+        handleDeleteEvents();
       });
   }
   if (localStorage.getItem("newProducts")) {
@@ -90,6 +137,7 @@ function setLocalStorage() {
     localStorage.removeItem("newProducts");
   }
   renderProducts();
+  handleDeleteEvents();
 }
 
 setLocalStorage();
