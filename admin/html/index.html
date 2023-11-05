@@ -25,13 +25,16 @@
     />
   </head>
   <body>
+    <div class="alert alert-success" id="delete-success" role="alert">
+      Sản phẩm đã được xóa thành công!
+    </div>
     <!-- Header -->
     <header class="header">
       <div class="container-fluid">
         <div class="row align-items-center">
           <div class="col-3">
             <div class="inner-logo">
-              <a href="#">ADMIN</a>
+              <a href="index.html">ADMIN</a>
             </div>
           </div>
           <div class="col-9"></div>
@@ -44,7 +47,6 @@
       <div class="sider">
         <div class="inner-menu">
           <ul>
-            <li><a href="/admin/dashboard">Tổng quan</a></li>
             <li><a href="index.html">Sản phẩm</a></li>
           </ul>
         </div>
@@ -58,7 +60,9 @@
             <div class="row">
               <div class="col-8"></div>
               <div class="col-4">
-                <a href="#" class="btn btn-outline-success">+ Thêm mới</a>
+                <a href="./create.html" class="btn btn-outline-success"
+                  >+ Thêm mới</a
+                >
               </div>
             </div>
             <table class="table table-hover table-sm" checkbox-multi>
@@ -72,6 +76,7 @@
                 </tr>
               </thead>
               <tbody id="product-content"></tbody>
+              <div id="pagination"></div>
             </table>
           </div>
         </div>
@@ -80,6 +85,18 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="../js/product.js"></script>
+    <script src="../js/index.js"></script>
+    <div class="overlay" id="overlay"></div>
+    <div class="pop-up" id="pop-up">
+      <p><b>Bạn có chắc chắn muốn xóa sản phẩm này?</b></p>
+      <div class="btn-confirm">
+        <button type="button" class="btn btn-danger" id="accept-delete">
+          <b>Yes</b>
+        </button>
+        <button type="button" class="btn btn-primary" id="reject-delete">
+          <b>No</b>
+        </button>
+      </div>
+    </div>
   </body>
 </html>

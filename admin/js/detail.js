@@ -1,120 +1,77 @@
-var products = [
-  {
-    name: "XPS 15 Laptop",
-    price: "1.050.000.000 đ",
-    oldPrice: "1.855.000.000 đ",
-    discount: "43%",
-    imageSrc: "../images/XPS_15_Laptop.jpeg",
-    links: "../html/ChiTietSanPham.html",
-    description: `
-    <b>Processor</b>: 13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo) <br>
-    <b>Graphics</b>: NVIDIA® Ge Force RTX™ 4070, 8 GB GDDR6 <br>
-    <b>Memory</b>: 64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel <br>
-    <b>Storage</b>: 8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD <br>
-    <b>Display</b>: 15.6", 3.5K 3456x2160, 60Hz, OLED, Touch, Anti-Reflect, 400 nit, InfinityEdge <br>
-    <b>Color</b>: Platinum Silver exterior, Black interior <br>
-    <b>System Management</b>: Intel® vPro Technology Essential Management Features
-    `,
-  },
-  {
-    name: "XPS 17 Laptop",
-    price: "38.180.000 đ",
-    oldPrice: "51.855.000.000 đ",
-    discount: "33%",
-    imageSrc: "../images/XPS_17_Laptop.jpeg",
-    links: "../html/ChiTietSanPham.html",
-  },
-  {
-    name: "Precision 5480 Workstation",
-    price: "38.840.000 đ",
-    oldPrice: "58.840.000 đ",
-    discount: "35%",
-    imageSrc: "../images/Precision_5480_Workstation.jpeg",
-    links: "../html/ChiTietSanPham.html",
-  },
-  {
-    name: "Precision 3480 Workstation",
-    price: "58.840.000 đ",
-    oldPrice: "71.855.000.000 đ",
-    discount: "15%",
-    imageSrc: "../images/Precision_3480_Workstation.jpeg",
-    links: "../html/ChiTietSanPham.html",
-  },
-  {
-    name: "Precision 3470 Mobile Workstation",
-    price: "1.250.000.000 đ",
-    oldPrice: "1.955.000.000 đ",
-    discount: "40%",
-    imageSrc: "../images/Precision_3470_Workstation.png",
-    links: "../html/ChiTietSanPham.html",
-  },
-  {
-    name: "Latitude 3445 Chromebook",
-    price: "50.900.000 đ",
-    oldPrice: "65.900.000 đ",
-    discount: "17%",
-    imageSrc: "../images/Latitude_3445_Chromebook.png",
-    links: "../html/ChiTietSanPham.html",
-  },
-  {
-    name: "Inspiron 14 2-in-1 Laptop",
-    price: "60.900.000 đ",
-    oldPrice: "75.350.000 đ",
-    discount: "20%",
-    imageSrc: "../images/Inspiron_14_2-in-1_Laptop.png",
-    links: "../html/ChiTietSanPham.html",
-  },
-  {
-    name: "XPS Laptops & 2-in-1 PCs",
-    price: "65.950.000.000 đ",
-    oldPrice: "81.855.000.000 đ",
-    discount: "20%",
-    imageSrc: "../images/XPS_13_2-in-1_Laptop.png",
-    links: "../html/ChiTietSanPham.html",
-  },
-  {
-    name: "XPS 13 Plus Laptop",
-    price: "65.950.000.000 đ",
-    oldPrice: "81.855.000.000 đ",
-    discount: "20%",
-    imageSrc: "../images/XPS_13_Plus_Laptop.jpeg",
-    links: "../html/ChiTietSanPham.html",
-  },
-  // Thêm các sản phẩm khác vào đây
-];
-
 function setLocalStorage() {
-  let productsStorage = localStorage.getItem("products")
-    ? JSON.parse(localStorage.getItem("products"))
-    : [];
-
-  localStorage.setItem("products", JSON.stringify(products));
+  if (!localStorage.getItem("products")) {
+    fetch("../html/products.json")
+      .then((response) => response.json())
+      .then((response) => {
+        localStorage.setItem("products", JSON.stringify(response));
+        renderProducts();
+      });
+  }
+  if (localStorage.getItem("newProducts")) {
+    var newProducts = localStorage.getItem("newProducts");
+    localStorage.setItem("products", newProducts);
+    localStorage.removeItem("newProducts");
+  }
   renderProducts();
 }
-
 function renderProducts() {
-  let productsStorage = localStorage.getItem("products")
-    ? JSON.parse(localStorage.getItem("products"))
-    : [];
-  let product = `<div class="main">
-  </div>`;
+  let productsStorage = JSON.parse(localStorage.getItem("products"));
+  let productId = new URLSearchParams(window.location.search).get("id");
+  let thisProduct = productsStorage.find((value) => value.id == productId);
 
-  productsStorage.map((value, index) => {
-    product += `<div class="main">
-        <h1 class="mb-4">${value.name}</h1>
-        <div class="mb-4">
-          <img src=${value.imageSrc} alt="${value.name}" style="width: 100px" />
-        </div>
-        <h1 class="mb-4">${value.price}</h1>
-        <h1 class="mb-4">${value.discount}</h1>
-        <h1 class="mb-4" id="description"> <b> Description </b> <br>
-          <p id="description-content">${value.description}</p>
-        </h1>
-
-    </div>`;
-
+  if (thisProduct) {
+    let product = `<div class="main" id="detail-content">
+    <section class="section about-section gray-bg" id="about">
+            <div class="container">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-lg-6">
+                        <div class="about-text go-to">
+                            <h3 class="dark-color">${thisProduct.name}</h3>
+                            <h6 class="theme-color lead"></h6>
+                            <p>${thisProduct.price}$</p>
+                            <p>${thisProduct.discount}%</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-avatar">
+                            <img src="${thisProduct.imageSrc}" title="${thisProduct.name}" alt="${thisProduct.name}">
+                        </div>
+                    </div>
+                </div>
+                <div class="counter">
+                    <div class="row">
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2">Processor</h6>
+                                <p class="m-0px font-w-600">${thisProduct.description.Processor}</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2">Storage</h6>
+                                <p class="m-0px font-w-600">${thisProduct.description.Storage}</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2">Graphics</h6>
+                                <p class="m-0px font-w-600">${thisProduct.description.Graphics}</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="count-data text-center">
+                                <h6 class="count h2">Memory</h6>
+                                <p class="m-0px font-w-600">${thisProduct.description.Memory}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    `;
     document.getElementById("detail-content").innerHTML = product;
-  });
+  }
 }
 
 setLocalStorage();

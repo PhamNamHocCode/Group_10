@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "name": "XPS 15 Laptop",
+    "price": "1.050.000.000",
+    "discount": "43",
+    "imageSrc": "../images/XPS_15_Laptop.jpeg",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    }
+  },
+  {
+    "id": 2,
+    "name": "XPS 17 Laptop",
+    "price": "38.180.000",
+    "discount": "33",
+    "imageSrc": "../images/XPS_17_Laptop.jpeg",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Precision 5480 Workstation",
+    "price": "38.840.000",
+    "discount": "35",
+    "imageSrc": "../images/Precision_5480_Workstation.jpeg",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Precision 3480 Workstation",
+    "price": "58.840.000",
+    "discount": "15",
+    "imageSrc": "../images/Precision_3480_Workstation.jpeg",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Precision 3470 Mobile Workstation",
+    "price": "1.250.000.000",
+    "discount": "40",
+    "imageSrc": "../images/Precision_3470_Workstation.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Latitude 3445 Chromebook",
+    "price": "50.900.000",
+    "discount": "17",
+    "imageSrc": "../images/Latitude_3445_Chromebook.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Inspiron 14 2-in-1 Laptop",
+    "price": "60.900.000",
+    "discount": "20",
+    "imageSrc": "../images/Inspiron_14_2-in-1_Laptop.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    }
+  },
+  {
+    "id": 8,
+    "name": "XPS Laptops & 2-in-1 PCs",
+    "price": "65.950.000.000",
+    "discount": "20",
+    "imageSrc": "../images/XPS_13_2-in-1_Laptop.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    }
+  },
+  {
+    "id": 9,
+    "name": "XPS 13 Plus Laptop",
+    "price": "65.950.000.000",
+    "discount": "20",
+    "imageSrc": "../images/XPS_13_Plus_Laptop.jpeg",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    }
+  }
+]
