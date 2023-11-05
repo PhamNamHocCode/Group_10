@@ -2,71 +2,71 @@ var productsPerPage = 8; // Số sản phẩm trên mỗi trang
 var currentPage = 1; // Trang hiện tại
 var productContainer = document.getElementById("product-container"); // Tham chiếu đến phần tử hiển thị sản phẩm
 
-// var products = [
-//     {
-//         name: "PC WORKSTATION DUAL AMD EPYC 7742: 256 THREADS | DUAL VGA",
-//         price: "1.050.000.000 đ",
-//         oldPrice: "1.855.000.000 đ",
-//         discount: "43%",
-//         imageSrc: "./image/hinh1.png",
-//         links: "./html/ChiTietSanPham.html"
-//     },
-//     {
-//         name: "PC WORKSTATION X99-T8D/E3-2673/64G DDR3/PSU650/1SP P7",
-//         price: "38.180.000 đ",
-//         oldPrice: "51.855.000.000 đ",
-//         discount: "33%",
-//         imageSrc: "./image/hinh2.png",
-//         links: "./html/ChiTietSanPham.html"
-//     },
-//     {
-//         name: "PC WORKSTATION X99-T8D/E3-2673/64G DDR3/PSU650/1SP P7",
-//         price: "38.840.000 đ",
-//         oldPrice: "58.840.000 đ",
-//         discount: "35%",
-//         imageSrc: "./image/hinh3.png",
-//         links: "./html/ChiTietSanPham.html"
-//     }, 
-//     {
-//         name: "PC WORKSTATION X99-T8D/E3-2673/64G DDR3/PSU650/1SP P8",
-//         price: "58.840.000 đ",
-//         oldPrice: "71.855.000.000 đ",
-//         discount: "15%",
-//         imageSrc: "./image/hinh4.png",
-//         links: "./html/ChiTietSanPham.html"
-//     }, 
-//     {
-//         name: "PC WORKSTATION X99-T8D/E3-2673/128G DDR3/PSU650/1SP P8",
-//         price: "1.250.000.000 đ",
-//         oldPrice: "1.955.000.000 đ",
-//         discount: "40%",
-//         imageSrc: "./image/hinh4.png",
-//         links: "./html/ChiTietSanPham.html"
-//     }, 
-//     {
-//         name: "PC WORKSTATION X99/E3-2680/32G DDR3/PSU550/JT9605B",
-//         price: "50.900.000 đ",
-//         oldPrice: "65.900.000 đ",
-//         discount: "17%",
-//         imageSrc: "./image/hinh3.png",
-//         links: "./html/ChiTietSanPham.html"
-//     }, 
-//     {
-//         name: "PC WORKSTATION X99/E3-2680/64G DDR3/PSU550/JT9605B",
-//         price: "58.900.000 đ",
-//         oldPrice: "75.900.000 đ",
-//         discount: "20%",
-//         imageSrc: "./image/hinh3.png",
-//         links: "./html/ChiTietSanPham.html"
-//     }, 
-//     {
-//         name: "PC WORKSTATION X79/E3-2670/32G DDR3/PSU550/JT9331",
-//         price: "60.900.000 đ",
-//         oldPrice: "75.350.000 đ",
-//         discount: "20%",
-//         imageSrc: "./image/hinh3.png",
-//         links: "./html/ChiTietSanPham.html"
-//     }, 
+ var products = [
+    {
+        name: "XPS 15 Laptop",
+        price: "1.050.000.000 đ",
+        oldPrice: "1.855.000.000 đ",
+        discount: "43%",
+        imageSrc: "../image/anhlaptop1.png",
+       links: "./html/ChiTietSanPham.html"
+   },
+     {
+        name: "XPS 17 Laptop",
+        price: "38.180.000 đ",
+         oldPrice: "51.855.000.000 đ",
+         discount: "33%",
+        imageSrc: "../image/anhlaptop2.png",
+         links: "./html/ChiTietSanPham.html"
+     },
+    {
+         name: "Precision 5480 Workstation",
+        price: "38.840.000 đ",
+         oldPrice: "58.840.000 đ",
+         discount: "35%",
+         imageSrc: "./image/anhlaptop3.png",
+        links: "./html/ChiTietSanPham.html"
+    }, 
+    {
+         name: "Precision 3480 Workstation",
+         price: "58.840.000 đ",
+         oldPrice: "71.855.000.000 đ",
+         discount: "15%",
+         imageSrc: "./image/anhlaptop4.png",
+         links: "./html/ChiTietSanPham.html"
+     }, 
+     {
+         name: "Precision 3470 Mobile Workstation",
+         price: "1.250.000.000 đ",
+         oldPrice: "1.955.000.000 đ",
+         discount: "40%",
+        imageSrc: "./image/anhlaptop5.png",
+         links: "./html/ChiTietSanPham.html"
+     }, 
+    {
+         name: "Latitude 3445 Chromebook",
+         price: "50.900.000 đ",
+         oldPrice: "65.900.000 đ",
+         discount: "17%",
+         imageSrc: "./image/anhlaptop6.png",
+         links: "./html/ChiTietSanPham.html"
+     }, 
+    {
+         name: "Latitude 3445 Chromebook",
+         price: "58.900.000 đ",
+         oldPrice: "75.900.000 đ",
+         discount: "20%",
+         imageSrc: "./image/anhlaptop7.png",
+         links: "./html/ChiTietSanPham.html"
+     }, 
+    {
+         name: "Inspiron 14 2-in-1 Laptop",
+        price: "60.900.000 đ",
+         oldPrice: "75.350.000 đ",
+         discount: "20%",
+         imageSrc: "./image/anhlaptop8.png",
+         links: "./html/ChiTietSanPham.html"
+    }, 
 //     {
 //         name: "PC WORKSTATION X79/E3-2670/64G DDR3/PSU550/JT9331",
 //         price: "65.950.000.000 đ",
@@ -164,70 +164,70 @@ var productContainer = document.getElementById("product-container"); // Tham chi
 //         links: "./html/ChiTietSanPham.html"
 //     },
 //     // Thêm các sản phẩm khác vào đây
-// ];
+ ];
 var products = [
     {
-        name: "XPS Laptops & 2-in-1 PCs",
+        name: "XPS 15 Laptop",
         price: "1.050.000.000 đ",
         oldPrice: "1.855.000.000 đ",
         discount: "43%",
-        imageSrc: "../image/laptop1.png",
+        imageSrc: "../image/anhlaptop1.png",
         links: "../html/ChiTietSanPham.html"
     },
     {
-        name: "XPS Laptops & 2-in-1 PCs",
+        name: "XPS 17 Laptop",
         price: "38.180.000 đ",
         oldPrice: "51.855.000.000 đ",
         discount: "33%",
-        imageSrc: "../image/laptop1.png",
+        imageSrc: "../image/anhlaptop2.png",
         links: "../html/ChiTietSanPham.html"
     },
     {
-        name: "XPS Laptops & 2-in-1 PCs",
+        name: "Precision 5480 Workstation",
         price: "38.840.000 đ",
         oldPrice: "58.840.000 đ",
         discount: "35%",
-        imageSrc: "../image/laptop1.png",
+        imageSrc: "../image/anhlaptop3.png",
         links: "../html/ChiTietSanPham.html"
     }, 
     {
-        name: "XPS Laptops & 2-in-1 PCs",
+        name: "Precision 3480 Workstation",
         price: "58.840.000 đ",
         oldPrice: "71.855.000.000 đ",
         discount: "15%",
-        imageSrc: "../image/laptop1.png",
+        imageSrc: "../image/anhlaptop4.png",
         links: "../html/ChiTietSanPham.html"
     }, 
     {
-        name: "XPS Laptops & 2-in-1 PCs",
+        name: "Precision 3470 Mobile Workstation",
         price: "1.250.000.000 đ",
         oldPrice: "1.955.000.000 đ",
         discount: "40%",
-        imageSrc: "../image/laptop1.png",
+        imageSrc: "../image/anhlaptop5.png",
         links: "../html/ChiTietSanPham.html"
     }, 
     {
-        name: "XPS Laptops & 2-in-1 PCs",
+        name: "Latitude 3445 Chromebook",
         price: "50.900.000 đ",
         oldPrice: "65.900.000 đ",
         discount: "17%",
-        imageSrc: "../image/laptop1.png",
+        imageSrc: "../image/anhlaptop6.png",
         links: "../html/ChiTietSanPham.html"
     }, 
     {
-        name: "XPS Laptops & 2-in-1 PCs",
+        name: "Latitude 3445 Chromebook",
         price: "58.900.000 đ",
         oldPrice: "75.900.000 đ",
         discount: "20%",
-        imageSrc: "../image/laptop1.png",
+        imageSrc: "../image/anhlaptop7.png",
         links: "../html/ChiTietSanPham.html"
     }, 
     {
-        name: "XPS Laptops & 2-in-1 PCs",
+        name: "Inspiron 14 2-in-1 Laptop",
         price: "60.900.000 đ",
         oldPrice: "75.350.000 đ",
         discount: "20%",
-        imageSrc: "../image/laptop1.png",
+        imageSrc: "../image/anhlaptop8.png",
         links: "../html/ChiTietSanPham.html"
     }, 
     {

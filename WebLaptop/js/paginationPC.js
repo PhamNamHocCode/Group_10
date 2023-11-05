@@ -1,6 +1,6 @@
 var productsPerPage = 8; // Số sản phẩm trên mỗi trang
 var currentPage = 1; // Trang hiện tại
-var productContainer = document.getElementById("product-container"); // Tham chiếu đến phần tử hiển thị sản phẩm
+var productContainer = document.getElementById("product-containerPC"); // Tham chiếu đến phần tử hiển thị sản phẩm
 
 var products = [
     {
@@ -310,14 +310,14 @@ var products = [
         links: "../html/ChiTietSanPham.html",
         type:"Laptop"
     }
-    
 ];
 //Hàm tạo mảng PC
-function getLaptopProducts(products) {
-    const laptopProducts = products.filter((product) => product.type === "Laptop");
-    return laptopProducts;
+function getPCProducts(products) {
+    const pcProducts = products.filter((product) => product.type === "PC");
+    return pcProducts;
 }
-const laptopProducts=getLaptopProducts(products);
+const pcProducts=getPCProducts(products);
+
 // Hàm để hiển thị sản phẩm trên trang cụ thể
 function displayProducts(page) {
     
@@ -328,8 +328,8 @@ function displayProducts(page) {
     productContainer.innerHTML = '';
 
     // Hiển thị sản phẩm từ startIndex đến endIndex
-    for (var i = startIndex; i < endIndex && i < laptopProducts.length; i++) {
-        var productLaptop = laptopProducts[i];
+    for (var i = startIndex; i < endIndex && i < pcProducts.length; i++) {
+        var productPC = pcProducts[i];
 
         // Tạo các phần tử sản phẩm và thêm chúng vào danh sách
         var productDiv = document.createElement("div");
@@ -337,28 +337,28 @@ function displayProducts(page) {
 
         var productImage = document.createElement("img");
         productImage.className = "hinh";
-        productImage.src = productLaptop.imageSrc;
+        productImage.src = productPC.imageSrc;
 
         var productName = document.createElement("div");
         productName.className = "ten-san-pham fix-2-line";
-        productName.textContent = productLaptop.name;
+        productName.textContent = productPC.name;
 
         var productPrice = document.createElement("div");
         productPrice.className = "gia-chung";
 
         var priceDiv = document.createElement("div");
         priceDiv.className = "gia col-md-10 p-0";
-        priceDiv.innerHTML = '<div class="gia-san-pham">' + productLaptop.price + '</div>' +
-                             '<div class="gia-san-pham-cu">' + productLaptop.oldPrice + '</div>';
+        priceDiv.innerHTML = '<div class="gia-san-pham">' + productPC.price + '</div>' +
+                             '<div class="gia-san-pham-cu">' + productPC.oldPrice + '</div>';
 
         var discountDiv = document.createElement("div");
         discountDiv.className = "giam-gia col-md-2 p-0";
-        discountDiv.textContent = productLaptop.discount;
+        discountDiv.textContent = productPC.discount;
 
         var linksDiv = document.createElement("a");
         linksDiv.className = "xem-them-link";
         linksDiv.textContent = 'Xem thêm';
-        linksDiv.href = productLaptop.links; // Đặt liên kết đến trang chi tiết sản phẩm
+        linksDiv.href = productPC.links; // Đặt liên kết đến trang chi tiết sản phẩm
 
         productPrice.appendChild(priceDiv);
         productPrice.appendChild(discountDiv);
@@ -374,8 +374,8 @@ function displayProducts(page) {
 
 // Hàm để tạo các nút phân trang
 function createPaginationButtons() {
-    var totalPages = Math.ceil(laptopProducts.length / productsPerPage);
-    var paginationContainer = document.getElementById("pagination");
+    var totalPages = Math.ceil(pcProducts.length / productsPerPage);
+    var paginationContainer = document.getElementById("paginationPC");
 
     // Xóa nút phân trang hiện có (nếu có)
     paginationContainer.innerHTML = '';

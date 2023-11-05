@@ -1,5 +1,5 @@
 :root {
-    --mau-chu-dao: #272e79;
+    --mau-chu-dao: rgb(227, 181, 15);
     --mau-menu: #122c51;
     --mau-nen-san-pham: #4894ce;
     --mau-chu: #747474;
@@ -7,7 +7,7 @@
     --mau-border: #dde9f5;
     --mau-trang: #ffffff;
     --mau-den: #343a40;
-    --mau-thanh-ngang:#c8d0da;
+    --mau-thanh-ngang:#065e3c;
 }
 
 /* ... #Menu */
@@ -90,6 +90,8 @@ nav {
     
     text-align: left;
     color: #ffffff;
+    position: relative;
+   
 }
 
 ul li:last-child {
@@ -113,9 +115,33 @@ ul li:last-child {
     margin: auto;
     transition: 0.5s;
 }
-
-.home-menu ul li:hover::after{
-    width: 100%;
+.dacap{
+    display: none;
+}
+.home-menu ul li:hover .dacap{
+    display: block;
+    position: absolute;
+    background: #0aa0a0;
+    z-index: 30;
+    /* margin-top: 15px;
+    margin-left: -15px; */
+}
+.home-menu ul li:hover .dacap ul{
+    display: block;
+    margin: 0px;
+    padding: 0px;
+}
+.home-menu ul li:hover .dacap ul li{
+    width: 220px;
+    text-align: left;
+    border-bottom: solid 1px #fff;
+    background: transparent;
+    border-radius: 0;
+    /* padding: 15px;
+    margin: 10px; */
+}
+.home-menu ul li:hover .dacap ul li:last-child{
+    border: none;
 }
 
 .cart{
@@ -183,17 +209,17 @@ body {
     margin-top: 7px;
 }
 .thanh-ngang{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    padding-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
     padding-top: 7px;
     border:solid 1px var(--mau-border);
     border-radius: 2px;
     border-left: solid 5px var(--mau-chu-dao);
     background-color: var(--mau-thanh-ngang);
-
+    color: #ffffff;
     box-shadow:1px 2px #e4e2e2;
-    size: 14px;
+    size: 20px;
     height: 35px;
 
 }

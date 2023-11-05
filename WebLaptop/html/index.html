@@ -35,7 +35,14 @@
             </div>
             <ul>
                 <li><a href="../html/index.html">Trang chủ</a></li>
-                <li><a href="../html/SanPham.html">Sản phẩm</a></li>
+                <li><a href="">Sản phẩm</a>
+                    <div class="dacap">
+                        <ul>
+                            <li><a href="../html/SanPhamLaptop.html">Laptop</a></li>
+                            <li><a href="">PC</a></li>
+                        </ul>
+                    </div>
+                </li>
                 <li><a href="../html/GioiThieu.html">Giới thiệu</a></li>
                 <li><a href="../html/LienHe.html">Liên hệ</a></li>
             </ul>
@@ -105,10 +112,25 @@
 
         <div class="col-md-12 p-0" id="product-container">
             <!-- Danh sách sản phẩm sẽ được tạo ở đây bằng JavaScript -->
-        </div>
+         </div>
 
         <!-- Thêm phần phân trang sau đây -->
         <div class="pagination" id="pagination"></div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-12">
+            <div class="thanh-ngang">
+                PC
+            </div>
+        </div>
+
+        <div class="col-md-12 p-0" id="product-containerPC">
+            <!-- Danh sách sản phẩm sẽ được tạo ở đây bằng JavaScript -->
+        </div>
+
+        <!-- Thêm phần phân trang sau đây -->
+        <div class="pagination" id="paginationPC"></div>
     </div>
 
     <div>
@@ -173,8 +195,9 @@
 
     </script>
 
-    <script src="../js/pagination.js"></script>
-
+    <script defer src="../js/paginationPC.js"></script>
+    <script defer src="../js/pagination.js"></script>
+    <!-- <script src="../js/paginationPC.js"></script> -->
 </body>
 
 </html>
