@@ -260,6 +260,9 @@ img {
   background-color: #0056b3;
 }
 
+.page-button.active {
+  background-color: #0056b3;
+}
 /* end pagination */
 
 /* alert delete */

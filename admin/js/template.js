@@ -96,3 +96,30 @@ function setLocalStorage() {
 }
 
 setLocalStorage();
+
+// function renderPagination(totalItems, itemsPerPage) {
+//   let totalPages = Math.ceil(totalItems / itemsPerPage);
+
+//   let pagination = '<div id="pagination">';
+
+//   for (let i = 1; i <= totalPages; i++) {
+//     let activeClass = "";
+//     if (i === currentPage) {
+//       activeClass = "active";
+//     }
+//     pagination += `<button class="page-button" value="${i}">${i}</button>`;
+//   }
+
+//   pagination += "</div>";
+
+//   document.getElementById("product-content").innerHTML += pagination;
+
+//   let buttonsPage = document.getElementsByClassName("page-button");
+//   Array.from(buttonsPage).forEach((buttonPage) => {
+//     buttonPage.addEventListener("click", () => {
+//       currentPage = Number(buttonPage.value);
+//       renderProducts();
+//       handleDeleteEvents();
+//     });
+//   });
+// }
