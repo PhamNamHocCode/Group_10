@@ -1,6 +1,6 @@
 var productsPerPage = 8; // Số sản phẩm trên mỗi trang
 var currentPage = 1; // Trang hiện tại
-var productContainer = document.getElementById("product-containerPC"); // Tham chiếu đến phần tử hiển thị sản phẩm
+var productContainer1 = document.getElementById("product-containerPC"); // Tham chiếu đến phần tử hiển thị sản phẩm
 
 var products = [
     {
@@ -325,7 +325,7 @@ function displayProducts(page) {
     var endIndex = startIndex + productsPerPage;
 
     // Xóa các sản phẩm hiện tại khỏi danh sách
-    productContainer.innerHTML = '';
+    productContainer1.innerHTML = '';
 
     // Hiển thị sản phẩm từ startIndex đến endIndex
     for (var i = startIndex; i < endIndex && i < pcProducts.length; i++) {
@@ -368,17 +368,17 @@ function displayProducts(page) {
         productDiv.appendChild(productPrice);
         productDiv.appendChild(linksDiv);
 
-        productContainer.appendChild(productDiv);
+        productContainer1.appendChild(productDiv);
     }
 }
 
 // Hàm để tạo các nút phân trang
 function createPaginationButtons() {
     var totalPages = Math.ceil(pcProducts.length / productsPerPage);
-    var paginationContainer = document.getElementById("paginationPC");
+    var paginationContainer1 = document.getElementById("paginationPC");
 
     // Xóa nút phân trang hiện có (nếu có)
-    paginationContainer.innerHTML = '';
+    paginationContainer1.innerHTML = '';
 
     // Nút đầu trang
     var firstPageButton = document.createElement("button");
@@ -386,7 +386,7 @@ function createPaginationButtons() {
     firstPageButton.addEventListener("click", function () {
         goToPage(1);
     });
-    paginationContainer.appendChild(firstPageButton);
+    paginationContainer1.appendChild(firstPageButton);
 
     // Nút các trang
     for (var i = 1; i <= totalPages; i++) {
@@ -396,7 +396,7 @@ function createPaginationButtons() {
             var pageNum = parseInt(event.target.textContent);
             goToPage(pageNum);
         });
-        paginationContainer.appendChild(pageButton);
+        paginationContainer1.appendChild(pageButton);
     }
 
     // Nút cuối trang
@@ -405,7 +405,7 @@ function createPaginationButtons() {
     lastPageButton.addEventListener("click", function () {
         goToPage(totalPages);
     });
-    paginationContainer.appendChild(lastPageButton);
+    paginationContainer1.appendChild(lastPageButton);
 }
 
 // Hàm để điều hướng đến một trang cụ thể

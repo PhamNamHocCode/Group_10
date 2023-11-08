@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
-    <!-- <link rel="stylesheet" href="/fontawesome-free-6.4.2-web/css/all.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="../css/san-pham.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <script>
@@ -30,8 +30,9 @@
       
         <nav>
             <div class="search">
-                <input type="text" name="" placeholder="Search....">
-                <button type="text"><i class="fa-solid fa-magnifying-glass"></i></i></button>
+                <input type="text" id="search-menu" placeholder="Search....">
+                <button type="text" id="filter-button1"><i class="fa-solid fa-magnifying-glass"></i></i></button>
+
             </div>
             <ul>
                 <li><a href="../html/index.html">Trang chủ</a></li>
@@ -39,7 +40,7 @@
                     <div class="dacap">
                         <ul>
                             <li><a href="../html/SanPhamLaptop.html">Laptop</a></li>
-                            <li><a href="">PC</a></li>
+                            <li><a href="../html/SanPhamPC.html">PC</a></li>
                         </ul>
                     </div>
                 </li>
@@ -73,19 +74,19 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="../image/banner/1.png" alt="Hình ảnh 1">
+                    <img src="../image/banner/banner-2.png" alt="Hình ảnh 1">
                     <div class="carousel-caption">
                     </div>
                 </div>
 
                 <div class="item">
-                    <img src="../image/banner/2.png" alt="Hình ảnh 2">
+                    <img src="../image/banner/3.png" alt="Hình ảnh 2">
                     <div class="carousel-caption">
                     </div>
                 </div>
 
                 <div class="item">
-                    <img src="../image/banner/3.png" alt="Hình ảnh 3">
+                    <img src="../image/banner/banner-0.jpg" alt="Hình ảnh 3">
                     <div class="carousel-caption">
                     </div>
                 </div>
@@ -105,9 +106,16 @@
 
     <div class="container">
         <div class="col-md-12">
+            <!-- <h4>Lọc sản phẩm</h4> -->
             <div class="thanh-ngang">
-                LAPTOP
+                LỌC SẢN PHẨM
             </div>
+        </div>
+        <div class="col-md-12 form-group">
+            <input type="text" id="search-input" class="form-control" placeholder="Tên sản phẩm...">
+            <input type="number" id="min-price-input" class="form-control" placeholder="Giá từ...">
+            <input type="number" id="max-price-input" class="form-control" placeholder="Giá đến...">
+            <button id="filter-button" class="btn btn-primary"><i class="fa fa-search"></i></button>
         </div>
 
         <div class="col-md-12 p-0" id="product-container">
@@ -118,24 +126,9 @@
         <div class="pagination" id="pagination"></div>
     </div>
 
-    <div class="container">
-        <div class="col-md-12">
-            <div class="thanh-ngang">
-                PC
-            </div>
-        </div>
-
-        <div class="col-md-12 p-0" id="product-containerPC">
-            <!-- Danh sách sản phẩm sẽ được tạo ở đây bằng JavaScript -->
-        </div>
-
-        <!-- Thêm phần phân trang sau đây -->
-        <div class="pagination" id="paginationPC"></div>
-    </div>
-
     <div>
         <div class="khuyen-mai">
-            <img src="../image/banner/4.png" alt="Hình ảnh khuyến mãi">
+            <img src="../image/banner/22.jpg" alt="Hình ảnh khuyến mãi">
             <div class="khuyen-mai-content">
                 <h2>Chương trình khuyến mãi đặc biệt</h2>
                 <p>Giảm giá lên đến 30% cho tất cả sản phẩm. Hãy tranh thủ mua ngay!</p>
@@ -195,9 +188,10 @@
 
     </script>
 
-    <script defer src="../js/paginationPC.js"></script>
-    <script defer src="../js/pagination.js"></script>
-    <!-- <script src="../js/paginationPC.js"></script> -->
+    
+    <script src="../js/filter.js"></script>
+    
+    
 </body>
 
 </html>

@@ -89,6 +89,7 @@ img {
 #filter-button {
     grid-column: 4 / 5; /* Đặt nút tìm kiếm vào cột thứ 4 */
     align-self: center; /* Canh giữa theo chiều dọc */
+    
 }
 
 /* Đặt chiều rộng cho các input */
@@ -106,6 +107,7 @@ img {
         grid-gap: 10px; /* Khoảng cách giữa các phần tử */
         align-items: center;
         margin-bottom: 10px;
+        z-index: 100;
     }
     
     /* CSS cho nút tìm kiếm sản phẩm */

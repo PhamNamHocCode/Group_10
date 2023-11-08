@@ -314,47 +314,17 @@ $(document).ready(function () {
     var productsPerPage = products.length-2; // Số sản phẩm trên mỗi trang
 
     // Hiển thị danh sách sản phẩm ban đầu
-    displayProducts(products.slice(0, productsPerPage));
+    // displayProducts(products.slice(0, productsPerPage));
 
     // Xử lý sự kiện khi người dùng nhấn nút "Lọc"
-    $("#filter-button").click(function () {
-        var keyword = $("#search-input").val().toLowerCase(); // Lấy từ khóa tìm kiếm
-        var minPrice = parseFloat($("#min-price-input").val()); // Lấy giá tối thiểu
-        var maxPrice = parseFloat($("#max-price-input").val()); // Lấy giá tối đa
-
-        // Lọc sản phẩm dựa trên từ khóa và giá
-        var filteredProducts = products.filter(function (product) {
-            var productName = product.name.toLowerCase(); // Chuyển tên sản phẩm thành chữ thường
-            var productPrice = parseFloat(product.price.replace(/[đ,\s]/g, '')); // Chuyển giá thành số
-
-            // Kiểm tra xem sản phẩm có phù hợp với tiêu chí lọc không
-            var nameMatch = productName.includes(keyword); // Kiểm tra tên sản phẩm
-            var priceMatch = (isNaN(minPrice) || productPrice >= minPrice) &&
-                (isNaN(maxPrice) || productPrice <= maxPrice); // Kiểm tra giá sản phẩm
-
-            return nameMatch && priceMatch;
-        });
-
-        // Hiển thị danh sách sản phẩm sau khi lọc
-        currentPage = 1; // Reset trang về trang đầu tiên
-        displayProducts(filteredProducts.slice(0, productsPerPage)); // Hiển thị 10 sản phẩm đầu tiên
-        updatePagination(filteredProducts.length); // Cập nhật phân trang
-    });
     $("#filter-button1").click(function () {
         var keyword = $("#search-menu").val().toLowerCase(); // Lấy từ khóa tìm kiếm
-        // var minPrice = parseFloat($("#min-price-input").val()); // Lấy giá tối thiểu
-        // var maxPrice = parseFloat($("#max-price-input").val()); // Lấy giá tối đa
-
+        
         // Lọc sản phẩm dựa trên từ khóa và giá
         var filteredProducts = products.filter(function (product) {
             var productName = product.name.toLowerCase(); // Chuyển tên sản phẩm thành chữ thường
-            // var productPrice = parseFloat(product.price.replace(/[đ,\s]/g, '')); // Chuyển giá thành số
-
             // Kiểm tra xem sản phẩm có phù hợp với tiêu chí lọc không
             var nameMatch = productName.includes(keyword); // Kiểm tra tên sản phẩm
-            // var priceMatch = (isNaN(minPrice) || productPrice >= minPrice) &&
-            //     (isNaN(maxPrice) || productPrice <= maxPrice); // Kiểm tra giá sản phẩm
-
             return nameMatch;
         });
 
@@ -366,7 +336,7 @@ $(document).ready(function () {
 
     // Hàm hiển thị danh sách sản phẩm
     function displayProducts(productsToDisplay) {
-        var $productContainer = $("#product-container");
+        var $productContainer = $("#product-container_Laptop");
         $productContainer.empty(); // Xóa danh sách sản phẩm hiện tại
 
         // Thêm sản phẩm vào danh sách
@@ -393,8 +363,9 @@ $(document).ready(function () {
 
     // Hàm cập nhật phân trang
     function updatePagination(totalProducts) {
-        var $pagination = $("#pagination");
-        $pagination.empty(); // Xóa phân trang hiện tại
+        // var $pagination = $("#pagination");
+        // $pagination.empty(); // Xóa phân trang hiện tại
+
 
         var totalPages = Math.ceil(totalProducts / productsPerPage);
 

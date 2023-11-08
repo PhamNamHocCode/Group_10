@@ -7,7 +7,7 @@
     --mau-border: #dde9f5;
     --mau-trang: #ffffff;
     --mau-den: #343a40;
-    --mau-thanh-ngang:#065e3c;
+    --mau-thanh-ngang:rgb(10, 113, 154);
 }
 
 /* ... #Menu */
@@ -18,7 +18,6 @@
 }
 .home-menu{
     align-items: center;
-
 }
 
 body {
@@ -36,7 +35,6 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-around;
-
 }
 .user{
     display: flex;
@@ -45,6 +43,15 @@ nav {
     margin-top: 3px;
 }
 .user p{
+    color: #fff;
+}
+.user1{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 3px;
+}
+.user1 p{
     color: #fff;
 }
 .logo{
@@ -145,10 +152,8 @@ ul li:last-child {
 }
 
 .cart{
-    margin-left:100px;
+    margin-left:300px;
 }
-
-
 .header__navbar-icon{
     font-size: 25px;
     color: #ffffff;

@@ -372,6 +372,7 @@ function displayProducts(page) {
     }
 }
 
+
 // Hàm để tạo các nút phân trang
 function createPaginationButtons() {
     var totalPages = Math.ceil(laptopProducts.length / productsPerPage);
