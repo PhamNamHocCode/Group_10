@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" href="../css/cart.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="home-menu">
+    <!-- Menu -->
+    <nav>
+        <ul>
+            <li><a href="../html/index.html">Trang chủ</a></li>
+            <li><a href="">Sản phẩm</a>
+                <div class="dacap">
+                    <ul>
+                        <li><a href="../html/SanPhamLaptop.html">Laptop</a></li>
+                        <li><a href="../html/SanPhamPC.html">PC</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="../html/GioiThieu.html">Giới thiệu</a></li>
+            <li><a href="../html/LienHe.html">Liên hệ</a></li>
+        </ul>
+        <a href="cart.html">
+            <div class="cart">
+              <i class="bi bi-cart2"></i>
+              <div id="cartAmount" class="cartAmount">0</div>
+            </div>
+        </a>
+
+            <div class="user">
+                <a href=""><i class="header__navbar-icon fa-solid fa-user"></i></a>
+                <p>Group 10</p>
+                <a href="../html/index1.html"><p>Log out</p></a>
+                
+            </div>
+        
+    </nav>
+
+  </div>
+
+  <div id="label" class="text-center"></div>
+
+  <div class="shopping-cart" id="shopping-cart"></div>
+
+  <script src="../js/Data.js"></script>
+  <script src="../js/cart.js"></script>
+</body>
+
+
+</html>

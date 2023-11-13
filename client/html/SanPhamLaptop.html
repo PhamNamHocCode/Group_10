@@ -11,7 +11,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <link rel="stylesheet" type="text/css" href="../css/san-pham.css" />
-
+    <link rel="stylesheet" type="text/css" href="../css/cart.css" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
@@ -49,9 +51,12 @@
                 <li><a href="../html/LienHe.html">Liên hệ</a></li>
             </ul>
 
-            <div class="cart">
-                <a href=""><i class="header__navbar-icon fa-solid fa-cart-shopping"></i></a>
-            </div>
+            <a href="cart.html">
+                <div class="cart">
+                  <i class="bi bi-cart2"></i>
+                  <div id="cartAmount" class="cartAmount">0</div>
+                </div>
+            </a>
 
             <div class="user">
                 <a href=""><i class="header__navbar-icon fa-solid fa-user"></i></a>
@@ -165,8 +170,10 @@
     </script>
 
     <!-- <script src="../js/filter.js"></script> -->
+    <script src="../js/Data.js"></script>
+    <!-- <script src="../js/filterTest.js"></script> -->
     <script src="../js/pagination.js"></script>
-    <script src="../js/filterTest.js"></script>
+   
 
 </body>
 

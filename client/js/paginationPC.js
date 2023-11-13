@@ -2,316 +2,320 @@ var productsPerPage = 8; // Số sản phẩm trên mỗi trang
 var currentPage = 1; // Trang hiện tại
 var productContainer1 = document.getElementById("product-containerPC"); // Tham chiếu đến phần tử hiển thị sản phẩm
 
-var products = [
-    {
-        name: "PC WORKSTATION DUAL AMD EPYC 7742: 256 THREADS | DUAL VGA",
-        price: "1.050.000.000 đ",
-        oldPrice: "1.855.000.000 đ",
-        discount: "43%",
-        imageSrc: "../image/hinh1.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    },
-    {
-        name: "PC WORKSTATION X99-T8D/E3-2673/64G DDR3/PSU650/1SP P7",
-        price: "38.180.000 đ",
-        oldPrice: "51.855.000.000 đ",
-        discount: "33%",
-        imageSrc: "../image/hinh2.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    },
-    {
-        name: "PC WORKSTATION X99-T8D/E3-2673/64G DDR3/PSU650/1SP P7",
-        price: "38.840.000 đ",
-        oldPrice: "58.840.000 đ",
-        discount: "35%",
-        imageSrc: "../image/hinh3.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC WORKSTATION X99-T8D/E3-2673/64G DDR3/PSU650/1SP P8",
-        price: "58.840.000 đ",
-        oldPrice: "71.855.000.000 đ",
-        discount: "15%",
-        imageSrc: "../image/hinh4.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC WORKSTATION X99-T8D/E3-2673/128G DDR3/PSU650/1SP P8",
-        price: "1.250.000.000 đ",
-        oldPrice: "1.955.000.000 đ",
-        discount: "40%",
-        imageSrc: "../image/hinh4.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC WORKSTATION X99/E3-2680/32G DDR3/PSU550/JT9605B",
-        price: "50.900.000 đ",
-        oldPrice: "65.900.000 đ",
-        discount: "17%",
-        imageSrc: "../image/hinh3.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC WORKSTATION X99/E3-2680/64G DDR3/PSU550/JT9605B",
-        price: "58.900.000 đ",
-        oldPrice: "75.900.000 đ",
-        discount: "20%",
-        imageSrc: "../image/hinh3.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC WORKSTATION X79/E3-2670/32G DDR3/PSU550/JT9331",
-        price: "60.900.000 đ",
-        oldPrice: "75.350.000 đ",
-        discount: "20%",
-        imageSrc: "../image/hinh3.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC WORKSTATION X79/E3-2670/64G DDR3/PSU550/JT9331",
-        price: "65.950.000.000 đ",
-        oldPrice: "81.855.000.000 đ",
-        discount: "20%",
-        imageSrc: "../image/hinh3.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC WORKSTATION X79/E3-2670/128G DDR3/PSU550/JT9331",
-        price: "69.950.000.000 đ",
-        oldPrice: "91.855.000.000 đ",
-        discount: "20%",
-        imageSrc: "../image/hinh3.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC Workstation T90 – Core i9 13900K | 64G | RTX3090 24GB | 2TB SSD",
-        price: "66.900.000 đ",
-        oldPrice: "81.855.000.000 đ",
-        discount: "20%",
-        imageSrc: "../image/hinh5.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC Workstation T90 – Core i9 13900K | 128G | RTX3090 24GB | 2TB SSD",
-        price: "69.900.000 đ",
-        oldPrice: "85.855.000.000 đ",
-        discount: "20%",
-        imageSrc: "../image/hinh5.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    },  
-    {
-        name: "PC Gaming STAR CHICKEN AQUA | RTX 3060TI, Intel | RTX3090 32GB | 2TB SSD ",
-        price: "88.050.000.000 đ",
-        oldPrice: "1.155.000.000 đ",
-        discount: "35%",
-        imageSrc: "../image/hinh6.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC NCPC Virtualization 01 (Xeon 6138/ Z11PA-D8C/ 32GB/ SSD 1TB/ 700W)",
-        price: "75.900.000 đ",
-        oldPrice: "90.890.000 đ",
-        discount: "15%",
-        imageSrc: "../image/hinh7.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC NCPC Virtualization 01 (Xeon 6138/ Z11PA-D8C/ 64GB/ SSD 1TB/ 700W)",
-        price: "85.050.000.000 đ",
-        oldPrice: "92.450.000 đ",
-        discount: "11%",
-        imageSrc: "../image/hinh8.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC Workstation Machine Learning VIP (5955WX/ WRX80E/ 128G/ 2TB/ 10TB HDD/ 4X RTX 4090/ 2000W)",
-        price: "1.050.000.000 đ",
-        oldPrice: "1.855.000.000 đ",
-        discount: "43%",
-        imageSrc: "../image/hinh9.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC - MACHINE LEARNING 03 (5995WX/ WRX80E/ 256GB RAM/ 20TB SSD/ 3X RTX 4090 O24G/ 2000W)",
-        price: "564.540.000 đ",
-        oldPrice: "679.540.000 đ",
-        discount: "20%",
-        imageSrc: "../image/hinh10.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC HOTGEAR AMD Ryzen 9 / Ryzen 9 7900X / MAIN B650/ DDR4 16GB / SSD 250GB M.2 NVME",
-        price: "1.150.000.000 đ",
-        oldPrice: "1.955.000.000 đ",
-        discount: "40%",
-        imageSrc: "../image/hinh11.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC GAMING AMD Ryzen 9 / Ryzen 9 9900X / MAIN B650/ DDR4 128GB / SSD 2TB M.2 NVME",
-        price: "2.250.000.000 đ",
-        oldPrice: "2.555.000.000 đ",
-        discount: "15%",
-        imageSrc: "../image/hinh12.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    }, 
-    {
-        name: "PC GAMING AMD Ryzen 9 / Ryzen 9 9900X / MAIN B650/ DDR4 256GB / SSD 2TB M.2 NVME",
-        price: "2.450.000.000 đ",
-        oldPrice: "2.755.000.000 đ",
-        discount: "15%",
-        imageSrc: "../image/hinh14.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"PC"
-    },
-    // Thêm các sản phẩm khác vào đây
-    {
-        name: "XPS 15 Laptop",
-        price: "1.050.000.000 đ",
-        oldPrice: "1.855.000.000 đ",
-        discount: "43%",
-        imageSrc: "../image/anhlaptop1.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"Laptop"
-    },
-    {
-        name: "XPS 17 Laptop",
-        price: "38.180.000 đ",
-        oldPrice: "51.855.000.000 đ",
-        discount: "33%",
-        imageSrc: "../image/anhlaptop2.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"Laptop"
-    },
-    {
-        name: "Precision 5480 Workstation",
-        price: "38.840.000 đ",
-        oldPrice: "58.840.000 đ",
-        discount: "25%",
-        imageSrc: "../image/anhlaptop3.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"Laptop"
-    }, 
-    {
-        name: "Precision 3480 Workstation",
-        price: "58.840.000 đ",
-        oldPrice: "71.855.000.000 đ",
-        discount: "15%",
-        imageSrc: "../image/anhlaptop4.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"Laptop"
-    }, 
-    {
-        name: "Precision 3470 Mobile Workstation",
-        price: "1.250.000.000 đ",
-        oldPrice: "1.955.000.000 đ",
-        discount: "40%",
-        imageSrc: "../image/anhlaptop5.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"Laptop"
-    }, 
-    {
-        name: "Latitude 3445 Chromebook",
-        price: "50.900.000 đ",
-        oldPrice: "65.900.000 đ",
-        discount: "17%",
-        imageSrc: "../image/anhlaptop6.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"Laptop"
-    }, 
-    {
-        name: "Inspiron 14 2-in-1 Laptop",
-        price: "58.900.000 đ",
-        oldPrice: "75.900.000 đ",
-        discount: "20%",
-        imageSrc: "../image/anhlaptop7.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"Laptop"
-    },
-    {
-        name: "XPS 15 Laptop",
-        price: "1.050.000.000 đ",
-        oldPrice: "1.855.000.000 đ",
-        discount: "43%",
-        imageSrc: "../image/anhlaptop1.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"Laptop"
-    },
-    {
-        name: "XPS 17 Laptop",
-        price: "38.180.000 đ",
-        oldPrice: "51.855.000.000 đ",
-        discount: "33%",
-        imageSrc: "../image/anhlaptop2.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"Laptop"
-    },
-    {
-        name: "Precision 5480 Workstation",
-        price: "38.840.000 đ",
-        oldPrice: "58.840.000 đ",
-        discount: "25%",
-        imageSrc: "../image/anhlaptop3.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"Laptop"
-    }, 
-    {
-        name: "Precision 3480 Workstation",
-        price: "58.840.000 đ",
-        oldPrice: "71.855.000.000 đ",
-        discount: "15%",
-        imageSrc: "../image/anhlaptop4.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"Laptop"
-    }, 
-    {
-        name: "Precision 3470 Mobile Workstation",
-        price: "1.250.000.000 đ",
-        oldPrice: "1.955.000.000 đ",
-        discount: "40%",
-        imageSrc: "../image/anhlaptop5.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"Laptop"
-    }, 
-    {
-        name: "Latitude 3445 Chromebook",
-        price: "50.900.000 đ",
-        oldPrice: "65.900.000 đ",
-        discount: "17%",
-        imageSrc: "../image/anhlaptop6.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"Laptop"
-    }, 
-    {
-        name: "Inspiron 14 2-in-1 Laptop",
-        price: "58.900.000 đ",
-        oldPrice: "75.900.000 đ",
-        discount: "20%",
-        imageSrc: "../image/anhlaptop7.png",
-        links: "../html/ChiTietSanPham.html",
-        type:"Laptop"
-    }
-];
+// var products = [
+//     {
+//         name: "PC WORKSTATION DUAL AMD EPYC 7742: 256 THREADS | DUAL VGA",
+//         price: "1.050.000.000 đ",
+//         oldPrice: "1.855.000.000 đ",
+//         discount: "43%",
+//         imageSrc: "../image/hinh1.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     },
+//     {
+//         name: "PC WORKSTATION X99-T8D/E3-2673/64G DDR3/PSU650/1SP P7",
+//         price: "38.180.000 đ",
+//         oldPrice: "51.855.000.000 đ",
+//         discount: "33%",
+//         imageSrc: "../image/hinh2.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     },
+//     {
+//         name: "PC WORKSTATION X99-T8D/E3-2673/64G DDR3/PSU650/1SP P7",
+//         price: "38.840.000 đ",
+//         oldPrice: "58.840.000 đ",
+//         discount: "35%",
+//         imageSrc: "../image/hinh3.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC WORKSTATION X99-T8D/E3-2673/64G DDR3/PSU650/1SP P8",
+//         price: "58.840.000 đ",
+//         oldPrice: "71.855.000.000 đ",
+//         discount: "15%",
+//         imageSrc: "../image/hinh4.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC WORKSTATION X99-T8D/E3-2673/128G DDR3/PSU650/1SP P8",
+//         price: "1.250.000.000 đ",
+//         oldPrice: "1.955.000.000 đ",
+//         discount: "40%",
+//         imageSrc: "../image/hinh4.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC WORKSTATION X99/E3-2680/32G DDR3/PSU550/JT9605B",
+//         price: "50.900.000 đ",
+//         oldPrice: "65.900.000 đ",
+//         discount: "17%",
+//         imageSrc: "../image/hinh3.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC WORKSTATION X99/E3-2680/64G DDR3/PSU550/JT9605B",
+//         price: "58.900.000 đ",
+//         oldPrice: "75.900.000 đ",
+//         discount: "20%",
+//         imageSrc: "../image/hinh3.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC WORKSTATION X79/E3-2670/32G DDR3/PSU550/JT9331",
+//         price: "60.900.000 đ",
+//         oldPrice: "75.350.000 đ",
+//         discount: "20%",
+//         imageSrc: "../image/hinh3.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC WORKSTATION X79/E3-2670/64G DDR3/PSU550/JT9331",
+//         price: "65.950.000.000 đ",
+//         oldPrice: "81.855.000.000 đ",
+//         discount: "20%",
+//         imageSrc: "../image/hinh3.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC WORKSTATION X79/E3-2670/128G DDR3/PSU550/JT9331",
+//         price: "69.950.000.000 đ",
+//         oldPrice: "91.855.000.000 đ",
+//         discount: "20%",
+//         imageSrc: "../image/hinh3.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC Workstation T90 – Core i9 13900K | 64G | RTX3090 24GB | 2TB SSD",
+//         price: "66.900.000 đ",
+//         oldPrice: "81.855.000.000 đ",
+//         discount: "20%",
+//         imageSrc: "../image/hinh5.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC Workstation T90 – Core i9 13900K | 128G | RTX3090 24GB | 2TB SSD",
+//         price: "69.900.000 đ",
+//         oldPrice: "85.855.000.000 đ",
+//         discount: "20%",
+//         imageSrc: "../image/hinh5.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     },  
+//     {
+//         name: "PC Gaming STAR CHICKEN AQUA | RTX 3060TI, Intel | RTX3090 32GB | 2TB SSD ",
+//         price: "88.050.000.000 đ",
+//         oldPrice: "1.155.000.000 đ",
+//         discount: "35%",
+//         imageSrc: "../image/hinh6.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC NCPC Virtualization 01 (Xeon 6138/ Z11PA-D8C/ 32GB/ SSD 1TB/ 700W)",
+//         price: "75.900.000 đ",
+//         oldPrice: "90.890.000 đ",
+//         discount: "15%",
+//         imageSrc: "../image/hinh7.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC NCPC Virtualization 01 (Xeon 6138/ Z11PA-D8C/ 64GB/ SSD 1TB/ 700W)",
+//         price: "85.050.000.000 đ",
+//         oldPrice: "92.450.000 đ",
+//         discount: "11%",
+//         imageSrc: "../image/hinh8.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC Workstation Machine Learning VIP (5955WX/ WRX80E/ 128G/ 2TB/ 10TB HDD/ 4X RTX 4090/ 2000W)",
+//         price: "1.050.000.000 đ",
+//         oldPrice: "1.855.000.000 đ",
+//         discount: "43%",
+//         imageSrc: "../image/hinh9.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC - MACHINE LEARNING 03 (5995WX/ WRX80E/ 256GB RAM/ 20TB SSD/ 3X RTX 4090 O24G/ 2000W)",
+//         price: "564.540.000 đ",
+//         oldPrice: "679.540.000 đ",
+//         discount: "20%",
+//         imageSrc: "../image/hinh10.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC HOTGEAR AMD Ryzen 9 / Ryzen 9 7900X / MAIN B650/ DDR4 16GB / SSD 250GB M.2 NVME",
+//         price: "1.150.000.000 đ",
+//         oldPrice: "1.955.000.000 đ",
+//         discount: "40%",
+//         imageSrc: "../image/hinh11.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC GAMING AMD Ryzen 9 / Ryzen 9 9900X / MAIN B650/ DDR4 128GB / SSD 2TB M.2 NVME",
+//         price: "2.250.000.000 đ",
+//         oldPrice: "2.555.000.000 đ",
+//         discount: "15%",
+//         imageSrc: "../image/hinh12.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     }, 
+//     {
+//         name: "PC GAMING AMD Ryzen 9 / Ryzen 9 9900X / MAIN B650/ DDR4 256GB / SSD 2TB M.2 NVME",
+//         price: "2.450.000.000 đ",
+//         oldPrice: "2.755.000.000 đ",
+//         discount: "15%",
+//         imageSrc: "../image/hinh14.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"PC"
+//     },
+//     // Thêm các sản phẩm khác vào đây
+//     {
+//         name: "XPS 15 Laptop",
+//         price: "1.050.000.000 đ",
+//         oldPrice: "1.855.000.000 đ",
+//         discount: "43%",
+//         imageSrc: "../image/anhlaptop1.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"Laptop"
+//     },
+//     {
+//         name: "XPS 17 Laptop",
+//         price: "38.180.000 đ",
+//         oldPrice: "51.855.000.000 đ",
+//         discount: "33%",
+//         imageSrc: "../image/anhlaptop2.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"Laptop"
+//     },
+//     {
+//         name: "Precision 5480 Workstation",
+//         price: "38.840.000 đ",
+//         oldPrice: "58.840.000 đ",
+//         discount: "25%",
+//         imageSrc: "../image/anhlaptop3.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"Laptop"
+//     }, 
+//     {
+//         name: "Precision 3480 Workstation",
+//         price: "58.840.000 đ",
+//         oldPrice: "71.855.000.000 đ",
+//         discount: "15%",
+//         imageSrc: "../image/anhlaptop4.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"Laptop"
+//     }, 
+//     {
+//         name: "Precision 3470 Mobile Workstation",
+//         price: "1.250.000.000 đ",
+//         oldPrice: "1.955.000.000 đ",
+//         discount: "40%",
+//         imageSrc: "../image/anhlaptop5.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"Laptop"
+//     }, 
+//     {
+//         name: "Latitude 3445 Chromebook",
+//         price: "50.900.000 đ",
+//         oldPrice: "65.900.000 đ",
+//         discount: "17%",
+//         imageSrc: "../image/anhlaptop6.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"Laptop"
+//     }, 
+//     {
+//         name: "Inspiron 14 2-in-1 Laptop",
+//         price: "58.900.000 đ",
+//         oldPrice: "75.900.000 đ",
+//         discount: "20%",
+//         imageSrc: "../image/anhlaptop7.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"Laptop"
+//     },
+//     {
+//         name: "XPS 15 Laptop",
+//         price: "1.050.000.000 đ",
+//         oldPrice: "1.855.000.000 đ",
+//         discount: "43%",
+//         imageSrc: "../image/anhlaptop1.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"Laptop"
+//     },
+//     {
+//         name: "XPS 17 Laptop",
+//         price: "38.180.000 đ",
+//         oldPrice: "51.855.000.000 đ",
+//         discount: "33%",
+//         imageSrc: "../image/anhlaptop2.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"Laptop"
+//     },
+//     {
+//         name: "Precision 5480 Workstation",
+//         price: "38.840.000 đ",
+//         oldPrice: "58.840.000 đ",
+//         discount: "25%",
+//         imageSrc: "../image/anhlaptop3.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"Laptop"
+//     }, 
+//     {
+//         name: "Precision 3480 Workstation",
+//         price: "58.840.000 đ",
+//         oldPrice: "71.855.000.000 đ",
+//         discount: "15%",
+//         imageSrc: "../image/anhlaptop4.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"Laptop"
+//     }, 
+//     {
+//         name: "Precision 3470 Mobile Workstation",
+//         price: "1.250.000.000 đ",
+//         oldPrice: "1.955.000.000 đ",
+//         discount: "40%",
+//         imageSrc: "../image/anhlaptop5.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"Laptop"
+//     }, 
+//     {
+//         name: "Latitude 3445 Chromebook",
+//         price: "50.900.000 đ",
+//         oldPrice: "65.900.000 đ",
+//         discount: "17%",
+//         imageSrc: "../image/anhlaptop6.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"Laptop"
+//     }, 
+//     {
+//         name: "Inspiron 14 2-in-1 Laptop",
+//         price: "58.900.000 đ",
+//         oldPrice: "75.900.000 đ",
+//         discount: "20%",
+//         imageSrc: "../image/anhlaptop7.png",
+//         links: "../html/ChiTietSanPham.html",
+//         type:"Laptop"
+//     }
+// ];
+
+
 //Hàm tạo mảng PC
+
+
 function getPCProducts(products) {
     const pcProducts = products.filter((product) => product.type === "PC");
     return pcProducts;
@@ -339,6 +343,10 @@ function displayProducts(page) {
         productImage.className = "hinh";
         productImage.src = productPC.imageSrc;
 
+        var linkImg = document.createElement("a");
+        linkImg.className = "hinh";
+        linkImg.href=productPC.links;
+
         var productName = document.createElement("div");
         productName.className = "ten-san-pham fix-2-line";
         productName.textContent = productPC.name;
@@ -357,13 +365,14 @@ function displayProducts(page) {
 
         var linksDiv = document.createElement("a");
         linksDiv.className = "xem-them-link";
-        linksDiv.textContent = 'Xem thêm';
+        linksDiv.textContent = 'Add to Cart';
         linksDiv.href = productPC.links; // Đặt liên kết đến trang chi tiết sản phẩm
 
         productPrice.appendChild(priceDiv);
         productPrice.appendChild(discountDiv);
 
-        productDiv.appendChild(productImage);
+        linkImg.appendChild(productImage);
+        productDiv.appendChild(linkImg);
         productDiv.appendChild(productName);
         productDiv.appendChild(productPrice);
         productDiv.appendChild(linksDiv);
