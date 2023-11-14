@@ -1,448 +1,546 @@
 [
   {
-    "id": 1,
-    "name": "XPS 15 Laptop",
-    "price": "1.050.000.000",
-    "discount": "43",
-    "imageSrc": "../images/XPS_15_Laptop.jpeg",
-    "description": {
-      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
-      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
-      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
-      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
-    },
-    "type": "Laptop"
-  },
-  {
-    "id": 2,
-    "name": "XPS 17 Laptop",
-    "price": "38.180.000",
-    "discount": "33",
-    "imageSrc": "../images/XPS_17_Laptop.jpeg",
-    "description": {
-      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
-      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
-      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
-      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
-    },
-    "type": "Laptop"
-  },
-  {
-    "id": 3,
-    "name": "Precision 5480 Workstation",
-    "price": "38.840.000",
-    "discount": "35",
-    "imageSrc": "../images/Precision_5480_Workstation.jpeg",
-    "description": {
-      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
-      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
-      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
-      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
-    },
-    "type": "Laptop"
-  },
-  {
-    "id": 4,
-    "name": "Precision 3480 Workstation",
-    "price": "58.840.000",
-    "discount": "15",
-    "imageSrc": "../images/Precision_3480_Workstation.jpeg",
-    "description": {
-      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
-      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
-      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
-      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
-    },
-    "type": "Laptop"
-  },
-  {
-    "id": 5,
-    "name": "Precision 3470 Mobile Workstation",
-    "price": "1.250.000.000",
-    "discount": "40",
-    "imageSrc": "../images/Precision_3470_Workstation.png",
-    "description": {
-      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
-      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
-      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
-      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
-    },
-    "type": "Laptop"
-  },
-  {
-    "id": 6,
-    "name": "Latitude 3445 Chromebook",
-    "price": "50.900.000",
-    "discount": "17",
-    "imageSrc": "../images/Latitude_3445_Chromebook.png",
-    "description": {
-      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
-      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
-      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
-      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
-    },
-    "type": "Laptop"
-  },
-  {
-    "id": 7,
-    "name": "Inspiron 14 2-in-1 Laptop",
-    "price": "60.900.000",
-    "discount": "20",
-    "imageSrc": "../images/Inspiron_14_2-in-1_Laptop.png",
-    "description": {
-      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
-      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
-      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
-      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
-    },
-    "type": "Laptop"
-  },
-  {
-    "id": 8,
-    "name": "XPS Laptops & 2-in-1 PCs",
-    "price": "65.950.000.000",
-    "discount": "20",
-    "imageSrc": "../images/XPS_13_2-in-1_Laptop.png",
-    "description": {
-      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
-      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
-      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
-      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
-    },
-    "type": "Laptop"
-  },
-  {
-    "id": 9,
-    "name": "XPS 13 Plus Laptop",
-    "price": "65.950.000.000",
-    "discount": "20",
-    "imageSrc": "../images/XPS_13_Plus_Laptop.jpeg",
-    "description": {
-      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
-      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
-      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
-      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
-    },
-    "type": "Laptop"
-  },
-  {
-    "id": 10,
+    "id": "product1",
     "name": "PC WORKSTATION DUAL AMD EPYC 7742: 256 THREADS | DUAL VGA",
-    "price": "1.050.000.000",
-    "oldPrice": "1.855.000.000",
+    "price": "200 $",
+    "oldPrice": " 300 $",
     "discount": "43%",
-    "imageSrc": "../images/hinh1.png",
+    "imageSrc": "../image/hinh1.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 11,
+    "id": "product2",
     "name": "PC WORKSTATION X99-T8D/E3-2673/64G DDR3/PSU650/1SP P7",
-    "price": "38.180.000",
-    "oldPrice": "51.855.000.000",
+    "price": "1950 $",
+    "oldPrice": "2250 $",
     "discount": "33%",
+    "imageSrc": "../image/hinh2.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh2.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 12,
+    "id": "product3",
     "name": "PC WORKSTATION X99-T8D/E3-2673/64G DDR3/PSU650/1SP P7",
-    "price": "38.840.000",
-    "oldPrice": "58.840.000",
+    "price": "3884 $",
+    "oldPrice": "5884 $",
     "discount": "35%",
+    "imageSrc": "../image/hinh3.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh3.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 13,
+    "id": "product4",
     "name": "PC WORKSTATION X99-T8D/E3-2673/64G DDR3/PSU650/1SP P8",
-    "price": "58.840.000",
-    "oldPrice": "71.855.000.000",
+    "price": "3884 $",
+    "oldPrice": "5884 $",
     "discount": "15%",
+    "imageSrc": "../image/hinh4.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh4.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 14,
+    "id": "product5",
     "name": "PC WORKSTATION X99-T8D/E3-2673/128G DDR3/PSU650/1SP P8",
-    "price": "1.250.000.000",
-    "oldPrice": "1.955.000.000",
+    "price": "1250 $",
+    "oldPrice": "1955 $",
     "discount": "40%",
+    "imageSrc": "../image/hinh4.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh4.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 15,
+    "id": "product6",
     "name": "PC WORKSTATION X99/E3-2680/32G DDR3/PSU550/JT9605B",
-    "price": "50.900.000",
-    "oldPrice": "65.900.000",
+    "price": "5090 $",
+    "oldPrice": "6590 $",
     "discount": "17%",
+    "imageSrc": "../image/hinh3.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh3.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 16,
+    "id": "product7",
     "name": "PC WORKSTATION X99/E3-2680/64G DDR3/PSU550/JT9605B",
-    "price": "58.900.000",
-    "oldPrice": "75.900.000",
+    "price": "5890 $",
+    "oldPrice": "7590 $",
     "discount": "20%",
+    "imageSrc": "../image/hinh3.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh3.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 17,
+    "id": "product8",
     "name": "PC WORKSTATION X79/E3-2670/32G DDR3/PSU550/JT9331",
-    "price": "60.900.000",
-    "oldPrice": "75.350.000",
+    "price": "6090 $",
+    "oldPrice": "7535 $",
     "discount": "20%",
+    "imageSrc": "../image/hinh3.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh3.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 18,
+    "id": "product9",
     "name": "PC WORKSTATION X79/E3-2670/64G DDR3/PSU550/JT9331",
-    "price": "65.950.000.000",
-    "oldPrice": "81.855.000.000",
+    "price": "6595 $",
+    "oldPrice": "8185 $",
     "discount": "20%",
+    "imageSrc": "../image/hinh3.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh3.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 19,
+    "id": "product10",
     "name": "PC WORKSTATION X79/E3-2670/128G DDR3/PSU550/JT9331",
-    "price": "69.950.000.000",
-    "oldPrice": "91.855.000.000",
+    "price": "6995 $",
+    "oldPrice": "9185 $",
     "discount": "20%",
+    "imageSrc": "../image/hinh3.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh3.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 20,
+    "id": "product11",
     "name": "PC Workstation T90 – Core i9 13900K | 64G | RTX3090 24GB | 2TB SSD",
-    "price": "66.900.000",
-    "oldPrice": "81.855.000.000",
+    "price": "6690 $",
+    "oldPrice": "8185 $",
     "discount": "20%",
+    "imageSrc": "../image/hinh5.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh5.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 21,
+    "id": "product12",
     "name": "PC Workstation T90 – Core i9 13900K | 128G | RTX3090 24GB | 2TB SSD",
-    "price": "69.900.000",
-    "oldPrice": "85.855.000.000",
+    "price": "6990 $",
+    "oldPrice": "8585 $",
     "discount": "20%",
+    "imageSrc": "../image/hinh5.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh5.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 22,
+    "id": "product13",
     "name": "PC Gaming STAR CHICKEN AQUA | RTX 3060TI, Intel | RTX3090 32GB | 2TB SSD ",
-    "price": "88.050.000.000",
-    "oldPrice": "1.155.000.000",
+    "price": "8805 $",
+    "oldPrice": "11155 $",
     "discount": "35%",
+    "imageSrc": "../image/hinh6.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh6.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 23,
+    "id": "product14",
     "name": "PC NCPC Virtualization 01 (Xeon 6138/ Z11PA-D8C/ 32GB/ SSD 1TB/ 700W)",
-    "price": "75.900.000",
-    "oldPrice": "90.890.000",
+    "price": "7590 $",
+    "oldPrice": "9089 $",
     "discount": "15%",
+    "imageSrc": "../image/hinh7.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh7.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 24,
+    "id": "product15",
     "name": "PC NCPC Virtualization 01 (Xeon 6138/ Z11PA-D8C/ 64GB/ SSD 1TB/ 700W)",
-    "price": "85.050.000.000",
-    "oldPrice": "92.450.000",
+    "price": "8505 $",
+    "oldPrice": "9245 $",
     "discount": "11%",
+    "imageSrc": "../image/hinh8.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh8.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 25,
+    "id": "product16",
     "name": "PC Workstation Machine Learning VIP (5955WX/ WRX80E/ 128G/ 2TB/ 10TB HDD/ 4X RTX 4090/ 2000W)",
-    "price": "1.050.000.000",
-    "oldPrice": "1.855.000.000",
+    "price": "1050 $",
+    "oldPrice": "1855 $",
     "discount": "43%",
+    "imageSrc": "../image/hinh9.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh9.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 26,
+    "id": "product17",
     "name": "PC - MACHINE LEARNING 03 (5995WX/ WRX80E/ 256GB RAM/ 20TB SSD/ 3X RTX 4090 O24G/ 2000W)",
-    "price": "564.540.000",
-    "oldPrice": "679.540.000",
+    "price": "5654 $",
+    "oldPrice": "6754 $",
     "discount": "20%",
+    "imageSrc": "../image/hinh10.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh10.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 27,
+    "id": "product18",
     "name": "PC HOTGEAR AMD Ryzen 9 / Ryzen 9 7900X / MAIN B650/ DDR4 16GB / SSD 250GB M.2 NVME",
-    "price": "1.150.000.000",
-    "oldPrice": "1.955.000.000",
+    "price": "1150 $",
+    "oldPrice": "1955 $",
     "discount": "40%",
+    "imageSrc": "../image/hinh11.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh11.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 28,
+    "id": "product19",
     "name": "PC GAMING AMD Ryzen 9 / Ryzen 9 9900X / MAIN B650/ DDR4 128GB / SSD 2TB M.2 NVME",
-    "price": "2.250.000.000",
-    "oldPrice": "2.555.000.000",
+    "price": "2250 $",
+    "oldPrice": "2555 $",
     "discount": "15%",
+    "imageSrc": "../image/hinh12.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh12.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
   },
   {
-    "id": 29,
+    "id": "product20",
     "name": "PC GAMING AMD Ryzen 9 / Ryzen 9 9900X / MAIN B650/ DDR4 256GB / SSD 2TB M.2 NVME",
-    "price": "2.450.000.000",
-    "oldPrice": "2.755.000.000",
+    "price": "2450 $",
+    "oldPrice": "2755 $",
     "discount": "15%",
+    "imageSrc": "../image/hinh14.png",
     "description": {
       "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
       "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
       "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
       "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
     },
-    "imageSrc": "../images/hinh14.png",
-    "links": "./html/ChiTietSanPham.html",
+    "links": "../html/ChiTietSanPham.html",
     "type": "PC"
+  },
+  {
+    "id": "product21",
+    "name": "XPS 15 Laptop",
+    "price": "1050 $",
+    "oldPrice": "1855 $",
+    "discount": "43%",
+    "imageSrc": "../image/anhlaptop1.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    },
+    "links": "../html/ChiTietSanPham.html",
+    "type": "Laptop"
+  },
+  {
+    "id": "product22",
+    "name": "XPS 17 Laptop",
+    "price": "3818 $",
+    "oldPrice": "5185 $",
+    "discount": "33%",
+    "imageSrc": "../image/anhlaptop2.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    },
+    "links": "../html/ChiTietSanPham.html",
+    "type": "Laptop"
+  },
+  {
+    "id": "product23",
+    "name": "Precision 5480 Workstation",
+    "price": "3884 $",
+    "oldPrice": "5884 $",
+    "discount": "25%",
+    "imageSrc": "../image/anhlaptop3.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    },
+    "links": "../html/ChiTietSanPham.html",
+    "type": "Laptop"
+  },
+  {
+    "id": "product24",
+    "name": "Precision 3480 Workstation",
+    "price": "5884 $",
+    "oldPrice": "7185 $",
+    "discount": "15%",
+    "imageSrc": "../image/anhlaptop4.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    },
+    "links": "../html/ChiTietSanPham.html",
+    "type": "Laptop"
+  },
+  {
+    "id": "product25",
+    "name": "Precision 3470 Mobile Workstation",
+    "price": "1250 $",
+    "oldPrice": "1955 $",
+    "discount": "40%",
+    "imageSrc": "../image/anhlaptop5.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    },
+    "links": "../html/ChiTietSanPham.html",
+    "type": "Laptop"
+  },
+  {
+    "id": "product26",
+    "name": "Latitude 3445 Chromebook",
+    "price": "5090 $",
+    "oldPrice": "6590 $",
+    "discount": "17%",
+    "imageSrc": "../image/anhlaptop6.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    },
+    "links": "../html/ChiTietSanPham.html",
+    "type": "Laptop"
+  },
+  {
+    "id": "product27",
+    "name": "Inspiron 14 2-in-1 Laptop",
+    "price": "5890 $",
+    "oldPrice": "7590 $",
+    "discount": "20%",
+    "imageSrc": "../image/anhlaptop7.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    },
+    "links": "../html/ChiTietSanPham.html",
+    "type": "Laptop"
+  },
+  {
+    "id": "product28",
+    "name": "XPS 15 Laptop",
+    "price": "1050 $",
+    "oldPrice": "1855 $",
+    "discount": "43%",
+    "imageSrc": "../image/anhlaptop1.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    },
+    "links": "../html/ChiTietSanPham.html",
+    "type": "Laptop"
+  },
+  {
+    "id": "product29",
+    "name": "XPS 17 Laptop",
+    "price": "3818 $",
+    "oldPrice": "5185 $",
+    "discount": "33%",
+    "imageSrc": "../image/anhlaptop2.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    },
+    "links": "../html/ChiTietSanPham.html",
+    "type": "Laptop"
+  },
+  {
+    "id": "product30",
+    "name": "Precision 5480 Workstation",
+    "price": "3884 $",
+    "oldPrice": "5884 $",
+    "discount": "25%",
+    "imageSrc": "../image/anhlaptop3.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    },
+    "links": "../html/ChiTietSanPham.html",
+    "type": "Laptop"
+  },
+  {
+    "id": "product31",
+    "name": "Precision 3480 Workstation",
+    "price": "5884 $",
+    "oldPrice": "7185 $",
+    "discount": "15%",
+    "imageSrc": "../image/anhlaptop4.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    },
+    "links": "../html/ChiTietSanPham.html",
+    "type": "Laptop"
+  },
+  {
+    "id": "product32",
+    "name": "Precision 3470 Mobile Workstation",
+    "price": "1250 $",
+    "oldPrice": "1955 $",
+    "discount": "40%",
+    "imageSrc": "../image/anhlaptop5.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    },
+    "links": "../html/ChiTietSanPham.html",
+    "type": "Laptop"
+  },
+  {
+    "id": "product33",
+    "name": "Latitude 3445 Chromebook",
+    "price": "5090 $",
+    "oldPrice": "6590 $",
+    "discount": "17%",
+    "imageSrc": "../image/anhlaptop6.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    },
+    "links": "../html/ChiTietSanPham.html",
+    "type": "Laptop"
+  },
+  {
+    "id": "product34",
+    "name": "Inspiron 14 2-in-1 Laptop",
+    "price": "5890 $",
+    "oldPrice": "7590 $",
+    "discount": "20%",
+    "imageSrc": "../image/anhlaptop7.png",
+    "description": {
+      "Processor": "13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)",
+      "Graphics": "NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6",
+      "Memory": "64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel",
+      "Storage": "8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD"
+    },
+    "links": "../html/ChiTietSanPham.html",
+    "type": "Laptop"
   }
 ]

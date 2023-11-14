@@ -17,7 +17,7 @@ function setLocalStorage() {
 function renderProducts() {
   let productsStorage = JSON.parse(localStorage.getItem("products"));
   let productId = new URLSearchParams(window.location.search).get("id");
-  let thisProduct = productsStorage.find((value) => value.id == productId);
+  let thisProduct = productsStorage.find((value) => value.id === productId);
 
   if (thisProduct) {
     let product = `<div class="main" id="detail-content">

@@ -1,6 +1,6 @@
 function renderProducts() {
   let productsStorage = JSON.parse(localStorage.getItem("products"));
-  let productId = Number(new URLSearchParams(window.location.search).get("id"));
+  let productId = new URLSearchParams(window.location.search).get("id");
   let thisProduct = productsStorage.find((value) => value.id == productId);
 
   //Show image

@@ -55,6 +55,7 @@ function renderProducts() {
   let paginatedProducts = products.slice(start, end);
 
   paginatedProducts.map((value, index) => {
+    console.log(value.imageSrc);
     product += `<tbody id="product-content">
       <tr>
       <td>${index + 1}</td>
