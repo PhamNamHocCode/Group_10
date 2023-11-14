@@ -173,3 +173,8 @@ function setLocalStorage() {
 }
 
 setLocalStorage();
+// if (localStorage.getItem("token") === "true") {
+
+// } else {
+//   window.location.href = "../html/login.html";
+// }
