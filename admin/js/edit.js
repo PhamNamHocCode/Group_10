@@ -1,3 +1,42 @@
+let accounts = [
+  {
+    id: "kimngoc",
+    username: "Kim Ngoc",
+    password: "123456",
+    permission: "admin",
+    thumbnail: "../image/user1.png",
+    address: "An Dương Vương, Quận 5, TP HCM",
+    email: "kimngoc@gmail.com",
+  },
+  {
+    id: "hungdung",
+    username: "Hung Dung",
+    password: "123456",
+    permission: "admin",
+    thumbnail: "../image/fake-glasses.png",
+    address: "Cầu Giấy, Hà Nội",
+    email: "hungdung@gmail.com",
+  },
+  {
+    id: "quyhung",
+    username: "Quy Hung",
+    password: "123456",
+    permission: "admin",
+    thumbnail: "../image/fake-glasses.png",
+    address: "Nguyễn Đình Chiểu, Quận 3, TP HCM",
+    email: "quyhung@gmail.com",
+  },
+  {
+    id: "phamnam",
+    username: "Pham Nam",
+    password: "123456",
+    permission: "admin",
+    thumbnail: "../image/fake-glasses.png",
+    address: "Âu Dương Lân, Quận 8, TP HCM",
+    email: "phamnam@gmail.com",
+  },
+];
+
 function renderProducts() {
   let productsStorage = JSON.parse(localStorage.getItem("products"));
   let productId = new URLSearchParams(window.location.search).get("id");
@@ -41,8 +80,12 @@ function renderProducts() {
 
     thisProduct.imageSrc = null;
 
-    let productIndex = data.findIndex((value) => value.id === thisProduct.id);
-    data[productIndex].imageSrc = null;
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].id === thisProduct.id) {
+        data[i].imageSrc = null;
+      }
+    }
+
     flag = true;
     clickedButton = true;
   });
@@ -126,8 +169,11 @@ function renderProducts() {
     product.description = description;
     //End Check description
 
-    let productIndex = data.findIndex((value) => value.id === product.id);
-    data[productIndex] = product;
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].id === product.id) {
+        data[i] = product;
+      }
+    }
     localStorage.setItem("products", JSON.stringify(data));
     redirectToPage("index.html");
   });
@@ -146,8 +192,31 @@ function setLocalStorage() {
   renderProducts();
 }
 
-setLocalStorage();
-
 function redirectToPage(url) {
   window.location.href = url;
 }
+
+function setUser() {
+  let userName = document.getElementById("user-account");
+
+  let User = accounts.find(
+    (account) => account.username == localStorage.getItem("token")
+  );
+
+  userName.href = `../html/user.html?id=${User.id}`;
+  userName.innerText = localStorage.getItem("token");
+}
+
+function logout() {
+  localStorage.removeItem("token");
+  location.reload();
+  window.location.replace("../html/login.html");
+}
+
+setLocalStorage();
+setUser();
+document.addEventListener("DOMContentLoaded", function () {
+  if (localStorage.getItem("token") === null) {
+    window.location.replace("../html/login.html");
+  }
+});

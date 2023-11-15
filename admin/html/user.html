@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Details</title>
+    <title>Infor</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link
       rel="stylesheet"
@@ -25,6 +25,9 @@
     />
   </head>
   <body>
+    <div class="alert alert-success" id="delete-success" role="alert">
+      Sản phẩm đã được xóa thành công!
+    </div>
     <!-- Header -->
     <header class="header">
       <div class="container-fluid">
@@ -73,6 +76,18 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="../js/detail.js"></script>
+    <script src="../js/user.js"></script>
+    <div class="overlay" id="overlay"></div>
+    <div class="pop-up" id="pop-up">
+      <p><b>Bạn có chắc chắn muốn xóa sản phẩm này?</b></p>
+      <div class="btn-confirm">
+        <button type="button" class="btn btn-danger" id="accept-delete">
+          <b>Yes</b>
+        </button>
+        <button type="button" class="btn btn-primary" id="reject-delete">
+          <b>No</b>
+        </button>
+      </div>
+    </div>
   </body>
 </html>

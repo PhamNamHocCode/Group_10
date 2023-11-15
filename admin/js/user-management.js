@@ -51,68 +51,66 @@ let currentPage = sessionStorage.getItem("currentPage")
   : 1;
 let itemsPerPage = 5;
 
-function handleDeleteEvents() {
-  let products = JSON.parse(localStorage.getItem("products"));
-  let buttonsDelete = document.getElementsByClassName("button-delete");
-  Array.from(buttonsDelete).forEach((buttonDelete) => {
-    buttonDelete.addEventListener("click", () => {
-      document.getElementById("overlay").style.visibility = "visible";
-      document.getElementById("pop-up").style.visibility = "visible";
+// function handleDeleteEvents() {
+//   let products = JSON.parse(localStorage.getItem("products"));
+//   let buttonsDelete = document.getElementsByClassName("button-delete");
+//   Array.from(buttonsDelete).forEach((buttonDelete) => {
+//     buttonDelete.addEventListener("click", () => {
+//       document.getElementById("overlay").style.visibility = "visible";
+//       document.getElementById("pop-up").style.visibility = "visible";
 
-      let yesButton = document.getElementById("accept-delete");
-      yesButton.addEventListener("click", () => {
-        products = products.filter((element) => {
-          return element.id !== buttonDelete.value;
-        });
-        localStorage.setItem("products", JSON.stringify(products));
-        document.getElementById("overlay").style.visibility = "hidden";
-        document.getElementById("pop-up").style.visibility = "hidden";
-        renderProducts();
-        handleDeleteEvents();
-        showNotification();
-      });
+//       let yesButton = document.getElementById("accept-delete");
+//       yesButton.addEventListener("click", () => {
+//         products = products.filter((element) => {
+//           return element.id !== Number(buttonDelete.value);
+//         });
+//         localStorage.setItem("products", JSON.stringify(products));
+//         document.getElementById("overlay").style.visibility = "hidden";
+//         document.getElementById("pop-up").style.visibility = "hidden";
+//         renderAccounts();
+//         handleDeleteEvents();
+//         showNotification();
+//       });
 
-      let noButton = document.getElementById("reject-delete");
-      noButton.addEventListener("click", () => {
-        document.getElementById("overlay").style.visibility = "hidden";
-        document.getElementById("pop-up").style.visibility = "hidden";
-      });
-    });
-  });
-}
+//       let noButton = document.getElementById("reject-delete");
+//       noButton.addEventListener("click", () => {
+//         document.getElementById("overlay").style.visibility = "hidden";
+//         document.getElementById("pop-up").style.visibility = "hidden";
+//       });
+//     });
+//   });
+// }
 
-function renderProducts() {
-  let products = localStorage.getItem("products")
-    ? JSON.parse(localStorage.getItem("products"))
-    : [];
-  let product = `<tbody id="product-content">
-    </tbody>`;
+function renderAccounts() {
+  let interface = `<tbody id="user-content">
+      </tbody>`;
 
   let start = (currentPage - 1) * itemsPerPage;
   let end = start + itemsPerPage;
 
-  let paginatedProducts = products.slice(start, end);
+  let paginatedUser = accounts.slice(start, end);
 
-  paginatedProducts.map((value, index) => {
-    product += `<tbody id="product-content">
-      <tr>
-      <td>${index + 1}</td>
-      <td>${value.name}</td>
+  paginatedUser.map((value, index) => {
+    interface += `<tbody id="user-content">
+    <tr>
       <td>
-      <a href="detail.html?id=${value.id}">
-        <img
-          src="${value.imageSrc}"
-          alt="${value.name}"
-          width="100px"
-          height="auto"
-        />
-      </a>
+        <a href="user.html?id=${value.id}">
+          <img
+            src="${value.thumbnail}"
+            alt="${value.username}"
+            width="100px"
+            height="auto"
+          />
+        </a>
       </td>
-      <td>${value.price}</td>
+      <td>${value.username}</td>
+      <td>${value.permission}</td>
+      <td>${value.address}</td>
+      <td>${value.email}</td>
       </td>
       <td>
       <a
-          href="detail.html?id=${value.id}"
+          href="user.html?id=${value.id}"
           class="btn btn-secondary btn-sm detail-button">
           <i class="bi bi-eye"></i>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
@@ -121,7 +119,7 @@ function renderProducts() {
           </svg>
       </a>
       <a
-          href="edit.html?id=${value.id}"
+          href="user-edit.html?id=${value.id}"
           class="btn btn-warning btn-sm"
           >
           <i class="bi bi-gear"></i>
@@ -134,8 +132,8 @@ function renderProducts() {
       <button
           class="btn btn-danger btn-sm ml-1 button-delete"
           button-delete
-          data-id="item.id"
-          value=${value.id}
+          data-id='${value.id}'
+          value='${value.id}'
       >
       <i class="bi bi-trash"></i>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
@@ -144,13 +142,13 @@ function renderProducts() {
       </svg>
       </button>
       </td>
-      </tr>
-      </tbody>`;
+    </tr>
+    </tbody>`;
 
-    document.getElementById("product-content").innerHTML = product;
+    document.getElementById("user-content").innerHTML = interface;
   });
 
-  renderPagination(products.length, itemsPerPage);
+  renderPagination(accounts.length, itemsPerPage);
 }
 
 function renderPagination(totalItems, itemsPerPage) {
@@ -169,15 +167,18 @@ function renderPagination(totalItems, itemsPerPage) {
 
   pagination += "</div>";
 
-  document.getElementById("product-content").innerHTML += pagination;
+  document.getElementById("user-content").innerHTML += pagination;
 
   // Get the current page button
   let currentPageButton = document.querySelector(
     `.page-button[value="${currentPage}"]`
   );
 
-  // Add the active class to the current page button
-  currentPageButton.classList.add("active");
+  // Kiểm tra xem currentPageButton có tồn tại và không phải là null hay không
+  if (currentPageButton && currentPageButton.classList) {
+    // Add the active class to the current page button
+    currentPageButton.classList.add("active");
+  }
 
   sessionStorage.setItem("currentPage", currentPage);
 
@@ -185,8 +186,8 @@ function renderPagination(totalItems, itemsPerPage) {
   Array.from(buttonsPage).forEach((buttonPage) => {
     buttonPage.addEventListener("click", () => {
       currentPage = Number(buttonPage.value);
-      renderProducts();
-      handleDeleteEvents();
+      renderAccounts();
+      // handleDeleteEvents();
     });
   });
 }
@@ -197,8 +198,8 @@ function setLocalStorage() {
       .then((response) => response.json())
       .then((response) => {
         localStorage.setItem("products", JSON.stringify(response));
-        renderProducts();
-        handleDeleteEvents();
+        renderAccounts();
+        // handleDeleteEvents();
       });
   }
   if (localStorage.getItem("newProducts")) {
@@ -206,8 +207,8 @@ function setLocalStorage() {
     localStorage.setItem("products", newProducts);
     localStorage.removeItem("newProducts");
   }
-  renderProducts();
-  handleDeleteEvents();
+  renderAccounts();
+  // handleDeleteEvents();
 }
 
 function setUser() {

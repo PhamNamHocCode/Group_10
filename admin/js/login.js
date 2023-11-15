@@ -1,23 +1,39 @@
 let accounts = [
   {
-    username: "admin1",
+    id: "kimngoc",
+    username: "Kim Ngoc",
     password: "123456",
     permission: "admin",
+    thumbnail: "../image/user1.png",
+    address: "An Dương Vương, Quận 5, TP HCM",
+    email: "kimngoc@gmail.com",
   },
   {
-    username: "admin2",
+    id: "hungdung",
+    username: "Hung Dung",
     password: "123456",
     permission: "admin",
+    thumbnail: "../image/fake-glasses.png",
+    address: "Cầu Giấy, Hà Nội",
+    email: "hungdung@gmail.com",
   },
   {
-    username: "admin3",
+    id: "quyhung",
+    username: "Quy Hung",
     password: "123456",
     permission: "admin",
+    thumbnail: "../image/fake-glasses.png",
+    address: "Nguyễn Đình Chiểu, Quận 3, TP HCM",
+    email: "quyhung@gmail.com",
   },
   {
-    username: "admin4",
+    id: "phamnam",
+    username: "Pham Nam",
     password: "123456",
     permission: "admin",
+    thumbnail: "../image/fake-glasses.png",
+    address: "Âu Dương Lân, Quận 8, TP HCM",
+    email: "phamnam@gmail.com",
   },
 ];
 

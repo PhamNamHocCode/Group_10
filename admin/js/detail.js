@@ -1,3 +1,42 @@
+let accounts = [
+  {
+    id: "kimngoc",
+    username: "Kim Ngoc",
+    password: "123456",
+    permission: "admin",
+    thumbnail: "../image/user1.png",
+    address: "An Dương Vương, Quận 5, TP HCM",
+    email: "kimngoc@gmail.com",
+  },
+  {
+    id: "hungdung",
+    username: "Hung Dung",
+    password: "123456",
+    permission: "admin",
+    thumbnail: "../image/fake-glasses.png",
+    address: "Cầu Giấy, Hà Nội",
+    email: "hungdung@gmail.com",
+  },
+  {
+    id: "quyhung",
+    username: "Quy Hung",
+    password: "123456",
+    permission: "admin",
+    thumbnail: "../image/fake-glasses.png",
+    address: "Nguyễn Đình Chiểu, Quận 3, TP HCM",
+    email: "quyhung@gmail.com",
+  },
+  {
+    id: "phamnam",
+    username: "Pham Nam",
+    password: "123456",
+    permission: "admin",
+    thumbnail: "../image/fake-glasses.png",
+    address: "Âu Dương Lân, Quận 8, TP HCM",
+    email: "phamnam@gmail.com",
+  },
+];
+
 function setLocalStorage() {
   if (!localStorage.getItem("products")) {
     fetch("../html/products.json")
@@ -28,8 +67,8 @@ function renderProducts() {
                         <div class="about-text go-to">
                             <h3 class="dark-color">${thisProduct.name}</h3>
                             <h6 class="theme-color lead"></h6>
-                            <p>${thisProduct.price}$</p>
-                            <p>${thisProduct.discount}%</p>
+                            <p>${thisProduct.price}</p>
+                            <p>${thisProduct.discount}</p>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -74,4 +113,27 @@ function renderProducts() {
   }
 }
 
+function setUser() {
+  let userName = document.getElementById("user-account");
+
+  let User = accounts.find(
+    (account) => account.username == localStorage.getItem("token")
+  );
+
+  userName.href = `../html/user.html?id=${User.id}`;
+  userName.innerText = localStorage.getItem("token");
+}
+
+function logout() {
+  localStorage.removeItem("token");
+  location.reload();
+  window.location.replace("../html/login.html");
+}
+
 setLocalStorage();
+setUser();
+document.addEventListener("DOMContentLoaded", function () {
+  if (localStorage.getItem("token") === null) {
+    window.location.replace("../html/login.html");
+  }
+});
