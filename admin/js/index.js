@@ -82,6 +82,10 @@ function handleDeleteEvents() {
 }
 
 function renderProducts() {
+  let __accounts = localStorage.getItem("accounts")
+    ? JSON.parse(localStorage.getItem("accounts"))
+    : [];
+
   let products = localStorage.getItem("products")
     ? JSON.parse(localStorage.getItem("products"))
     : [];
@@ -176,8 +180,10 @@ function renderPagination(totalItems, itemsPerPage) {
     `.page-button[value="${currentPage}"]`
   );
 
-  // Add the active class to the current page button
-  currentPageButton.classList.add("active");
+  // Thêm điều kiện kiểm tra trước khi sử dụng 'classList'
+  if (currentPageButton) {
+    currentPageButton.classList.add("active");
+  }
 
   sessionStorage.setItem("currentPage", currentPage);
 
@@ -192,6 +198,7 @@ function renderPagination(totalItems, itemsPerPage) {
 }
 
 function setLocalStorage() {
+  //Products
   if (!localStorage.getItem("products")) {
     fetch("../html/products.json")
       .then((response) => response.json())
@@ -199,6 +206,7 @@ function setLocalStorage() {
         localStorage.setItem("products", JSON.stringify(response));
         renderProducts();
         handleDeleteEvents();
+        setUser();
       });
   }
   if (localStorage.getItem("newProducts")) {
@@ -206,19 +214,36 @@ function setLocalStorage() {
     localStorage.setItem("products", newProducts);
     localStorage.removeItem("newProducts");
   }
+  //Accounts
+  if (!localStorage.getItem("accounts")) {
+    fetch("../html/accounts.json")
+      .then((response) => response.json())
+      .then((response) => {
+        localStorage.setItem("accounts", JSON.stringify(response));
+        renderProducts();
+        handleDeleteEvents();
+        setUser();
+      });
+  }
   renderProducts();
   handleDeleteEvents();
+  setUser();
 }
 
 function setUser() {
   let userName = document.getElementById("user-account");
 
-  let User = accounts.find(
+  let __accounts = localStorage.getItem("accounts")
+    ? JSON.parse(localStorage.getItem("accounts"))
+    : [];
+
+  let User = __accounts.find(
     (account) => account.username == localStorage.getItem("token")
   );
-
-  userName.href = `../html/user.html?id=${User.id}`;
-  userName.innerText = localStorage.getItem("token");
+  if (User) {
+    userName.href = `../html/user.html?id=${User.id}`;
+    userName.innerText = localStorage.getItem("token");
+  }
 }
 
 function logout() {
@@ -227,10 +252,21 @@ function logout() {
   window.location.replace("../html/login.html");
 }
 
-setLocalStorage();
-setUser();
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("token") === null) {
+    setUser();
     window.location.replace("../html/login.html");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  setLocalStorage();
+  setUser();
+
+  var token = localStorage.getItem("token");
+
+  if (!token) {
+    alert("Bạn chưa đăng nhập. Chuyển hướng đến trang đăng nhập...");
+    window.location.href = "../html/login.html";
   }
 });

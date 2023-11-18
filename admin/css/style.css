@@ -291,3 +291,11 @@ img {
   font-size: 80px;
 }
 /* End User details */
+
+.form-check-input {
+  margin-top: 3px; /* Điều chỉnh khoảng cách giữa checkbox và label */
+}
+
+.form-check-label {
+  margin-left: 5px; /* Điều chỉnh khoảng cách giữa label và checkbox */
+}

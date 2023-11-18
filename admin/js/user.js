@@ -37,8 +37,12 @@ let accounts = [
   },
 ];
 
-function renderProducts() {
-  let user = accounts.find(
+function renderAccounts() {
+  let __accounts = localStorage.getItem("accounts")
+    ? JSON.parse(localStorage.getItem("accounts"))
+    : [];
+
+  let user = __accounts.find(
     (account) =>
       account.id === new URLSearchParams(window.location.search).get("id")
   );
@@ -95,13 +99,17 @@ function renderProducts() {
 
 function setUser() {
   let userName = document.getElementById("user-account");
-
-  let User = accounts.find(
+  let __accounts = localStorage.getItem("accounts")
+    ? JSON.parse(localStorage.getItem("accounts"))
+    : [];
+  let User = __accounts.find(
     (account) => account.username == localStorage.getItem("token")
   );
 
-  userName.href = `../html/user.html?id=${User.id}`;
-  userName.innerText = localStorage.getItem("token");
+  if (User) {
+    userName.href = `../html/user.html?id=${User.id}`;
+    userName.innerText = localStorage.getItem("token");
+  }
 }
 
 function logout() {
@@ -110,9 +118,9 @@ function logout() {
   window.location.replace("../html/login.html");
 }
 
-renderProducts();
-setUser();
 document.addEventListener("DOMContentLoaded", function () {
+  renderAccounts();
+  setUser();
   if (localStorage.getItem("token") === null) {
     window.location.replace("../html/login.html");
   }

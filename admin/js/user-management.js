@@ -46,49 +46,53 @@ function showNotification() {
   console.log(notification);
 }
 
-let currentPage = sessionStorage.getItem("currentPage")
-  ? sessionStorage.getItem("currentPage")
+let currentPageUser = sessionStorage.getItem("currentPageUser")
+  ? sessionStorage.getItem("currentPageUser")
   : 1;
 let itemsPerPage = 5;
 
-// function handleDeleteEvents() {
-//   let products = JSON.parse(localStorage.getItem("products"));
-//   let buttonsDelete = document.getElementsByClassName("button-delete");
-//   Array.from(buttonsDelete).forEach((buttonDelete) => {
-//     buttonDelete.addEventListener("click", () => {
-//       document.getElementById("overlay").style.visibility = "visible";
-//       document.getElementById("pop-up").style.visibility = "visible";
+function handleDeleteEvents() {
+  let products = JSON.parse(localStorage.getItem("products"));
+  let buttonsDelete = document.getElementsByClassName("button-delete");
+  Array.from(buttonsDelete).forEach((buttonDelete) => {
+    buttonDelete.addEventListener("click", () => {
+      document.getElementById("overlay").style.visibility = "visible";
+      document.getElementById("pop-up").style.visibility = "visible";
 
-//       let yesButton = document.getElementById("accept-delete");
-//       yesButton.addEventListener("click", () => {
-//         products = products.filter((element) => {
-//           return element.id !== Number(buttonDelete.value);
-//         });
-//         localStorage.setItem("products", JSON.stringify(products));
-//         document.getElementById("overlay").style.visibility = "hidden";
-//         document.getElementById("pop-up").style.visibility = "hidden";
-//         renderAccounts();
-//         handleDeleteEvents();
-//         showNotification();
-//       });
+      let yesButton = document.getElementById("accept-delete");
+      yesButton.addEventListener("click", () => {
+        products = products.filter((element) => {
+          return element.id !== Number(buttonDelete.value);
+        });
+        localStorage.setItem("products", JSON.stringify(products));
+        document.getElementById("overlay").style.visibility = "hidden";
+        document.getElementById("pop-up").style.visibility = "hidden";
+        renderAccounts();
+        handleDeleteEvents();
+        showNotification();
+      });
 
-//       let noButton = document.getElementById("reject-delete");
-//       noButton.addEventListener("click", () => {
-//         document.getElementById("overlay").style.visibility = "hidden";
-//         document.getElementById("pop-up").style.visibility = "hidden";
-//       });
-//     });
-//   });
-// }
+      let noButton = document.getElementById("reject-delete");
+      noButton.addEventListener("click", () => {
+        document.getElementById("overlay").style.visibility = "hidden";
+        document.getElementById("pop-up").style.visibility = "hidden";
+      });
+    });
+  });
+}
 
 function renderAccounts() {
   let interface = `<tbody id="user-content">
       </tbody>`;
 
-  let start = (currentPage - 1) * itemsPerPage;
+  let start = (currentPageUser - 1) * itemsPerPage;
   let end = start + itemsPerPage;
 
-  let paginatedUser = accounts.slice(start, end);
+  let __accounts = localStorage.getItem("accounts")
+    ? JSON.parse(localStorage.getItem("accounts"))
+    : [];
+
+  let paginatedUser = __accounts.slice(start, end);
 
   paginatedUser.map((value, index) => {
     interface += `<tbody id="user-content">
@@ -148,7 +152,7 @@ function renderAccounts() {
     document.getElementById("user-content").innerHTML = interface;
   });
 
-  renderPagination(accounts.length, itemsPerPage);
+  renderPagination(__accounts.length, itemsPerPage);
 }
 
 function renderPagination(totalItems, itemsPerPage) {
@@ -158,7 +162,7 @@ function renderPagination(totalItems, itemsPerPage) {
 
   for (let i = 1; i <= totalPages; i++) {
     let activeClass = "";
-    if (i === currentPage) {
+    if (i === currentPageUser) {
       activeClass = "active";
     }
 
@@ -169,23 +173,20 @@ function renderPagination(totalItems, itemsPerPage) {
 
   document.getElementById("user-content").innerHTML += pagination;
 
-  // Get the current page button
-  let currentPageButton = document.querySelector(
-    `.page-button[value="${currentPage}"]`
+  let currentPageUserButton = document.querySelector(
+    `.page-button[value="${currentPageUser}"]`
   );
 
-  // Kiểm tra xem currentPageButton có tồn tại và không phải là null hay không
-  if (currentPageButton && currentPageButton.classList) {
-    // Add the active class to the current page button
-    currentPageButton.classList.add("active");
+  if (currentPageUserButton) {
+    currentPageUserButton.classList.add("active");
   }
 
-  sessionStorage.setItem("currentPage", currentPage);
+  sessionStorage.setItem("currentPageUser", currentPageUser);
 
   let buttonsPage = document.getElementsByClassName("page-button");
   Array.from(buttonsPage).forEach((buttonPage) => {
     buttonPage.addEventListener("click", () => {
-      currentPage = Number(buttonPage.value);
+      currentPageUser = Number(buttonPage.value);
       renderAccounts();
       // handleDeleteEvents();
     });
@@ -193,13 +194,15 @@ function renderPagination(totalItems, itemsPerPage) {
 }
 
 function setLocalStorage() {
+  //Products
   if (!localStorage.getItem("products")) {
     fetch("../html/products.json")
       .then((response) => response.json())
       .then((response) => {
         localStorage.setItem("products", JSON.stringify(response));
         renderAccounts();
-        // handleDeleteEvents();
+        handleDeleteEvents();
+        setUser();
       });
   }
   if (localStorage.getItem("newProducts")) {
@@ -207,19 +210,37 @@ function setLocalStorage() {
     localStorage.setItem("products", newProducts);
     localStorage.removeItem("newProducts");
   }
+  //Accounts
+  if (!localStorage.getItem("accounts")) {
+    fetch("../html/accounts.json")
+      .then((response) => response.json())
+      .then((response) => {
+        localStorage.setItem("accounts", JSON.stringify(response));
+        renderAccounts();
+        handleDeleteEvents();
+        setUser();
+      });
+  }
   renderAccounts();
-  // handleDeleteEvents();
+  handleDeleteEvents();
+  setUser();
 }
 
 function setUser() {
   let userName = document.getElementById("user-account");
 
-  let User = accounts.find(
+  let __accounts = localStorage.getItem("accounts")
+    ? JSON.parse(localStorage.getItem("accounts"))
+    : [];
+
+  let User = __accounts.find(
     (account) => account.username == localStorage.getItem("token")
   );
 
-  userName.href = `../html/user.html?id=${User.id}`;
-  userName.innerText = localStorage.getItem("token");
+  if (User) {
+    userName.href = `../html/user.html?id=${User.id}`;
+    userName.innerText = localStorage.getItem("token");
+  }
 }
 
 function logout() {

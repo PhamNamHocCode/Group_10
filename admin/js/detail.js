@@ -38,12 +38,14 @@ let accounts = [
 ];
 
 function setLocalStorage() {
+  //Products
   if (!localStorage.getItem("products")) {
     fetch("../html/products.json")
       .then((response) => response.json())
       .then((response) => {
         localStorage.setItem("products", JSON.stringify(response));
         renderProducts();
+        setUser();
       });
   }
   if (localStorage.getItem("newProducts")) {
@@ -51,12 +53,31 @@ function setLocalStorage() {
     localStorage.setItem("products", newProducts);
     localStorage.removeItem("newProducts");
   }
+  //Accounts
+  if (!localStorage.getItem("accounts")) {
+    fetch("../html/accounts.json")
+      .then((response) => response.json())
+      .then((response) => {
+        localStorage.setItem("accounts", JSON.stringify(response));
+        renderProducts();
+        setUser();
+      });
+  }
   renderProducts();
+  setUser();
 }
 function renderProducts() {
   let productsStorage = JSON.parse(localStorage.getItem("products"));
   let productId = new URLSearchParams(window.location.search).get("id");
   let thisProduct = productsStorage.find((value) => value.id === productId);
+
+  if (!thisProduct.price.includes("$")) {
+    thisProduct.price += "$";
+  }
+
+  if (!thisProduct.discount.includes("%")) {
+    thisProduct.discount += "%";
+  }
 
   if (thisProduct) {
     let product = `<div class="main" id="detail-content">
@@ -130,9 +151,9 @@ function logout() {
   window.location.replace("../html/login.html");
 }
 
-setLocalStorage();
-setUser();
 document.addEventListener("DOMContentLoaded", function () {
+  setLocalStorage();
+  setUser();
   if (localStorage.getItem("token") === null) {
     window.location.replace("../html/login.html");
   }
