@@ -7,15 +7,17 @@ let accounts = [
     thumbnail: "../image/user1.png",
     address: "An Dương Vương, Quận 5, TP HCM",
     email: "kimngoc@gmail.com",
+    status: "active",
   },
   {
     id: "hungdung",
     username: "Hung Dung",
     password: "123456",
     permission: "admin",
-    thumbnail: "../image/fake-glasses.png",
+    thumbnail: "../image/man2.png",
     address: "Cầu Giấy, Hà Nội",
     email: "hungdung@gmail.com",
+    status: "active",
   },
   {
     id: "quyhung",
@@ -25,15 +27,17 @@ let accounts = [
     thumbnail: "../image/fake-glasses.png",
     address: "Nguyễn Đình Chiểu, Quận 3, TP HCM",
     email: "quyhung@gmail.com",
+    status: "active",
   },
   {
     id: "phamnam",
     username: "Pham Nam",
     password: "123456",
     permission: "admin",
-    thumbnail: "../image/fake-glasses.png",
+    thumbnail: "../image/man.png",
     address: "Âu Dương Lân, Quận 8, TP HCM",
     email: "phamnam@gmail.com",
+    status: "inactive",
   },
 ];
 
@@ -54,6 +58,7 @@ function renderAccounts() {
                   <div class="col-lg-6">
                       <div class="about-text go-to">
                           <h3 class="dark-color" id="userTitle">${user.username}</h3>
+                          <h4 class="dark-color" id="status">${user.status}</h4>
                           <h6 class="theme-color lead"></h6>
                       </div>
                   </div>

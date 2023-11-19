@@ -7,15 +7,17 @@ let accounts = [
     thumbnail: "../image/user1.png",
     address: "An Dương Vương, Quận 5, TP HCM",
     email: "kimngoc@gmail.com",
+    status: "active",
   },
   {
     id: "hungdung",
     username: "Hung Dung",
     password: "123456",
     permission: "admin",
-    thumbnail: "../image/fake-glasses.png",
+    thumbnail: "../image/man2.png",
     address: "Cầu Giấy, Hà Nội",
     email: "hungdung@gmail.com",
+    status: "active",
   },
   {
     id: "quyhung",
@@ -25,15 +27,17 @@ let accounts = [
     thumbnail: "../image/fake-glasses.png",
     address: "Nguyễn Đình Chiểu, Quận 3, TP HCM",
     email: "quyhung@gmail.com",
+    status: "active",
   },
   {
     id: "phamnam",
     username: "Pham Nam",
     password: "123456",
     permission: "admin",
-    thumbnail: "../image/fake-glasses.png",
+    thumbnail: "../image/man.png",
     address: "Âu Dương Lân, Quận 8, TP HCM",
     email: "phamnam@gmail.com",
+    status: "inactive",
   },
 ];
 
@@ -60,14 +64,40 @@ function Login() {
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
 
-  let checkLogin = accounts.some((value) => {
+  let __accounts = localStorage.getItem("accounts")
+    ? JSON.parse(localStorage.getItem("accounts"))
+    : [];
+
+  // let checkLogin = __accounts.some((value) => {
+  //   return value.username === username && value.password === password;
+  // });
+
+  // if (checkLogin) {
+  //   localStorage.setItem("token", username);
+  //   isLogin = true;
+  //   CheckLogin();
+  // } else {
+  //   Swal.fire({
+  //     icon: "error",
+  //     title: "Oops...",
+  //     text: "Wrong username or password!",
+  //   });
+  // }
+
+  let user = __accounts.find((value) => {
     return value.username === username && value.password === password;
   });
 
-  if (checkLogin) {
+  if (user && user.status === "active") {
     localStorage.setItem("token", username);
     isLogin = true;
     CheckLogin();
+  } else if (user && user.status !== "active") {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Your account is inactive. Please contact support.",
+    });
   } else {
     Swal.fire({
       icon: "error",
@@ -76,3 +106,18 @@ function Login() {
     });
   }
 }
+
+function setLocalStorage() {
+  //Accounts
+  if (!localStorage.getItem("accounts")) {
+    fetch("../html/accounts.json")
+      .then((response) => response.json())
+      .then((response) => {
+        localStorage.setItem("accounts", JSON.stringify(response));
+        setUser();
+      });
+  }
+  setUser();
+}
+
+setLocalStorage();

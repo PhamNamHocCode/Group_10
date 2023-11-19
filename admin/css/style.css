@@ -299,3 +299,45 @@ img {
 .form-check-label {
   margin-left: 5px; /* Điều chỉnh khoảng cách giữa label và checkbox */
 }
+
+/* lock */
+.overlay2 {
+  visibility: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+.pop-up2 {
+  visibility: hidden;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  padding: 40px 25px;
+  text-align: center;
+  background: rgb(216, 214, 214);
+  border-radius: 30px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+}
+.pop-up2 p {
+  font-size: 17px;
+}
+#lock-success {
+  visibility: hidden;
+  right: 0;
+  top: 0;
+  position: fixed;
+  display: flex;
+  margin-top: 60px;
+  justify-content: center;
+  gap: 70px;
+  z-index: 1002;
+}
+/* End lock */

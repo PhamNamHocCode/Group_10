@@ -7,15 +7,17 @@ let accounts = [
     thumbnail: "../image/user1.png",
     address: "An Dương Vương, Quận 5, TP HCM",
     email: "kimngoc@gmail.com",
+    status: "active",
   },
   {
     id: "hungdung",
     username: "Hung Dung",
     password: "123456",
     permission: "admin",
-    thumbnail: "../image/fake-glasses.png",
+    thumbnail: "../image/man2.png",
     address: "Cầu Giấy, Hà Nội",
     email: "hungdung@gmail.com",
+    status: "active",
   },
   {
     id: "quyhung",
@@ -25,15 +27,17 @@ let accounts = [
     thumbnail: "../image/fake-glasses.png",
     address: "Nguyễn Đình Chiểu, Quận 3, TP HCM",
     email: "quyhung@gmail.com",
+    status: "active",
   },
   {
     id: "phamnam",
     username: "Pham Nam",
     password: "123456",
     permission: "admin",
-    thumbnail: "../image/fake-glasses.png",
+    thumbnail: "../image/man.png",
     address: "Âu Dương Lân, Quận 8, TP HCM",
     email: "phamnam@gmail.com",
+    status: "inactive",
   },
 ];
 
@@ -203,8 +207,10 @@ function setUser() {
     (account) => account.username == localStorage.getItem("token")
   );
 
-  userName.href = `../html/user.html?id=${User.id}`;
-  userName.innerText = localStorage.getItem("token");
+  if (User) {
+    userName.href = `../html/user.html?id=${User.id}`;
+    userName.innerText = localStorage.getItem("token");
+  }
 }
 
 function logout() {
@@ -213,10 +219,21 @@ function logout() {
   window.location.replace("../html/login.html");
 }
 
-setLocalStorage();
-setUser();
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("token") === null) {
+    setUser();
     window.location.replace("../html/login.html");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  setLocalStorage();
+  setUser();
+
+  var token = localStorage.getItem("token");
+
+  if (!token) {
+    alert("Bạn chưa đăng nhập. Chuyển hướng đến trang đăng nhập...");
+    window.location.href = "../html/login.html";
   }
 });

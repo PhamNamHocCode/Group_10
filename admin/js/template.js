@@ -97,29 +97,64 @@ function setLocalStorage() {
 
 setLocalStorage();
 
-// function renderPagination(totalItems, itemsPerPage) {
-//   let totalPages = Math.ceil(totalItems / itemsPerPage);
+function renderPagination(totalItems, itemsPerPage) {
+  let totalPages = Math.ceil(totalItems / itemsPerPage);
 
-//   let pagination = '<div id="pagination">';
+  let pagination = '<div id="pagination">';
 
-//   for (let i = 1; i <= totalPages; i++) {
-//     let activeClass = "";
-//     if (i === currentPage) {
-//       activeClass = "active";
-//     }
-//     pagination += `<button class="page-button" value="${i}">${i}</button>`;
-//   }
+  for (let i = 1; i <= totalPages; i++) {
+    let activeClass = "";
+    if (i === currentPage) {
+      activeClass = "active";
+    }
+    pagination += `<button class="page-button" value="${i}">${i}</button>`;
+  }
 
-//   pagination += "</div>";
+  pagination += "</div>";
 
-//   document.getElementById("product-content").innerHTML += pagination;
+  document.getElementById("product-content").innerHTML += pagination;
 
-//   let buttonsPage = document.getElementsByClassName("page-button");
-//   Array.from(buttonsPage).forEach((buttonPage) => {
-//     buttonPage.addEventListener("click", () => {
-//       currentPage = Number(buttonPage.value);
-//       renderProducts();
-//       handleDeleteEvents();
-//     });
-//   });
-// }
+  let buttonsPage = document.getElementsByClassName("page-button");
+  Array.from(buttonsPage).forEach((buttonPage) => {
+    buttonPage.addEventListener("click", () => {
+      currentPage = Number(buttonPage.value);
+      renderProducts();
+      handleDeleteEvents();
+    });
+  });
+}
+
+function handleLockEvents() {
+  let __accounts = JSON.parse(localStorage.getItem("accounts"));
+  let buttonLock = document.getElementsByClassName("button-lock");
+
+  Array.from(buttonLock).forEach((button) => {
+    button.addEventListener("click", () => {
+      document.getElementById("overlay2").style.visibility = "visible";
+      document.getElementById("pop-up2").style.visibility = "visible";
+
+      let yesButton = document.getElementById("accept-lock");
+      yesButton.addEventListener("click", () => {
+        __accounts.forEach((account) => {
+          if (account.id === button.value) {
+            account.status =
+              account.status === "active" ? "inactive" : "active";
+          }
+        });
+
+        localStorage.setItem("accounts", JSON.stringify(__accounts));
+        document.getElementById("overlay2").style.visibility = "hidden";
+        document.getElementById("pop-up2").style.visibility = "hidden";
+        renderAccounts();
+        handleLockEvents();
+        showNotificationForLock();
+      });
+
+      let noButton = document.getElementById("reject-lock");
+      noButton.addEventListener("click", () => {
+        document.getElementById("overlay2").style.visibility = "hidden";
+        document.getElementById("pop-up2").style.visibility = "hidden";
+      });
+    });
+  });
+}

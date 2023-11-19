@@ -42,15 +42,15 @@ let accounts = [
 ];
 
 function setLocalStorage() {
-  let productsStorage;
-  fetch("../html/products.json")
+  let accountsStorage;
+  fetch("../html/accounts.json")
     .then((respone) => respone.json())
     .then((respone) => {
-      productsStorage = respone;
-      localStorage.setItem("products", JSON.stringify(productsStorage));
+      accountsStorage = respone;
+      localStorage.setItem("accounts", JSON.stringify(accountsStorage));
     });
 }
-var data = JSON.parse(localStorage.getItem("products"));
+var __accounts = JSON.parse(localStorage.getItem("accounts"));
 
 //Show image
 document.getElementById("image").addEventListener("change", function (event) {
@@ -63,32 +63,30 @@ document.getElementById("image").addEventListener("change", function (event) {
 });
 //End Show image
 
-var product = null;
-function renderProducts() {
-  var description = {};
+var account = null;
+function renderAccounts() {
+  var idUser = document.getElementById("id").value;
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+  var permission = document.getElementById("permission").value;
+  var address = document.getElementById("address").value;
+  var email = document.getElementById("email").value;
+  var status = document.getElementById("status").value;
+  var thumbnail = localStorage.getItem("image");
 
-  var name = document.getElementById("name").value;
-
-  description.Processor = document.getElementById("Processor").value;
-  description.Graphics = document.getElementById("Graphics").value;
-  description.Memory = document.getElementById("Memory").value;
-  description.Storage = document.getElementById("Storage").value;
-
-  var price = document.getElementById("price").value;
-  var discount = document.getElementById("discount").value;
-  var imageSrc = localStorage.getItem("image");
-
-  product = {
-    id: "product" + (data.length + 1),
-    name: name,
-    description: description,
-    price: price,
-    discount: discount,
-    imageSrc: imageSrc,
+  account = {
+    id: idUser,
+    username: username,
+    password: password,
+    permission: permission,
+    address: address,
+    email: email,
+    status: status,
+    thumbnail: thumbnail,
   };
 
-  data.push(product);
-  localStorage.setItem("newProducts", JSON.stringify(data));
+  __accounts.push(account);
+  localStorage.setItem("newAccounts", JSON.stringify(__accounts));
   alert("Sản phẩm đã được lưu!");
 }
 

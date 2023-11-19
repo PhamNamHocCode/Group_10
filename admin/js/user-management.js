@@ -7,15 +7,17 @@ let accounts = [
     thumbnail: "../image/user1.png",
     address: "An Dương Vương, Quận 5, TP HCM",
     email: "kimngoc@gmail.com",
+    status: "active",
   },
   {
     id: "hungdung",
     username: "Hung Dung",
     password: "123456",
     permission: "admin",
-    thumbnail: "../image/fake-glasses.png",
+    thumbnail: "../image/man2.png",
     address: "Cầu Giấy, Hà Nội",
     email: "hungdung@gmail.com",
+    status: "active",
   },
   {
     id: "quyhung",
@@ -25,15 +27,17 @@ let accounts = [
     thumbnail: "../image/fake-glasses.png",
     address: "Nguyễn Đình Chiểu, Quận 3, TP HCM",
     email: "quyhung@gmail.com",
+    status: "active",
   },
   {
     id: "phamnam",
     username: "Pham Nam",
     password: "123456",
     permission: "admin",
-    thumbnail: "../image/fake-glasses.png",
+    thumbnail: "../image/man.png",
     address: "Âu Dương Lân, Quận 8, TP HCM",
     email: "phamnam@gmail.com",
+    status: "inactive",
   },
 ];
 
@@ -43,7 +47,14 @@ function showNotification() {
   setTimeout(() => {
     document.getElementById("delete-success").style.visibility = "hidden";
   }, 3000);
-  console.log(notification);
+}
+
+function showNotificationForLock() {
+  let notification = document.getElementById("lock-success");
+  document.getElementById("lock-success").style.visibility = "visible";
+  setTimeout(() => {
+    document.getElementById("lock-success").style.visibility = "hidden";
+  }, 3000);
 }
 
 let currentPageUser = sessionStorage.getItem("currentPageUser")
@@ -52,31 +63,89 @@ let currentPageUser = sessionStorage.getItem("currentPageUser")
 let itemsPerPage = 5;
 
 function handleDeleteEvents() {
-  let products = JSON.parse(localStorage.getItem("products"));
+  let __accounts = JSON.parse(localStorage.getItem("accounts"));
   let buttonsDelete = document.getElementsByClassName("button-delete");
   Array.from(buttonsDelete).forEach((buttonDelete) => {
     buttonDelete.addEventListener("click", () => {
-      document.getElementById("overlay").style.visibility = "visible";
-      document.getElementById("pop-up").style.visibility = "visible";
-
-      let yesButton = document.getElementById("accept-delete");
-      yesButton.addEventListener("click", () => {
-        products = products.filter((element) => {
-          return element.id !== Number(buttonDelete.value);
+      let currentUser = __accounts.find(
+        (account) => account.username === localStorage.getItem("token")
+      );
+      if (currentUser && currentUser.id === buttonDelete.value) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "You cannot delete your own account!",
         });
-        localStorage.setItem("products", JSON.stringify(products));
-        document.getElementById("overlay").style.visibility = "hidden";
-        document.getElementById("pop-up").style.visibility = "hidden";
-        renderAccounts();
-        handleDeleteEvents();
-        showNotification();
-      });
+      } else {
+        document.getElementById("overlay").style.visibility = "visible";
+        document.getElementById("pop-up").style.visibility = "visible";
 
-      let noButton = document.getElementById("reject-delete");
-      noButton.addEventListener("click", () => {
-        document.getElementById("overlay").style.visibility = "hidden";
-        document.getElementById("pop-up").style.visibility = "hidden";
-      });
+        let yesButton = document.getElementById("accept-delete");
+
+        yesButton.addEventListener("click", () => {
+          __accounts = __accounts.filter((element) => {
+            return element.id !== buttonDelete.value;
+          });
+          localStorage.setItem("accounts", JSON.stringify(__accounts));
+          document.getElementById("overlay").style.visibility = "hidden";
+          document.getElementById("pop-up").style.visibility = "hidden";
+          renderAccounts();
+          handleDeleteEvents();
+          showNotification();
+        });
+
+        let noButton = document.getElementById("reject-delete");
+        noButton.addEventListener("click", () => {
+          document.getElementById("overlay").style.visibility = "hidden";
+          document.getElementById("pop-up").style.visibility = "hidden";
+        });
+      }
+    });
+  });
+}
+
+function handleLockEvents() {
+  let __accounts = JSON.parse(localStorage.getItem("accounts"));
+  let buttonLock = document.getElementsByClassName("button-lock");
+
+  Array.from(buttonLock).forEach((button) => {
+    button.addEventListener("click", () => {
+      let currentUser = __accounts.find(
+        (account) => account.username === localStorage.getItem("token")
+      );
+      if (currentUser && currentUser.id === button.value) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "You cannot lock your own account!",
+        });
+      } else {
+        let yesButton = document.getElementById("accept-lock");
+
+        document.getElementById("overlay2").style.visibility = "visible";
+        document.getElementById("pop-up2").style.visibility = "visible";
+
+        yesButton.addEventListener("click", () => {
+          __accounts.forEach((account) => {
+            if (account.id === button.value) {
+              account.status =
+                account.status === "active" ? "inactive" : "active";
+            }
+          });
+          localStorage.setItem("accounts", JSON.stringify(__accounts));
+          document.getElementById("overlay2").style.visibility = "hidden";
+          document.getElementById("pop-up2").style.visibility = "hidden";
+          renderAccounts();
+          handleLockEvents();
+          showNotificationForLock();
+        });
+
+        let noButton = document.getElementById("reject-lock");
+        noButton.addEventListener("click", () => {
+          document.getElementById("overlay2").style.visibility = "hidden";
+          document.getElementById("pop-up2").style.visibility = "hidden";
+        });
+      }
     });
   });
 }
@@ -93,8 +162,35 @@ function renderAccounts() {
     : [];
 
   let paginatedUser = __accounts.slice(start, end);
+  let lock_unlock = ``;
 
   paginatedUser.map((value, index) => {
+    if (value.status == `inactive`) {
+      lock_unlock = `<button
+      class="btn btn-danger btn-sm ml-1 button-lock"
+      button-lock
+      data-id='${value.id}'
+      value='${value.id}'
+      >
+      <i class="bi bi-lock"></i>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+      </svg>
+      </button>`;
+    } else {
+      lock_unlock = `<button
+      class="btn btn-success btn-sm ml-1 button-lock"
+      button-lock
+      data-id='${value.id}'
+      value='${value.id}'
+      >
+      <i class="bi bi-unlock"></i>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-unlock" viewBox="0 0 16 16">
+        <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2zM3 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H3z"/>
+      </svg>
+      </button>`;
+    }
+
     interface += `<tbody id="user-content">
     <tr>
       <td>
@@ -145,6 +241,7 @@ function renderAccounts() {
         <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
       </svg>
       </button>
+      ${lock_unlock}
       </td>
     </tr>
     </tbody>`;
@@ -153,6 +250,8 @@ function renderAccounts() {
   });
 
   renderPagination(__accounts.length, itemsPerPage);
+  handleDeleteEvents();
+  handleLockEvents();
 }
 
 function renderPagination(totalItems, itemsPerPage) {
@@ -188,7 +287,7 @@ function renderPagination(totalItems, itemsPerPage) {
     buttonPage.addEventListener("click", () => {
       currentPageUser = Number(buttonPage.value);
       renderAccounts();
-      // handleDeleteEvents();
+      handleDeleteEvents();
     });
   });
 }
@@ -202,6 +301,7 @@ function setLocalStorage() {
         localStorage.setItem("products", JSON.stringify(response));
         renderAccounts();
         handleDeleteEvents();
+        handleLockEvents();
         setUser();
       });
   }
@@ -218,11 +318,18 @@ function setLocalStorage() {
         localStorage.setItem("accounts", JSON.stringify(response));
         renderAccounts();
         handleDeleteEvents();
+        handleLockEvents();
         setUser();
       });
   }
+  if (localStorage.getItem("newAccounts")) {
+    var newAccounts = localStorage.getItem("newAccounts");
+    localStorage.setItem("accounts", newAccounts);
+    localStorage.removeItem("newAccounts");
+  }
   renderAccounts();
   handleDeleteEvents();
+  handleLockEvents();
   setUser();
 }
 
@@ -249,10 +356,21 @@ function logout() {
   window.location.replace("../html/login.html");
 }
 
-setLocalStorage();
-setUser();
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("token") === null) {
+    setUser();
     window.location.replace("../html/login.html");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  setLocalStorage();
+  setUser();
+
+  var token = localStorage.getItem("token");
+
+  if (!token) {
+    alert("Bạn chưa đăng nhập. Chuyển hướng đến trang đăng nhập...");
+    window.location.href = "../html/login.html";
   }
 });
