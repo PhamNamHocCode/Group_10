@@ -114,10 +114,8 @@ function setLocalStorage() {
       .then((response) => response.json())
       .then((response) => {
         localStorage.setItem("accounts", JSON.stringify(response));
-        setUser();
       });
   }
-  setUser();
 }
 
 setLocalStorage();
