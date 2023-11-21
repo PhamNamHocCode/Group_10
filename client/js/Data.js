@@ -1,4 +1,4 @@
-let products = [
+var products = [
   {
     id: "product1",
     name: "PC WORKSTATION DUAL AMD EPYC 7742: 256 THREADS | DUAL VGA",

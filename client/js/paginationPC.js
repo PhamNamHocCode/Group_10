@@ -345,7 +345,7 @@ function displayProducts(page) {
 
         var linkImg = document.createElement("a");
         linkImg.className = "hinh";
-        linkImg.href=productPC.links;
+        linkImg.href=productPC.links+"?index="+i+"&type="+productPC.type;
 
         var productName = document.createElement("div");
         productName.className = "ten-san-pham fix-2-line";
