@@ -11,14 +11,30 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <link rel="stylesheet" type="text/css" href="../css/chi-tiet-san-pham.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script>
-        $(document).ready(function () {
-            $('#myCarousel').carousel({
-                interval: 2000 // Đặt thời gian trượt ảnh là 2 giây
-            });
-        });
+        // $(document).ready(function () {
+        //     $('#myCarousel').carousel({
+        //         interval: 2000 // Đặt thời gian trượt ảnh là 2 giây
+        //     });
+        // });
+    </script>
+
+    <script src="../js/Data.js"></script>
+    <script src="../js/module.js"></script>
+    <script>
+        let laptopList = myModule.getLaptopProducts(products);
+        let pcList = myModule1.getPcProducts(products);
+        let url = new URL(window.location.href);
+        let params = new URLSearchParams(url.search);
+        let index = params.get('index');
+        var currentType = params.get('type');
+        var currentProject =laptopList[index];
+        var pcCurrentProject = pcList[index];
+        
     </script>
 
 </head>
@@ -27,7 +43,7 @@
 
     <div class="home-menu">
         <!-- Menu -->
-      
+
         <nav>
             <div class="search">
                 <input type="text" name="" placeholder="Search....">
@@ -97,104 +113,7 @@
     </div>
 
     <div class="container">
-        <div class="col-md-12">
-            <div class="col-md-5">
-                <img class="hinh-may-tinh" src="../image/hinh-may-tinh-1.PNG">
-            </div>
-            <div class="col-md-7">
-                <div class="ten-san-pham fix-2-line">
-                    <b>PC HP ProOne 400 G5 AIO 8GA33PA (20" HD+/i3-9100T/4GB/1TB HDD/UHD 630/Win10)</b>
-                </div>
-                <div>
-                    SKU: 191002412
-                </div>
-                <div>
-                    Chưa có đánh giá
-                </div>
-                <div>
-                    <div class="thong-tin">
-                        <div>
-                            <div class="col-md-4">
-                                Giá bán lẻ
-                            </div>
-                            <div class="col-md-8">
-                                15.490.000đ
-                            </div>
-                            <div class="clearfix">
-                            </div>
-                            <hr>
-                        </div>
-                        <div>
-                            <div class="col-md-4">
-                                Khuyến mãi
-                            </div>
-                            <div class="col-md-8">
-                                <div>
-                                    <div class="col-md-2">
-                                        -500k
-                                    </div>
-                                    <div class="col-md-10">
-                                        Bảo vệ máy tính cùng phần mềm bản quyền - chỉ từ 2k mỗi ngày. <a>Xem chi tiết
-                                            tại đây</a>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="col-md-2">
-                                        -5%
-                                    </div>
-                                    <div class="col-md-10">
-                                        Giảm thêm 5% tối đa 200k khi thanh toán trực tuyến qua VNPAY-QR với mã
-                                        PHONGVU200 <a>Xem chi tiết tại đây</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
-                </div>
-                <div>
-                    <div class="col-md-4">
-                        Vận chuyển
-                    </div>
-                    <div class="col-md-8">
-                        Miễn phí vận chuyển (với đơn hàng trên 500.000đ)
-                    </div>
-                </div>
-                <hr>
-                <div>
-                    <div>
-                        Mô tả
-                    </div>
-                    <div class="fix-2-line">
-                        Tên sản phẩm: máy tính để bàn/PC HP AIO ProOne 400 G5 (i3 9100T/4GB/1TB/Win10) 20" HD+(8GA33PA)
-                    </div>
-                    <div>
-                        - cpu: Intel Core i5 6500T – 3.1GHz
-                    </div>
-                    <div>
-                        - RAM: 8GB/2400 DDR4
-                    </div>
-                    <div>
-                        - Đồ họa: DDR4
-                    </div>
-                    <div>
-                        - Lưu trữ: SSD 256GB M.2 PCIe NVMe
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="">
-            <div class="col-md-12">
-                <div class="thanh-ngang">
-                    SẢN PHẨM CÙNG LOẠI
-                </div>
-            </div>
-        
-            <div class="col-md-12 p-0 list-sp" id="product-container">
-            </div>
-        </div>
-        
         <div class="thong-tin-chi-tiet">
             <div>
                 <div class="col-md-8">
@@ -211,20 +130,25 @@
                     </div>
                     <div>
                         Với tính năng quản lý chuyên nghiệp và được thiết kế vô cùng đẹp mắt, PC HP ProOne 400 G5 AIO
-                        (8GA33PA) này phù hợp với các quầy lễ tân hoặc văn phòng của những người yêu thích sự sang trọng.
-                        Màn hình IPS kích thước 20-inch với viền siêu nhỏ giúp giảm thiểu kích thước đáng để tạo ra nhiều
+                        (8GA33PA) này phù hợp với các quầy lễ tân hoặc văn phòng của những người yêu thích sự sang
+                        trọng.
+                        Màn hình IPS kích thước 20-inch với viền siêu nhỏ giúp giảm thiểu kích thước đáng để tạo ra
+                        nhiều
                         không gian làm việc hơn.
                     </div>
                     <div class="img-hinh-may-tinh">
-                        <img class="hinh-may-tinh" src="../image/hinh-may-tinh-2.PNG">
+                        <img class="hinh-may-tinh" src="../image/chitietlaptop/maytinh1.PNG" id="image">
                     </div>
                     <div>
                         Hiệu năng xử lý tối ưu
                     </div>
                     <div>
-                        PC HP ProOne 400 G5 AIO được trang bị bộ vo xử lý Intel Core thể hệ mới nhất đem lại hiệu suất xử lý
-                        tối ưu, đáp ứng nhanh chống các công việc hằng ngày và thao tác đa nhiệm nhiều tác vụ một cách mượt
-                        mà. Ngoài ra hệ điều hành Windows 10 cung cấp một môi trường làm việc thân thiện và dễ sử dụng, cùng
+                        PC HP ProOne 400 G5 AIO được trang bị bộ vo xử lý Intel Core thể hệ mới nhất đem lại hiệu suất
+                        xử lý
+                        tối ưu, đáp ứng nhanh chống các công việc hằng ngày và thao tác đa nhiệm nhiều tác vụ một cách
+                        mượt
+                        mà. Ngoài ra hệ điều hành Windows 10 cung cấp một môi trường làm việc thân thiện và dễ sử dụng,
+                        cùng
                         với các tính năng bảo mật và kết nối mạnh mẽ từ HP.
                     </div>
                 </div>
@@ -242,40 +166,36 @@
                                     <td colspan="2">Thông tin chung</td>
                                 </tr>
                                 <tr>
-                                    <td>Thương hiệu</td>
-                                    <td>HP</td>
+                                    <td>Tên</td>
+                                    <td id="name"></td>
                                 </tr>
                                 <tr>
-                                    <td>Bảo hành</td>
-                                    <td>12 tháng</td>
+                                    <td>Giá cũ</td>
+                                    <td id="oldPrice"></td>
                                 </tr>
                                 <tr>
-                                    <td>Mô tả bảo hành</td>
-                                    <td></td>
+                                    <td>Giá bán</td>
+                                    <td id="price"></td>
                                 </tr>
                                 <tr>
-                                    <td>Cấu hình chi tiết</td>
-                                    <td></td>
+                                    <td>Giảm giá</td>
+                                    <td id="discount"></td>
                                 </tr>
                                 <tr>
-                                    <td>Màn hình</td>
-                                    <td>20"TN HD+ (1600x900) không cảm ứng</td>
+                                    <td>Bộ xử lý</td>
+                                    <td id="processor"></td>
                                 </tr>
                                 <tr>
-                                    <td>Thế hệ cpu</td>
-                                    <td>Intel Core thế hệ thứ 9</td>
+                                    <td>Card đồ họa</td>
+                                    <td id="graphicCard"></td>
                                 </tr>
                                 <tr>
-                                    <td>Dòng CPU</td>
-                                    <td>Core i3</td>
-                                </tr>
-                                <tr>
-                                    <td>CPU</td>
-                                    <td>Intel Core i3-9100T(3.10 GHz up to 3.70 GHz/6MB/4 nhân, 4 luồng)</td>
+                                    <td>Memory</td>
+                                    <td id="memory"></td>
                                 </tr>
                                 <tr>
                                     <td>RAM</td>
-                                    <td>1x4GB DDR4 2666MHz (2 khe cắm Hỗ trợ tối đa 64 GB)</td>
+                                    <td id="ram"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -299,7 +219,7 @@
                 <a href="#" class="btn">Xem chi tiết</a>
             </div>
         </div>
-        
+
     </div>
 
     <!-- Footer -->
@@ -310,7 +230,7 @@
                     <h3>Liên hệ</h3>
                     <p>Địa chỉ:383 Quang Trung, Phường 10, Gò Vấp, TP. Hồ Chí Minh</p>
                     <p>Email: bvcomputer@gmail.com</p>
-                    <p>Điện thoại:  090.7699.993  |  094.6700.006</p>
+                    <p>Điện thoại: 090.7699.993 | 094.6700.006</p>
                 </div>
 
                 <div class="col-md-4">
@@ -326,9 +246,15 @@
                 <div class="col-md-4">
                     <h3>Bài viết</h3>
                     <div class="footer-ve-chung-toi">
-                        <p><a href="https://hotgear.vn/blogs/news/rog-x-evangelion-2-asuka-ra-don-voi-vu-khi-rog-toi-thuong">PC ROG Gaming Asuka ra đòn với vũ khí tối thượng</a></p>
-                        <p><a href="https://nguyencongpc.vn/chi-tiet-pc-workstation-khung-dat-nhat-viet-nam-co-gia-tri-18-ty-dong">Chi tiết PC Workstation khủng đắt nhất Việt Nam có giá trị 1.8 Tỷ đồng</a></p>
-                        <p><a href="https://24hcomputer.vn/tin-cong-nghe/top-bo-pc-cau-hinh-manh-hieu-nang-khung-nam-2022.html">Top bộ PC cấu hình mạnh, hiệu năng khủng 2022</a></p>
+                        <p><a
+                                href="https://hotgear.vn/blogs/news/rog-x-evangelion-2-asuka-ra-don-voi-vu-khi-rog-toi-thuong">PC
+                                ROG Gaming Asuka ra đòn với vũ khí tối thượng</a></p>
+                        <p><a
+                                href="https://nguyencongpc.vn/chi-tiet-pc-workstation-khung-dat-nhat-viet-nam-co-gia-tri-18-ty-dong">Chi
+                                tiết PC Workstation khủng đắt nhất Việt Nam có giá trị 1.8 Tỷ đồng</a></p>
+                        <p><a
+                                href="https://24hcomputer.vn/tin-cong-nghe/top-bo-pc-cau-hinh-manh-hieu-nang-khung-nam-2022.html">Top
+                                bộ PC cấu hình mạnh, hiệu năng khủng 2022</a></p>
                     </div>
                 </div>
             </div>
@@ -341,18 +267,28 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<!--Thêm sau phần import jQuery và Bootstrap JavaScript-->
+    <!--Thêm sau phần import jQuery và Bootstrap JavaScript-->
 
-<script>
+    <!-- <script>
     productDetailsButton.addEventListener("click", function () {
         // Thêm hành động bạn muốn thực hiện khi nút "Xem chi tiết" được nhấn
         // Ví dụ: Mở một cửa sổ mới hoặc chuyển hướng đến trang chi tiết sản phẩm
         alert("Xem chi tiết sản phẩm: " + product.name);
     });
     
-</script>
 
-<!-- <script src="../js/pagination.js"></script> -->
+
+=======
+    
+</script> -->
+
+    <!-- product detail -->
+    <script src="../js/productDetail.js"></script>
+
+
+    <script src="../js/pagination.js">
+    </script>
+
 
 </body>
 
