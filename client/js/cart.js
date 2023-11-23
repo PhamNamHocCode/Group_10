@@ -32,16 +32,16 @@ let generateCartItems = () => {
       .map((x) => {
         let { id, item } = x;
         let search = products.find((x) => x.id === id) || [];
+        console.log(parseInt(search.price));
+        console.log(parseInt(search.id));
         return `
       <div class="cart-item">
         <img width="100" src=${search.imageSrc} alt="" />
-
         <div class="details">
-        
           <div class="title-price-x">
             <h4 class="title-price">
               <p>${search.name}</p>
-              <p class="cart-item-price">$ ${search.price.replace(/[$,\s]/g, '')}</p>
+              <p class="cart-item-price">$ ${parseInt(search.price)}</p>
             </h4>
             <i onclick="removeItem(${id})" class="bi bi-x-lg"></i>
           </div>
@@ -54,7 +54,7 @@ let generateCartItems = () => {
             </div>
           </div>
 
-          <h3>$ ${item * parseInt(search.price.replace(/[$,\s]/g, ''))}</h3>
+          <h3>$ ${item * parseInt(search.price)}</h3>
         
         </div>
       </div>
@@ -153,7 +153,7 @@ let TotalAmount = () => {
       .map((x) => {
         let { id, item } = x;
         let filterData = products.find((x) => x.id === id);
-        return parseInt(filterData.price.replace(/[$,\s]/g, ''))*item;
+        return parseInt(filterData.price)*item;
       })
       .reduce((x, y) => x + y, 0);
 

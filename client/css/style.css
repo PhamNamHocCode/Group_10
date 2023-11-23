@@ -403,6 +403,7 @@ footer .footer-ve-chung-toi a{
     padding: 8px 16px; /* Khoảng cách giữa nội dung và viền */
     transition: background-color 0.3s ease; /* Hiệu ứng hover */
     background-color: #4894ce;
+    cursor: pointer;
 }
 
 .xem-them-link:hover {
