@@ -10,7 +10,10 @@
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../css/chi-tiet-san-pham.css" />
+    <link rel="stylesheet" type="text/css" href="../css/san-pham.css" />
+    <link rel="stylesheet" type="text/css" href="../css/cart.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -43,26 +46,39 @@
 
     <div class="home-menu">
         <!-- Menu -->
-
+      
         <nav>
-            <div class="search">
-                <input type="text" name="" placeholder="Search....">
-                <button type="text"><i class="fa-solid fa-magnifying-glass"></i></i></button>
-            </div>
+            <!-- <div class="search">
+                <input type="text" id="search-menu" placeholder="Search....">
+                <button type="text" id="filter-button1"><i class="fa-solid fa-magnifying-glass"></i></i></button>
+            </div> -->
             <ul>
-                <li><a href="../html/index.html">Trang chủ</a></li>
-                <li><a href="../html/SanPham.html">Sản phẩm</a></li>
+                <li><a href="../html/TrangChu.html">Trang chủ</a></li>
+                <li><a href="">Sản phẩm</a>
+                    <div class="dacap">
+                        <ul>
+                            <li><a href="../html/SanPhamLaptop.html">Laptop</a></li>
+                            <li><a href="../html/SanPhamPC.html">PC</a></li>
+                        </ul>
+                    </div>
+                </li>
                 <li><a href="../html/GioiThieu.html">Giới thiệu</a></li>
                 <li><a href="../html/LienHe.html">Liên hệ</a></li>
             </ul>
-
-            <div class="cart">
-                <a href=""><i class="header__navbar-icon fa-solid fa-cart-shopping"></i></a>
-            </div>
-
-            <div class="login">
-                <a href=""><i class="header__navbar-icon fa-solid fa-right-to-bracket"></i></a>
-            </div>
+            <a href="cart.html">
+                <div class="cart">
+                  <i class="bi bi-cart2"></i>
+                  <div id="cartAmount" class="cartAmount">0</div>
+                </div>
+            </a>
+    
+                <div class="user">
+                    <a href=""><i class="header__navbar-icon fa-solid fa-user"></i></a>
+                    <p>Group 10</p>
+                    <a href="../html/index.html"><p>Log out</p></a>
+                    
+                </div>
+            
         </nav>
 
     </div>
@@ -86,14 +102,14 @@
                 </div>
 
                 <div class="item">
-                    <img src="../image/banner/banner-1.jpg" alt="Hình ảnh 2">
+                    <img src="../image/banner/2.png" alt="Hình ảnh 2">
                     <div class="carousel-caption">
                         PC WORKSTATION DUAL EPYC
                     </div>
                 </div>
 
                 <div class="item">
-                    <img src="../image/banner/banner-2.png" alt="Hình ảnh 3">
+                    <img src="../image/banner/banner-pc-gaming.jpg" alt="Hình ảnh 3">
                     <div class="carousel-caption">
                         PC WORKSTATION DUAL VGA
                     </div>
@@ -137,7 +153,7 @@
                         không gian làm việc hơn.
                     </div>
                     <div class="img-hinh-may-tinh">
-                        <img class="hinh-may-tinh" src="../image/chitietlaptop/maytinh1.PNG" id="image">
+                        <img class="hinh-may-tinh" src="../image/anhlaptop3.png" id="image">
                     </div>
                     <div>
                         Hiệu năng xử lý tối ưu
@@ -167,35 +183,35 @@
                                 </tr>
                                 <tr>
                                     <td>Tên</td>
-                                    <td id="name"></td>
+                                    <td id="name">Latitude 3445 Chromebook</td>
                                 </tr>
                                 <tr>
                                     <td>Giá cũ</td>
-                                    <td id="oldPrice"></td>
+                                    <td id="oldPrice">6590 $</td>
                                 </tr>
                                 <tr>
                                     <td>Giá bán</td>
-                                    <td id="price"></td>
+                                    <td id="price">5090 $</td>
                                 </tr>
                                 <tr>
                                     <td>Giảm giá</td>
-                                    <td id="discount"></td>
+                                    <td id="discount">17%</td>
                                 </tr>
                                 <tr>
                                     <td>Bộ xử lý</td>
-                                    <td id="processor"></td>
+                                    <td id="processor">13th Gen Intel® Core™ i9-13900H (24 MB cache, 14 cores, up to 5.40 GHz Turbo)</td>
                                 </tr>
                                 <tr>
                                     <td>Card đồ họa</td>
-                                    <td id="graphicCard"></td>
+                                    <td id="graphicCard">NVIDIA® GeForce RTX™ 4070, 8 GB GDDR6</td>
                                 </tr>
                                 <tr>
                                     <td>Memory</td>
-                                    <td id="memory"></td>
+                                    <td id="memory">64 GB: 2 x 32 GB, DDR5, 4800 MT/s, dual-channel</td>
                                 </tr>
                                 <tr>
                                     <td>RAM</td>
-                                    <td id="ram"></td>
+                                    <td id="ram">8 TB (2 x 4 TB), M.2, PCIe NVMe, SSD</td>
                                 </tr>
                             </tbody>
                         </table>

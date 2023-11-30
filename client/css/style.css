@@ -412,6 +412,26 @@ footer .footer-ve-chung-toi a{
     border: 1px solid #007bff; /* Viền khi hover */
 }
 
+.ct-san-pham {
+    display: block;
+    text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #007bff; /* Viền xung quanh nút */
+    padding: 8px 16px; /* Khoảng cách giữa nội dung và viền */
+    transition: background-color 0.3s ease; /* Hiệu ứng hover */
+    background-color: #4894ce;
+    cursor: pointer;
+}
+
+.ct-san-pham:hover {
+    background-color: #007bff; /* Màu nền khi hover */
+    color: #fff; /* Màu chữ khi hover */
+    border: 1px solid #007bff; /* Viền khi hover */
+}
+
 /* CSS cho sản phẩm */
 .col-md-3 {
     margin-bottom: 20px; /* Khoảng cách giữa sản phẩm và sản phẩm dưới nó */
@@ -460,6 +480,19 @@ footer .footer-ve-chung-toi a{
     }
 
     .xem-them-link {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+        border: 1px solid #007bff;
+        padding: 8px 16px;
+        transition: background-color 0.3s ease;
+        background-color: #4894ce;
+    }
+
+    .ct-san-pham {
         display: block;
         text-align: center;
         margin-top: 10px;

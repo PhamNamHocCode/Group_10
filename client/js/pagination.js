@@ -163,7 +163,7 @@ $(document).ready(function () {
       // Thêm sản phẩm vào danh sách
       productsToDisplay.forEach(function (product) {
       var productHtml = '<div class="col-md-3">' +
-          '<a class="xem-them-link" href="' + product.links + '">'+'<img class="hinh" src="' + product.imageSrc + '" alt="' + product.name + '">'+'</a>'+
+          '<a class="ct-san-pham" href="' + product.links + '">'+'<img class="hinh" src="' + product.imageSrc + '" alt="' + product.name + '">'+'</a>'+
           // '<img class="hinh" src="' + product.imageSrc + '" alt="' + product.name + '">' +
           '<div class="ten-san-pham fix-2-line">' + product.name + '</div>' +
           '<div class="gia-san-pham gia col-md-10 p-0"> ' + product.price + '</div>' +
@@ -190,6 +190,11 @@ $(document).ready(function () {
           var productid= $(this).attr("id");
           // console.log(productid);
           increment(productid);
+      });
+      $(".ct-san-pham").click(function (e){
+        e.preventDefault(); // Ngăn chặn mặc định hành vi khi click vào liên kết
+        var url = $(this).attr("href"); // Lấy URL từ thuộc tính href
+        window.location.href = url; // Chuyển hướng tới trang chi tiết sản phẩm
       });
   }
 
@@ -241,6 +246,7 @@ let increment = (id1) => {
     basket.push({
       id: id1,
       item: 1,
+      processed: false,
     });
   } else {
     search.item += 1;

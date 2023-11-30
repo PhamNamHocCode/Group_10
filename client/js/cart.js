@@ -86,6 +86,7 @@ let increment = (id) => {
     basket.push({
       id: selectedItem.id,
       item: 1,
+      processed: false,
     });
   } else {
     search.item += 1;
