@@ -68,16 +68,19 @@ function renderProducts() {
     ? JSON.parse(localStorage.getItem("data"))
     : [];
 
+  console.log(orderList);
+
   let orderProducts = [];
   orderList.forEach((order) => {
     let foundOrder = products.find((product) => product.id === order.id);
 
     if (foundOrder) {
       foundOrder.quantity = order.item;
+      foundOrder.processed = order.processed;
       orderProducts.push(foundOrder);
     }
   });
-
+  console.log(orderProducts);
   let product = `<tbody id="product-content">
       </tbody>`;
 
@@ -87,9 +90,12 @@ function renderProducts() {
   let paginatedProducts = orderProducts.slice(start, end);
 
   paginatedProducts.map((value, index) => {
+    console.log(value);
     product += `<tbody id="product-content">
         <tr>
-        <td><input type="checkbox" name="#" id=${value.id} /></td>
+        <td><input type="checkbox" class="checkbox" id=${value.id} ${
+      value.processed ? "checked" : ""
+    }/></td>
         <td>${value.name}</td>
         <td>
         <a href="detail.html?id=${value.id}">
@@ -123,6 +129,26 @@ function renderProducts() {
   });
 
   renderPagination(orderProducts.length, itemsPerPage);
+
+  let checkboxes = document.getElementsByClassName("checkbox");
+
+  Array.from(checkboxes).forEach((checkbox) => {
+    checkbox.addEventListener("click", () => {
+      console.log(
+        `Checkbox with id ${checkbox.id} clicked. Checked: ${checkbox.checked}`
+      );
+
+      let productId = checkbox.id;
+
+      let foundOrder = orderList.find((order) => order.id === productId);
+
+      if (foundOrder) {
+        foundOrder.processed = checkbox.checked;
+
+        localStorage.setItem("data", JSON.stringify(orderList));
+      }
+    });
+  });
 }
 
 function renderPagination(totalItems, itemsPerPage) {
