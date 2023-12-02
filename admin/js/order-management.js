@@ -68,8 +68,6 @@ function renderProducts() {
     ? JSON.parse(localStorage.getItem("data"))
     : [];
 
-  console.log(orderList);
-
   let orderProducts = [];
   orderList.forEach((order) => {
     let foundOrder = products.find((product) => product.id === order.id);
@@ -80,7 +78,6 @@ function renderProducts() {
       orderProducts.push(foundOrder);
     }
   });
-  console.log(orderProducts);
   let product = `<tbody id="product-content">
       </tbody>`;
 
@@ -90,7 +87,7 @@ function renderProducts() {
   let paginatedProducts = orderProducts.slice(start, end);
 
   paginatedProducts.map((value, index) => {
-    console.log(value);
+    const numericPrice = parseFloat(value.price.replace(/[^0-9.]/g, ""));
     product += `<tbody id="product-content">
         <tr>
         <td><input type="checkbox" class="checkbox" id=${value.id} ${
@@ -107,7 +104,7 @@ function renderProducts() {
           />
         </a>
         </td>
-        <td>${value.price}</td>
+        <td>${numericPrice * value.quantity}$</td>
         <td>${value.quantity}</td>
         </td>
         <td>
@@ -134,10 +131,6 @@ function renderProducts() {
 
   Array.from(checkboxes).forEach((checkbox) => {
     checkbox.addEventListener("click", () => {
-      console.log(
-        `Checkbox with id ${checkbox.id} clicked. Checked: ${checkbox.checked}`
-      );
-
       let productId = checkbox.id;
 
       let foundOrder = orderList.find((order) => order.id === productId);
@@ -146,6 +139,20 @@ function renderProducts() {
         foundOrder.processed = checkbox.checked;
 
         localStorage.setItem("data", JSON.stringify(orderList));
+
+        if (checkbox.checked) {
+          Swal.fire({
+            title: "Thông báo",
+            text: `Sản phẩm đã được xử lý.`,
+            icon: "success",
+          });
+        } else {
+          Swal.fire({
+            title: "Thông báo",
+            text: `Sản phẩm đã được bỏ xử lý.`,
+            icon: "info",
+          });
+        }
       }
     });
   });
