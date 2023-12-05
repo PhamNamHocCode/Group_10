@@ -65,7 +65,7 @@ let generateCartItems = () => {
     ShoppingCart.innerHTML = "";
     label.innerHTML = `
     <h2>Cart is Empty</h2>
-    <a href="TrangChu.html">
+    <a href="index.html">
       <button class="HomeBtn">Back to Home</button>
     </a>
     `;
@@ -160,7 +160,7 @@ let TotalAmount = () => {
 
     return (label.innerHTML = `
     <h2>Total Bill : $ ${amount}</h2>
-    <a href="Checkout.html"> <button class="checkout">Checkout</button></a>
+    <a href="Checkout_lite.html"> <button class="checkout">Checkout</button></a>
     <button onclick="clearCart()" class="removeAll">Clear Cart</button>
     `);
   } else return;

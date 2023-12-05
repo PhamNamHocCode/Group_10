@@ -1,0 +1,44 @@
+.noi-dung{
+    margin-top: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+img{
+    width: 140px;
+    height: 80px;
+    margin-left: 30px;
+}
+.thanhtien{
+    margin-top: 20px;
+    color: rgb(255, 106, 0);
+   
+}
+.mota{
+    text-align: left;
+
+}
+table {
+    width: 100%; /* Đặt chiều rộng bảng theo ý muốn */
+    border-collapse: collapse; /* Loại bỏ đường viền giữa các ô */
+    border-radius: 5px;
+    
+}
+
+th, td {
+    /* border: 1px solid #000000; Đặt viền cho các ô và header */
+    padding: 5px; /* Đặt padding để tạo khoảng trắng trong ô */
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left; /* Đặt căn lề văn bản */
+    align-items: center;
+}
+.thong-tin-san-pham{
+    border: 1px solid #000000;
+}
+.tongtien{
+    color: rgb(255, 106, 0);
+    text-align: right;
+}
+/* .tongtien h4{
+    margin-right: 30px;
+} */

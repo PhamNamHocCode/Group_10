@@ -24,6 +24,7 @@ img {
     background-color: #0056b3;
 }
 
+
 /* CSS cho form Lọc sản phẩm */
 #filter-form {
     background-color: #f7f7f7;
@@ -41,22 +42,35 @@ img {
 
 #search-input,
 #min-price-input,
-#max-price-input,
-#filter-button {
+#max-price-input{
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+/* #filter-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+} */
 
 #filter-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     background-color: #4894ce;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+    
 }
+
 
 #filter-button:hover {
     background-color: #0056b3;
@@ -74,12 +88,11 @@ img {
 }
 
 
-
 /* ------------------------ */
 /* CSS cho lọc sản phẩm và nút tìm kiếm sản phẩm */
 .form-group {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Sử dụng grid với 3 cột */
+    grid-template-columns: repeat(4, 1fr); /* Sử dụng grid với 3 cột */
     grid-gap: 10px; /* Khoảng cách giữa các phần tử */
     align-items: center;
     margin-bottom: 10px;
@@ -87,7 +100,7 @@ img {
 
 /* CSS cho nút tìm kiếm sản phẩm */
 #filter-button {
-    grid-column: 4 / 5; /* Đặt nút tìm kiếm vào cột thứ 4 */
+    grid-column: 5 / 5; /* Đặt nút tìm kiếm vào cột thứ 4 */
     align-self: center; /* Canh giữa theo chiều dọc */
     
 }
