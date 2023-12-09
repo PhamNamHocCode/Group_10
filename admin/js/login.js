@@ -64,6 +64,9 @@ function Login() {
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
 
+  // let username = "Kim Ngoc";
+  // let password = "123456";
+
   let __accounts = localStorage.getItem("accounts")
     ? JSON.parse(localStorage.getItem("accounts"))
     : [];
@@ -84,7 +87,7 @@ function Login() {
   //   });
   // }
 
-  let user = __accounts.find((value) => {
+  let user = accounts.find((value) => {
     return value.username === username && value.password === password;
   });
 
