@@ -1,4 +1,4 @@
-let __accounts = [
+let accounts = [
   {
     id: "kimngoc",
     username: "Kim Ngoc",
@@ -40,6 +40,7 @@ let __accounts = [
     status: "inactive",
   },
 ];
+
 let products = [
   {
     id: "product1",
@@ -620,16 +621,6 @@ let products = [
     type: "Laptop",
   },
 ];
-
-function setLocalStorage() {
-  let productsStorage;
-  fetch("../html/products.json")
-    .then((respone) => respone.json())
-    .then((respone) => {
-      productsStorage = respone;
-      localStorage.setItem("products", JSON.stringify(productsStorage));
-    });
-}
 var data = JSON.parse(localStorage.getItem("products"));
 
 //Show image
@@ -645,18 +636,19 @@ document.getElementById("image").addEventListener("change", function (event) {
 
 var product = null;
 function renderProducts() {
-  var description = {};
+  let description = {};
 
-  var name = document.getElementById("name").value;
+  let name = document.getElementById("name").value;
 
   description.Processor = document.getElementById("Processor").value;
   description.Graphics = document.getElementById("Graphics").value;
   description.Memory = document.getElementById("Memory").value;
   description.Storage = document.getElementById("Storage").value;
 
-  var price = document.getElementById("price").value;
-  var discount = document.getElementById("discount").value;
-  var imageSrc = localStorage.getItem("image");
+  let price = document.getElementById("price").value;
+  let discount = document.getElementById("discount").value;
+  let imageSrc = localStorage.getItem("image");
+  localStorage.removeItem("image");
 
   product = {
     id: "product" + (data.length + 1),
@@ -669,7 +661,7 @@ function renderProducts() {
 
   data.push(product);
   localStorage.setItem("newProducts", JSON.stringify(data));
-  alert("Sản phẩm đã được lưu!");
+  window.location.replace("../html/index.html");
 }
 
 function setUser() {
@@ -692,14 +684,6 @@ function logout() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (localStorage.getItem("token") === null) {
-    setUser();
-    window.location.replace("../html/login.html");
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  setLocalStorage();
   setUser();
 
   var token = localStorage.getItem("token");
@@ -707,5 +691,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!token) {
     alert("Bạn chưa đăng nhập. Chuyển hướng đến trang đăng nhập...");
     window.location.href = "../html/login.html";
+  }
+
+  if (localStorage.getItem("token") === null) {
+    setUser();
+    window.location.replace("../html/login.html");
   }
 });

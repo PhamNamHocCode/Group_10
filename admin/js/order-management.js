@@ -40,6 +40,7 @@ let accounts = [
     status: "inactive",
   },
 ];
+
 let products = [
   {
     id: "product1",
@@ -640,7 +641,7 @@ function renderProducts() {
     ? JSON.parse(localStorage.getItem("accounts"))
     : [];
 
-  let products = localStorage.getItem("products")
+  let __products = localStorage.getItem("products")
     ? JSON.parse(localStorage.getItem("products"))
     : [];
 
@@ -650,7 +651,7 @@ function renderProducts() {
 
   let orderProducts = [];
   orderList.forEach((order) => {
-    let foundOrder = products.find((product) => product.id === order.id);
+    let foundOrder = __products.find((product) => product.id === order.id);
 
     if (foundOrder) {
       foundOrder.quantity = order.item;

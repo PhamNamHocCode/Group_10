@@ -1,4 +1,4 @@
-let __accounts = [
+let accounts = [
   {
     id: "kimngoc",
     username: "Kim Ngoc",
@@ -40,6 +40,7 @@ let __accounts = [
     status: "inactive",
   },
 ];
+
 let products = [
   {
     id: "product1",
@@ -624,13 +625,9 @@ let products = [
 function setLocalStorage() {
   //Products
   if (!localStorage.getItem("products")) {
-    fetch("../html/products.json")
-      .then((response) => response.json())
-      .then((response) => {
-        localStorage.setItem("products", JSON.stringify(response));
-        renderProducts();
-        setUser();
-      });
+    localStorage.setItem("products", JSON.stringify(products));
+    renderProducts();
+    setUser();
   }
   if (localStorage.getItem("newProducts")) {
     var newProducts = localStorage.getItem("newProducts");
@@ -639,19 +636,15 @@ function setLocalStorage() {
   }
   //Accounts
   if (!localStorage.getItem("accounts")) {
-    fetch("../html/accounts.json")
-      .then((response) => response.json())
-      .then((response) => {
-        localStorage.setItem("accounts", JSON.stringify(response));
-        renderProducts();
-        setUser();
-      });
+    localStorage.setItem("accounts", JSON.stringify(accounts));
+    renderProducts();
+    setUser();
   }
   renderProducts();
   setUser();
 }
 function renderProducts() {
-  let productsStorage = products;
+  let productsStorage = JSON.parse(localStorage.getItem("products"));
 
   let productId = new URLSearchParams(window.location.search).get("id");
   let thisProduct = productsStorage.find((value) => value.id === productId);
@@ -737,13 +730,6 @@ function logout() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (localStorage.getItem("token") === null) {
-    setUser();
-    window.location.replace("../html/login.html");
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
   setLocalStorage();
   setUser();
 
@@ -752,5 +738,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!token) {
     alert("Bạn chưa đăng nhập. Chuyển hướng đến trang đăng nhập...");
     window.location.href = "../html/login.html";
+  }
+
+  if (localStorage.getItem("token") === null) {
+    setUser();
+    window.location.replace("../html/login.html");
   }
 });

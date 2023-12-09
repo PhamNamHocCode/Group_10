@@ -44,8 +44,8 @@ let accounts = [
 let isLogin = !!localStorage.getItem("token");
 
 function togglePassword() {
-  var passwordField = document.getElementById("password");
-  var currentType = passwordField.getAttribute("type");
+  let passwordField = document.getElementById("password");
+  let currentType = passwordField.getAttribute("type");
 
   if (currentType === "password") {
     passwordField.setAttribute("type", "text");
@@ -63,9 +63,6 @@ function CheckLogin() {
 function Login() {
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
-
-  // let username = "Kim Ngoc";
-  // let password = "123456";
 
   let __accounts = localStorage.getItem("accounts")
     ? JSON.parse(localStorage.getItem("accounts"))
@@ -87,7 +84,7 @@ function Login() {
   //   });
   // }
 
-  let user = accounts.find((value) => {
+  let user = __accounts.find((value) => {
     return value.username === username && value.password === password;
   });
 
@@ -111,19 +108,11 @@ function Login() {
 }
 
 function setLocalStorage() {
-  //Accounts
-  // if (!localStorage.getItem("accounts")) {
-  //   fetch("../html/accounts.json")
-  //     .then((response) => response.json())
-  //     .then((response) => {
-  //       localStorage.setItem("accounts", JSON.stringify(response));
-  //     });
-  // }
-  fetch("../html/accounts.json")
-    .then((response) => response.json())
-    .then((response) => {
-      localStorage.setItem("accounts", JSON.stringify(response));
-    });
+  // Accounts
+  if (!localStorage.getItem("accounts")) {
+    localStorage.setItem("accounts", JSON.stringify(accounts));
+    Login();
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function () {

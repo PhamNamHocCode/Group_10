@@ -85,7 +85,7 @@ img {
       rgba(209, 173, 187, 0.7) 0%,
       rgba(118, 98, 121, 0.71) 100%
     ),
-    url(../image/background_login.jpeg);
+    url();
   color: #fff;
   position: relative;
 }
@@ -101,13 +101,6 @@ img {
   text-align: center;
   font-size: 50px;
   font-weight: 500;
-}
-.right-text h5 {
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-size: 19px;
-  font-weight: 400;
 }
 
 .right .right-inductor {
