@@ -118,4 +118,6 @@ function setLocalStorage() {
   }
 }
 
-setLocalStorage();
+document.addEventListener("DOMContentLoaded", function () {
+  setLocalStorage();
+});
