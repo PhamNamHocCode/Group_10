@@ -649,6 +649,10 @@ function renderProducts() {
     ? JSON.parse(localStorage.getItem("data"))
     : [];
 
+  let allOrder = localStorage.getItem("allOrder")
+    ? JSON.parse(localStorage.getItem("allOrder"))
+    : [];
+
   let orderProducts = [];
   orderList.forEach((order) => {
     let foundOrder = __products.find((product) => product.id === order.id);
@@ -667,14 +671,58 @@ function renderProducts() {
 
   let paginatedProducts = orderProducts.slice(start, end);
 
+  const names = [
+    "Phạm Nam",
+    "Quý Hùng",
+    "Kim Ngọc",
+    "Hùng Dũng",
+    "Nguyễn Nam",
+    "Khánh Linh",
+    "Thu Hà",
+  ];
+
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+  const dates = [];
+
+  for (let i = 0; i < 10; i++) {
+    const randomDay = Math.floor(Math.random() * 31) + 1;
+    const randomDate = new Date(2023, 11, randomDay);
+
+    const month = (randomDate.getMonth() + 1).toString().padStart(2, "0");
+    const day = randomDate.getDate().toString().padStart(2, "0");
+    const year = randomDate.getFullYear();
+
+    const formattedDate = `${year}-${month}-${day}`;
+    dates.push(formattedDate);
+  }
+
+  let currentNameIndex = 0;
+  let currentDateIndex = 0;
+
   paginatedProducts.map((value, index) => {
+    const randomName = names[currentNameIndex];
+
+    const randomDate = dates[currentDateIndex];
+
+    currentNameIndex = (currentNameIndex + 1) % names.length;
+
+    currentDateIndex = (currentDateIndex + 1) % dates.length;
+
+    let randomOrderID = "";
+    for (let i = 0; i < 7; i++) {
+      randomOrderID += characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+    }
     const numericPrice = parseFloat(value.price.replace(/[^0-9.]/g, ""));
     product += `<tbody id="product-content">
         <tr>
         <td><input type="checkbox" class="checkbox" id=${value.id} ${
       value.processed ? "checked" : ""
     }/></td>
-        <td>${value.name}</td>
+        <td>${randomName}</td>
+        <td>${value.name}$</td>
         <td>
         <a href="detail.html?id=${value.id}">
           <img
@@ -685,6 +733,8 @@ function renderProducts() {
           />
         </a>
         </td>
+        <td>${randomOrderID}$</td>
+        <td><input type="date" value="${randomDate}"/></td>
         <td>${numericPrice * value.quantity}$</td>
         <td>${value.quantity}</td>
         </td>
@@ -702,6 +752,21 @@ function renderProducts() {
         </td>
         </tr>
         </tbody>`;
+
+    let productInfo = {
+      customer: randomName,
+      nameProduct: value.name,
+      imageSrc: value.imageSrc,
+      orderID: randomOrderID,
+      year: randomDate,
+      totalPrice: numericPrice * value.quantity,
+      quantity: value.quantity,
+      processed: value.processed,
+    };
+
+    allOrder.push(productInfo);
+
+    localStorage.setItem("allOrder", JSON.stringify(allOrder));
 
     document.getElementById("product-content").innerHTML = product;
   });
@@ -801,16 +866,21 @@ function setLocalStorage() {
 function setUser() {
   let userName = document.getElementById("user-account");
 
-  let __accounts = localStorage.getItem("accounts")
-    ? JSON.parse(localStorage.getItem("accounts"))
-    : [];
+  if (userName) {
+    let __accounts = localStorage.getItem("accounts")
+      ? JSON.parse(localStorage.getItem("accounts"))
+      : [];
 
-  let User = __accounts.find(
-    (account) => account.username == localStorage.getItem("token")
-  );
-  if (User) {
-    userName.href = `../html/user.html?id=${User.id}`;
-    userName.innerText = localStorage.getItem("token");
+    let User = __accounts.find(
+      (account) => account.username == localStorage.getItem("token")
+    );
+
+    if (User) {
+      userName.href = `../html/user.html?id=${User.id}`;
+      userName.innerText = localStorage.getItem("token");
+    }
+  } else {
+    console.error("Element with id 'user-account' not found.");
   }
 }
 
@@ -821,13 +891,6 @@ function logout() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (localStorage.getItem("token") === null) {
-    setUser();
-    window.location.replace("../html/login.html");
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
   setLocalStorage();
   setUser();
 
@@ -836,5 +899,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!token) {
     alert("Bạn chưa đăng nhập. Chuyển hướng đến trang đăng nhập...");
     window.location.href = "../html/login.html";
+  }
+
+  if (localStorage.getItem("token") === null) {
+    setUser();
+    window.location.replace("../html/login.html");
   }
 });
