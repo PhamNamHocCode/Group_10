@@ -1,4 +1,4 @@
-let accounts = [
+let __accounts = [
   {
     id: "kimngoc",
     username: "Kim Ngoc",
@@ -624,7 +624,6 @@ let products = [
 function setLocalStorage() {
   localStorage.setItem("accounts", JSON.stringify(accounts));
 }
-var __accounts = JSON.parse(localStorage.getItem("accounts"));
 
 //Show image
 document.getElementById("image").addEventListener("change", function (event) {

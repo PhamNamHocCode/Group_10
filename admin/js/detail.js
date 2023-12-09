@@ -1,4 +1,4 @@
-let accounts = [
+let __accounts = [
   {
     id: "kimngoc",
     username: "Kim Ngoc",
@@ -620,12 +620,17 @@ let products = [
     type: "Laptop",
   },
 ];
+
 function setLocalStorage() {
   //Products
   if (!localStorage.getItem("products")) {
-    localStorage.setItem("products", JSON.stringify(products));
-    renderProducts();
-    setUser();
+    fetch("../html/products.json")
+      .then((response) => response.json())
+      .then((response) => {
+        localStorage.setItem("products", JSON.stringify(response));
+        renderProducts();
+        setUser();
+      });
   }
   if (localStorage.getItem("newProducts")) {
     var newProducts = localStorage.getItem("newProducts");
@@ -634,15 +639,20 @@ function setLocalStorage() {
   }
   //Accounts
   if (!localStorage.getItem("accounts")) {
-    localStorage.setItem("accounts", JSON.stringify(accounts));
-    renderProducts();
-    setUser();
+    fetch("../html/accounts.json")
+      .then((response) => response.json())
+      .then((response) => {
+        localStorage.setItem("accounts", JSON.stringify(response));
+        renderProducts();
+        setUser();
+      });
   }
   renderProducts();
   setUser();
 }
 function renderProducts() {
-  let productsStorage = JSON.parse(localStorage.getItem("products"));
+  let productsStorage = products;
+
   let productId = new URLSearchParams(window.location.search).get("id");
   let thisProduct = productsStorage.find((value) => value.id === productId);
 

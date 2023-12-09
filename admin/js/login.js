@@ -64,11 +64,30 @@ function Login() {
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
 
+  // let username = "Kim Ngoc";
+  // let password = "123456";
+
   let __accounts = localStorage.getItem("accounts")
     ? JSON.parse(localStorage.getItem("accounts"))
     : [];
 
-  let user = __accounts.find((value) => {
+  // let checkLogin = __accounts.some((value) => {
+  //   return value.username === username && value.password === password;
+  // });
+
+  // if (checkLogin) {
+  //   localStorage.setItem("token", username);
+  //   isLogin = true;
+  //   CheckLogin();
+  // } else {
+  //   Swal.fire({
+  //     icon: "error",
+  //     title: "Oops...",
+  //     text: "Wrong username or password!",
+  //   });
+  // }
+
+  let user = accounts.find((value) => {
     return value.username === username && value.password === password;
   });
 
@@ -92,8 +111,21 @@ function Login() {
 }
 
 function setLocalStorage() {
-  if (!localStorage.getItem("accounts")) {
-    localStorage.setItem("accounts", JSON.stringify(accounts));
-  }
+  //Accounts
+  // if (!localStorage.getItem("accounts")) {
+  //   fetch("../html/accounts.json")
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       localStorage.setItem("accounts", JSON.stringify(response));
+  //     });
+  // }
+  fetch("../html/accounts.json")
+    .then((response) => response.json())
+    .then((response) => {
+      localStorage.setItem("accounts", JSON.stringify(response));
+    });
 }
-setLocalStorage();
+
+document.addEventListener("DOMContentLoaded", function () {
+  setLocalStorage();
+});

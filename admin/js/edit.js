@@ -1,4 +1,4 @@
-let accounts = [
+let __accounts = [
   {
     id: "kimngoc",
     username: "Kim Ngoc",
@@ -622,7 +622,7 @@ let products = [
 ];
 
 function renderProducts() {
-  let productsStorage = JSON.parse(localStorage.getItem("products"));
+  let productsStorage = products;
   let productId = new URLSearchParams(window.location.search).get("id");
   let thisProduct = productsStorage.find((value) => value.id == productId);
 
@@ -759,6 +759,7 @@ function renderProducts() {
       }
     }
     localStorage.setItem("products", JSON.stringify(data));
+    products = data;
     redirectToPage("index.html");
   });
 
