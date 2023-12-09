@@ -109,13 +109,18 @@ function Login() {
 
 function setLocalStorage() {
   //Accounts
-  if (!localStorage.getItem("accounts")) {
-    fetch("../html/accounts.json")
-      .then((response) => response.json())
-      .then((response) => {
-        localStorage.setItem("accounts", JSON.stringify(response));
-      });
-  }
+  // if (!localStorage.getItem("accounts")) {
+  //   fetch("../html/accounts.json")
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       localStorage.setItem("accounts", JSON.stringify(response));
+  //     });
+  // }
+  fetch("../html/accounts.json")
+    .then((response) => response.json())
+    .then((response) => {
+      localStorage.setItem("accounts", JSON.stringify(response));
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -267,10 +267,10 @@ document.addEventListener("DOMContentLoaded", function () {
   setLocalStorage();
   setUser();
 
-  var token = localStorage.getItem("token");
+  // var token = localStorage.getItem("token");
 
-  if (!token) {
-    alert("Bạn chưa đăng nhập. Chuyển hướng đến trang đăng nhập...");
-    window.location.href = "../html/login.html";
-  }
+  // if (!token) {
+  //   alert("Bạn chưa đăng nhập. Chuyển hướng đến trang đăng nhập...");
+  //   window.location.href = "../html/login.html";
+  // }
 });
