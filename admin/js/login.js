@@ -68,22 +68,6 @@ function Login() {
     ? JSON.parse(localStorage.getItem("accounts"))
     : [];
 
-  // let checkLogin = __accounts.some((value) => {
-  //   return value.username === username && value.password === password;
-  // });
-
-  // if (checkLogin) {
-  //   localStorage.setItem("token", username);
-  //   isLogin = true;
-  //   CheckLogin();
-  // } else {
-  //   Swal.fire({
-  //     icon: "error",
-  //     title: "Oops...",
-  //     text: "Wrong username or password!",
-  //   });
-  // }
-
   let user = __accounts.find((value) => {
     return value.username === username && value.password === password;
   });
@@ -108,14 +92,8 @@ function Login() {
 }
 
 function setLocalStorage() {
-  //Accounts
   if (!localStorage.getItem("accounts")) {
-    fetch("../html/accounts.json")
-      .then((response) => response.json())
-      .then((response) => {
-        localStorage.setItem("accounts", JSON.stringify(response));
-      });
+    localStorage.setItem("accounts", JSON.stringify(accounts));
   }
 }
-
 setLocalStorage();
