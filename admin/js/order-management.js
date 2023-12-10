@@ -649,10 +649,6 @@ function renderProducts() {
     ? JSON.parse(localStorage.getItem("data"))
     : [];
 
-  let allOrder = localStorage.getItem("allOrder")
-    ? JSON.parse(localStorage.getItem("allOrder"))
-    : [];
-
   let orderProducts = [];
   orderList.forEach((order) => {
     let foundOrder = __products.find((product) => product.id === order.id);
@@ -681,40 +677,17 @@ function renderProducts() {
     "Thu Hà",
   ];
 
-  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-  const dates = [];
-
-  for (let i = 0; i < 10; i++) {
-    const randomDay = Math.floor(Math.random() * 31) + 1;
-    const randomDate = new Date(2023, 11, randomDay);
-
-    const month = (randomDate.getMonth() + 1).toString().padStart(2, "0");
-    const day = randomDate.getDate().toString().padStart(2, "0");
-    const year = randomDate.getFullYear();
-
-    const formattedDate = `${year}-${month}-${day}`;
-    dates.push(formattedDate);
-  }
-
   let currentNameIndex = 0;
-  let currentDateIndex = 0;
+
+  orderList = [];
 
   paginatedProducts.map((value, index) => {
     const randomName = names[currentNameIndex];
 
-    const randomDate = dates[currentDateIndex];
+    const randomDate = "2032-12-16";
 
     currentNameIndex = (currentNameIndex + 1) % names.length;
 
-    currentDateIndex = (currentDateIndex + 1) % dates.length;
-
-    let randomOrderID = "";
-    for (let i = 0; i < 7; i++) {
-      randomOrderID += characters.charAt(
-        Math.floor(Math.random() * characters.length)
-      );
-    }
     const numericPrice = parseFloat(value.price.replace(/[^0-9.]/g, ""));
     product += `<tbody id="product-content">
         <tr>
@@ -733,14 +706,28 @@ function renderProducts() {
           />
         </a>
         </td>
-        <td>${randomOrderID}$</td>
-        <td><input type="date" value="${randomDate}"/></td>
+        <td>${value.id}</td>
+        <td>
+          <div style="
+            display: inline-block;
+            padding: 5px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #333;
+            font-family: Arial, sans-serif;
+            cursor: default;
+            pointer-events: none;
+            outline: none;
+            "id="dateInput">${randomDate}
+          </div>
+        </td>
         <td>${numericPrice * value.quantity}$</td>
         <td>${value.quantity}</td>
         </td>
         <td>
         <a
-            href="detail.html?id=${value.id}"
+            href="detail-order.html?id=${value.id}"
             class="btn btn-secondary btn-sm detail-button">
             <i class="bi bi-eye"></i>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
@@ -748,25 +735,32 @@ function renderProducts() {
               <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
             </svg>
         </a>
-       
+
         </td>
         </tr>
         </tbody>`;
 
+    let randomPaymentNo = Math.floor(Math.random() * 1000000) + 1;
+
     let productInfo = {
+      id: value.id,
       customer: randomName,
       nameProduct: value.name,
       imageSrc: value.imageSrc,
-      orderID: randomOrderID,
-      year: randomDate,
+      orderID: value.id,
+      date: randomDate,
       totalPrice: numericPrice * value.quantity,
-      quantity: value.quantity,
+      item: value.quantity,
+      randomPaymentNo: randomPaymentNo,
       processed: value.processed,
     };
 
-    allOrder.push(productInfo);
+    // localStorage.removeItem("data");
 
-    localStorage.setItem("allOrder", JSON.stringify(allOrder));
+    orderList.push(productInfo);
+
+    console.log(orderList);
+    localStorage.setItem("data", JSON.stringify(orderList));
 
     document.getElementById("product-content").innerHTML = product;
   });
