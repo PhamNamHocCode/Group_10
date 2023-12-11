@@ -631,10 +631,10 @@ function showNotification() {
   console.log(notification);
 }
 
-let currentPage = sessionStorage.getItem("currentPage")
-  ? sessionStorage.getItem("currentPage")
+let currentPageOrder = sessionStorage.getItem("currentPageOrder")
+  ? sessionStorage.getItem("currentPageOrder")
   : 1;
-let itemsPerPage = 5;
+let itemsPerPage = 20;
 
 function renderProducts() {
   let __accounts = localStorage.getItem("accounts")
@@ -662,10 +662,10 @@ function renderProducts() {
   let product = `<tbody id="product-content">
       </tbody>`;
 
-  let start = (currentPage - 1) * itemsPerPage;
+  let start = (currentPageOrder - 1) * itemsPerPage;
   let end = start + itemsPerPage;
 
-  let paginatedProducts = orderProducts.slice(start, end);
+  let paginatedOrders = orderProducts.slice(start, end);
 
   const names = [
     "Phạm Nam",
@@ -678,10 +678,9 @@ function renderProducts() {
   ];
 
   let currentNameIndex = 0;
-
+  console.log(orderList[0].date);
   orderList = [];
-
-  paginatedProducts.map((value, index) => {
+  paginatedOrders.map((value, index) => {
     const randomName = names[currentNameIndex];
 
     const randomDate = "2032-12-16";
@@ -755,11 +754,8 @@ function renderProducts() {
       processed: value.processed,
     };
 
-    // localStorage.removeItem("data");
-
     orderList.push(productInfo);
 
-    console.log(orderList);
     localStorage.setItem("data", JSON.stringify(orderList));
 
     document.getElementById("product-content").innerHTML = product;
@@ -805,7 +801,7 @@ function renderPagination(totalItems, itemsPerPage) {
 
   for (let i = 1; i <= totalPages; i++) {
     let activeClass = "";
-    if (i === currentPage) {
+    if (i === currentPageOrder) {
       activeClass = "active";
     }
 
@@ -816,20 +812,20 @@ function renderPagination(totalItems, itemsPerPage) {
 
   document.getElementById("product-content").innerHTML += pagination;
 
-  let currentPageButton = document.querySelector(
-    `.page-button[value="${currentPage}"]`
+  let currentPageOrderButton = document.querySelector(
+    `.page-button[value="${currentPageOrder}"]`
   );
 
-  if (currentPageButton) {
-    currentPageButton.classList.add("active");
+  if (currentPageOrderButton) {
+    currentPageOrderButton.classList.add("active");
   }
 
-  sessionStorage.setItem("currentPage", currentPage);
+  sessionStorage.setItem("currentPageOrder", currentPageOrder);
 
   let buttonsPage = document.getElementsByClassName("page-button");
   Array.from(buttonsPage).forEach((buttonPage) => {
     buttonPage.addEventListener("click", () => {
-      currentPage = Number(buttonPage.value);
+      currentPageOrder = Number(buttonPage.value);
       renderProducts();
     });
   });
@@ -883,6 +879,80 @@ function logout() {
   location.reload();
   window.location.replace("../html/login.html");
 }
+
+function renderFilteredProducts() {
+  const startDate = document.getElementById("start_date").value;
+  const endDate = document.getElementById("end_date").value;
+
+  if (!startDate) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Vui lòng nhập ngày bắt đầu!",
+    });
+    return; // Dừng hàm nếu chưa nhập start_date
+  }
+  const shuffledProducts = shuffle(products);
+
+  const filteredProducts = shuffledProducts.slice(0, 5);
+
+  renderProducts2(filteredProducts, startDate, endDate);
+}
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+function renderProducts2(filteredProducts, startDate, endDate) {
+  addProperty(filteredProducts, startDate);
+  console.log(filteredProducts);
+  localStorage.setItem("data", JSON.stringify(filteredProducts));
+  window.location.reload(true);
+}
+
+function addProperty(objects, startDate) {
+  const names = [
+    "Phạm Nam",
+    "Quý Hùng",
+    "Kim Ngọc",
+    "Hùng Dũng",
+    "Nguyễn Nam",
+    "Khánh Linh",
+    "Thu Hà",
+  ];
+
+  objects.forEach((obj) => {
+    obj.item = Math.floor(Math.random() * 10) + 1;
+    obj.date = startDate;
+    obj.nameProduct = obj.name;
+    obj.orderID = obj.id;
+
+    delete obj.description;
+    delete obj.discount;
+    delete obj.links;
+    delete obj.type;
+    delete obj.oldPrice;
+    delete obj.name;
+
+    const randomNameIndex = Math.floor(Math.random() * names.length);
+    obj.customer = names[randomNameIndex];
+
+    obj.randomPaymentNo = Math.floor(Math.random() * 90000) + 10000;
+    obj.processed = Math.random() < 0.5;
+
+    const numericPrice = parseFloat(obj.price.replace(/[^0-9.]/g, ""));
+    obj.totalPrice = numericPrice * obj.item;
+    delete obj.price;
+  });
+}
+
+document
+  .getElementById("filter_button")
+  .addEventListener("click", renderFilteredProducts);
 
 document.addEventListener("DOMContentLoaded", function () {
   setLocalStorage();

@@ -63,6 +63,7 @@
 #description {
   color: rgb(131, 122, 122);
 }
+
 #description-content {
   color: black;
 }
@@ -342,9 +343,10 @@ img {
 }
 /* End lock */
 
-/* THONG KE .thongke {
+/* THONG KE  */
+.thongke {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  /* background-color: #f4f4f4; */
   margin: 0;
   padding: 0;
 }
@@ -355,7 +357,7 @@ img {
   margin: 20px auto;
   background-color: #fff;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   border-radius: 5px;
 }
 
@@ -381,18 +383,6 @@ input[type="submit"] {
   box-sizing: border-box;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-table,
-th,
-td {
-  border: 1px solid #ddd;
-}
-
 th,
 td {
   padding: 12px;
@@ -401,5 +391,6 @@ td {
 
 th {
   background-color: #f2f2f2;
-} */
+}
+
 /*END THONGKE*/

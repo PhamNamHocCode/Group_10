@@ -105,8 +105,19 @@
           <div class="card-header">Danh sách</div>
           <div class="card-body">
             <div class="row">
-              <div class="col-8"></div>
-              <div class="col-4"></div>
+              <div class="col-8">
+                <input type="date" name="" id="start_date" />
+                <input type="date" name="" id="end_date" />
+              </div>
+              <div class="col-4">
+                <button id="filter_button" class="btn btn-outline-success">
+                  <i class="bi bi-plus">Lọc</i>
+                    <path
+                      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
             <table class="table table-hover table-sm" checkbox-multi>
               <thead>
@@ -196,7 +207,7 @@
       </div>
     </div>
     <!-- chi tiet don hang -->
-    <div class="ctdonhang">
+    <!-- <div class="ctdonhang">
       <div>
         <table>
           <tr>
@@ -317,6 +328,7 @@
       function closeDetail() {
         document.getElementsByClassName("ctdonhang")[0].style.display = "none";
       }
-    </script>
+    </script> -->
+
   </body>
 </html>

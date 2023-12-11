@@ -626,6 +626,7 @@ function setLocalStorage() {
   //Products
   if (!localStorage.getItem("products")) {
     localStorage.setItem("products", JSON.stringify(products));
+    renderStatistics();
     setUser();
   }
   if (localStorage.getItem("newProducts")) {
@@ -636,6 +637,7 @@ function setLocalStorage() {
   //Accounts
   if (!localStorage.getItem("accounts")) {
     localStorage.setItem("accounts", JSON.stringify(accounts));
+    renderStatistics();
     setUser();
   }
   if (localStorage.getItem("newAccounts")) {
@@ -643,6 +645,7 @@ function setLocalStorage() {
     localStorage.setItem("accounts", newAccounts);
     localStorage.removeItem("newAccounts");
   }
+  renderStatistics();
   setUser();
 }
 
@@ -670,13 +673,6 @@ function logout() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (localStorage.getItem("token") === null) {
-    setUser();
-    window.location.replace("../html/login.html");
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
   setLocalStorage();
   setUser();
 
@@ -686,4 +682,131 @@ document.addEventListener("DOMContentLoaded", function () {
     alert("Bạn chưa đăng nhập. Chuyển hướng đến trang đăng nhập...");
     window.location.href = "../html/login.html";
   }
+
+  if (localStorage.getItem("token") === null) {
+    setUser();
+    window.location.replace("../html/login.html");
+  }
 });
+
+// function renderStatistics() {
+//   let select = document.getElementById("select");
+
+//   const defaultOption = document.createElement("option");
+//   defaultOption.text = "Hãy lựa chọn sản phẩm";
+//   select.add(defaultOption);
+
+//   for (let i = 0; i < products.length; i++) {
+//     const option = document.createElement("option");
+
+//     if (products[i].name) {
+//       option.text = `${products[i].name}`;
+//       select.add(option);
+//     }
+//   }
+
+//   document.getElementById("start_date").value = "2023-12-10";
+//   document.getElementById("end_date").value = "2023-12-16";
+
+//   console.log(select);
+// }
+
+function performStatistics(productId) {
+  let tbody = document.getElementById("order");
+
+  let productLocal = JSON.parse(localStorage.getItem("products"));
+
+  if (productId == "PC" || productId == "Laptop") {
+    let filteredProducts = productLocal.filter(
+      (product) => product.type === productId
+    );
+
+    if (filteredProducts.length > 0) {
+      let order = filteredProducts
+        .map(
+          (product) => `
+       <tr>
+         <td>${product.name}</td>
+         <td>${product.price}</td>
+         <td>${Math.floor(Math.random() * 10) + 1}</td>
+       </tr>`
+        )
+        .join("");
+
+      // Add the orders to the tbody
+      tbody.innerHTML = order;
+    }
+  } else {
+    let selectedProduct = productLocal.find(
+      (product) => product.id === productId
+    );
+
+    if (selectedProduct) {
+      let order = `
+        <tr>
+          <td>${selectedProduct.name}</td>
+          <td>${selectedProduct.price}</td>
+          <td>${Math.floor(Math.random() * 10) + 1}</td>
+        </tr>`;
+
+      // Add the order to the tbody
+      tbody.innerHTML = order;
+    } else {
+      console.error("Product not found");
+    }
+  }
+}
+
+function renderStatistics() {
+  let select = document.getElementById("select");
+
+  const defaultOption = document.createElement("option");
+  defaultOption.text = "Hãy lựa chọn sản phẩm";
+  defaultOption.value = "";
+  defaultOption.selected = true;
+  defaultOption.disabled = true;
+  select.add(defaultOption);
+
+  const pcOption = document.createElement("option");
+  pcOption.value = "PC";
+  pcOption.text = "PC";
+  select.add(pcOption);
+
+  const laptopOption = document.createElement("option");
+  laptopOption.value = "Laptop";
+  laptopOption.text = "Laptop";
+  select.add(laptopOption);
+
+  for (let i = 0; i < products.length; i++) {
+    const option = document.createElement("option");
+
+    if (products[i].name) {
+      option.value = `${products[i].id}`;
+      option.text = `${products[i].name}`;
+      select.add(option);
+    }
+  }
+
+  document.getElementById("start_date").value = "2023-12-10";
+  document.getElementById("end_date").value = "2023-12-16";
+
+  let statisticsButton = document.getElementById("statistics");
+
+  statisticsButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const selectedProduct = select.value;
+    const selectedStartDate = document.getElementById("start_date").value;
+    const selectedEndDate = document.getElementById("end_date").value;
+
+    if (selectedProduct && selectedStartDate && selectedEndDate) {
+      performStatistics(selectedProduct, selectedStartDate, selectedEndDate);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Vui lòng chọn sản phẩm hoặc loại sản phẩm.",
+      });
+    }
+  });
+}
