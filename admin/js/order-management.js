@@ -678,7 +678,6 @@ function renderProducts() {
   ];
 
   let currentNameIndex = 0;
-  console.log(orderList[0].date);
   orderList = [];
   paginatedOrders.map((value, index) => {
     const randomName = names[currentNameIndex];
@@ -909,7 +908,6 @@ function shuffle(array) {
 
 function renderProducts2(filteredProducts, startDate, endDate) {
   addProperty(filteredProducts, startDate);
-  console.log(filteredProducts);
   localStorage.setItem("data", JSON.stringify(filteredProducts));
   window.location.reload(true);
 }
