@@ -213,8 +213,8 @@
                             </tbody>
                         </table>
                         <div style="text-align: center;">
-                            <button class="btn btn-default">
-                                XEM ĐẦY ĐỦ
+                            <button class="btn btn-default" onclick="increment()">
+                                ADD TO CART
                             </button>
                         </div>
                     </div>
@@ -222,6 +222,36 @@
             </div>
         </div>
     </div>
+    <script>
+        let basket = JSON.parse(localStorage.getItem("data")) || [];
+        let increment = () => {
+            let search = basket.find((x) => x.id === "product20");
+            if (search === undefined) {
+                basket.push({
+                id: "product20",
+                item: 1,
+                processed: false,
+            });
+            } else {
+                search.item += 1;
+            }
+            update("product20");
+            localStorage.setItem("data", JSON.stringify(basket));
+        };
+        let update = (id) => {
+            let search = basket.find((x) => x.id === id);
+            // document.getElementById(id).innerHTML = search.item;
+            calculation();
+        };
+
+        let calculation = () => {
+            let cartIcon = document.getElementById("cartAmount");
+            cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+        };
+        
+        calculation();
+
+    </script>
 
     <div>
         <div class="khuyen-mai">

@@ -139,7 +139,7 @@ $(document).ready(function () {
 
 
 let increment = (id1) => {
-    console.log(id1);
+    // console.log(id1);
     // let selectedItem = id;
     let search = basket.find((x) => x.id === id1);
   

@@ -82,12 +82,13 @@ nav {
     outline: none;
     font-size: 18px;
 }
-.search button{
+.search a>button{
     background: none;
     border: none;
+    color: rgb(39, 37, 37);
     font-size: 25px;
     margin-top: 4px;
-}
+} 
 
 
 .home-menu ul {
