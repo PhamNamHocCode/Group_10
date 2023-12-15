@@ -114,13 +114,23 @@
                 Tìm Kiếm Nâng Cao
             </div>
         </div>
-        <div class="col-md-12 form-group">
+        < class="col-md-12 form-group">
             <input type="text" id="search-input" class="form-control" placeholder="Tên sản phẩm...">
             <input type="number" id="min-price-input" class="form-control" placeholder="Giá từ...">
             <input type="number" id="max-price-input" class="form-control" placeholder="Giá đến...">
-            <input type="text" id="search-input" class="form-control" placeholder="Loại sản phẩm...">
-           
-            <a href="products.html" id="filter-button" class="btn btn-primary"><i class="fa fa-search"></i></button></a>
+            <!-- <l><input type="text" id="search-input" class="form-control" placeholder="Loại sản phẩm..."> -->
+                
+   
+                <select id="productType">
+                    <option value="">Loại sản phẩm</option>
+                    <option value="laptop">Laptop</option>
+                    <option value="computer">PC</option>
+                </select>
+
+            
+                <input type="button" name="" id="btnSearch" value="Tìm kiếm"
+                onclick="search()"/>
+            <!-- <a href="products.html" id="filter-button" class="btn btn-primary"><i class="fa fa-search"></i></button></a> -->
         </div>
 
         <div class="col-md-12 p-0" id="product-container">
@@ -193,6 +203,7 @@
 
     <script src="../js/Data.js"></script>
     <script src="../js/filter.js"></script>
+    <script src="../js/TrangChu.js"></script>
     <!-- <script src="../js/main.js"></script> -->
     
     
